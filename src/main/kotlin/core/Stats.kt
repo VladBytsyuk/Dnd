@@ -1,75 +1,81 @@
 package io.vbytsyuk.dnd.core
 
-typealias StatType = Int
+import java.util.EnumMap
 
-sealed class Stat private constructor(
-    val value: StatType,
-    private val shortName: String,
-) {
-    init { require(value >= 0) }
+typealias StatValue = Int
 
-    val modifier: Modifier
-        get() = Modifier(kotlin.math.floor((value - 10) / 2.0).toInt())
-
-    class Strength(value: StatType = 1) : Stat(value, shortName = "str")
-    class Dexterity(value: StatType = 1) : Stat(value, shortName = "dex")
-    class Constitution(value: StatType = 1) : Stat(value, shortName = "con")
-    class Intelligence(value: StatType = 1) : Stat(value, shortName = "int")
-    class Wisdom(value: StatType = 1) : Stat(value, shortName = "wis")
-    class Charisma(value: StatType = 1) : Stat(value, shortName = "cha")
-
-    override fun toString() = "$shortName=$value($modifier)"
-}
+enum class StatType { STR, DEX, CON, INT, WIS, CHA }
 
 @JvmInline
 value class Modifier(val value: Int) {
     override fun toString() = if (value < 0) "$value" else "+$value"
 }
 
-data class StatBlock(
-    val strength: Stat.Strength,
-    val dexterity: Stat.Dexterity,
-    val constitution: Stat.Constitution,
-    val intelligence: Stat.Intelligence,
-    val wisdom: Stat.Wisdom,
-    val charisma: Stat.Charisma,
-) {
-    constructor(
-        strength: StatType = 0,
-        dexterity: StatType = 0,
-        constitution: StatType = 0,
-        intelligence: StatType = 0,
-        wisdom: StatType = 0,
-        charisma: StatType = 0,
-    ) : this(
-        strength = Stat.Strength(strength),
-        dexterity = Stat.Dexterity(dexterity),
-        constitution = Stat.Constitution(constitution),
-        intelligence = Stat.Intelligence(intelligence),
-        wisdom = Stat.Wisdom(wisdom),
-        charisma = Stat.Charisma(charisma),
+class StatBlock(
+    strength: StatValue = 0,
+    dexterity: StatValue = 0,
+    constitution: StatValue = 0,
+    intelligence: StatValue = 0,
+    wisdom: StatValue = 0,
+    charisma: StatValue = 0,
+) : EnumMap<StatType, StatValue>(
+    mapOf(
+        StatType.STR to strength,
+        StatType.DEX to dexterity,
+        StatType.CON to constitution,
+        StatType.INT to intelligence,
+        StatType.WIS to wisdom,
+        StatType.CHA to charisma,
     )
+) {
+    private fun value(type: StatType) = get(type) ?: 0
+
+    val strength: StatValue get() = value(StatType.STR)
+    val dexterity: StatValue get() = value(StatType.DEX)
+    val constitution: StatValue get() = value(StatType.CON)
+    val intelligence: StatValue get() = value(StatType.INT)
+    val wisdom: StatValue get() = value(StatType.WIS)
+    val charisma: StatValue get() = value(StatType.CHA)
+
+    fun modifier(type: StatType): Modifier =
+        Modifier(kotlin.math.floor((value(type) - 10) / 2.0).toInt())
 
     override fun toString() =
-        listOf(strength, dexterity, constitution, intelligence, wisdom, charisma).joinToString(prefix = "[", postfix = "]")
+        entries.joinToString(prefix = "[", postfix = "]") { (type, value) -> "$type=$value(${modifier(type)})" }
 
     operator fun plus(other: StatBlock): StatBlock = StatBlock(
-        strength = this.strength.value + other.strength.value,
-        dexterity = this.dexterity.value + other.dexterity.value,
-        constitution = this.constitution.value + other.constitution.value,
-        intelligence = this.intelligence.value + other.intelligence.value,
-        wisdom = this.wisdom.value + other.wisdom.value,
-        charisma = this.charisma.value + other.charisma.value,
+        strength = this.strength + other.strength,
+        dexterity = this.dexterity + other.dexterity,
+        constitution = this.constitution + other.constitution,
+        intelligence = this.intelligence + other.intelligence,
+        wisdom = this.wisdom + other.wisdom,
+        charisma = this.charisma + other.charisma,
     )
 
-    fun applyChosenStats(vararg chosenStats: Stat) = chosenStats.fold(initial = this) { acc, chosenStat ->
+    private fun copy(
+        strength: StatValue? = null,
+        dexterity: StatValue? = null,
+        constitution: StatValue? = null,
+        intelligence: StatValue? = null,
+        wisdom: StatValue? = null,
+        charisma: StatValue? = null,
+    ) = StatBlock(
+        strength = strength ?: this.strength,
+        dexterity = dexterity ?: this.dexterity,
+        constitution = constitution ?: this.constitution,
+        intelligence = intelligence ?: this.intelligence,
+        wisdom = wisdom ?: this.wisdom,
+        charisma = charisma ?: this.charisma,
+    )
+
+    fun applyChosenStats(vararg chosenStats: StatType) = chosenStats.fold(initial = this) { acc, chosenStat ->
         when (chosenStat) {
-            is Stat.Strength -> acc.copy(strength = Stat.Strength(acc.strength.value + 1))
-            is Stat.Dexterity -> acc.copy(dexterity = Stat.Dexterity(acc.dexterity.value + 1))
-            is Stat.Constitution -> acc.copy(constitution = Stat.Constitution(acc.constitution.value + 1))
-            is Stat.Intelligence -> acc.copy(intelligence = Stat.Intelligence(acc.intelligence.value + 1))
-            is Stat.Wisdom -> acc.copy(wisdom = Stat.Wisdom(acc.wisdom.value + 1))
-            is Stat.Charisma -> acc.copy(charisma = Stat.Charisma(acc.charisma.value + 1))
+            StatType.STR -> acc.copy(strength = acc.strength + 1)
+            StatType.DEX -> acc.copy(dexterity = acc.dexterity + 1)
+            StatType.CON -> acc.copy(constitution = acc.constitution + 1)
+            StatType.INT -> acc.copy(intelligence = acc.intelligence + 1)
+            StatType.WIS -> acc.copy(wisdom = acc.wisdom + 1)
+            StatType.CHA -> acc.copy(charisma = acc.charisma + 1)
         }
     }
 }

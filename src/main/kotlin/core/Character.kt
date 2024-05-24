@@ -11,7 +11,7 @@ data class Character(
 ) {
     val maxHp: Hp = calculateMaximumHp(
         hpDice = `class`.hpDice,
-        constitutionModifier = statBlock.constitution.modifier,
+        constitutionModifier = statBlock.modifier(StatType.CON),
         level = level,
     )
 }

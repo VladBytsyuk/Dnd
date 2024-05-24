@@ -1,62 +1,48 @@
 package io.vbytsyuk.dnd.core
 
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
 
-class StatsTest {
+class StatsTest : T<Int, Modifier> {
 
     @Test
-    fun `modifier calculation`() {
-        val table = mapOf(
-            0 to Modifier(-5),
-            1 to Modifier(-5),
-            2 to Modifier(-4),
-            3 to Modifier(-4),
-            4 to Modifier(-3),
-            5 to Modifier(-3),
-            6 to Modifier(-2),
-            7 to Modifier(-2),
-            8 to Modifier(-1),
-            9 to Modifier(-1),
-            10 to Modifier(0),
-            11 to Modifier(0),
-            12 to Modifier(1),
-            13 to Modifier(1),
-            14 to Modifier(2),
-            15 to Modifier(2),
-            16 to Modifier(3),
-            17 to Modifier(3),
-            18 to Modifier(4),
-            19 to Modifier(4),
-            20 to Modifier(5),
-            21 to Modifier(5),
-            22 to Modifier(6),
-            23 to Modifier(6),
-            24 to Modifier(7),
-            25 to Modifier(7),
-            26 to Modifier(8),
-            27 to Modifier(8),
-            28 to Modifier(9),
-            29 to Modifier(9),
-            30 to Modifier(10),
-        )
-        table.forEach { (statValue, expectedModifier) ->
-            testStat(Stat.Strength(statValue), expectedModifier)
-            testStat(Stat.Dexterity(statValue), expectedModifier)
-            testStat(Stat.Constitution(statValue), expectedModifier)
-            testStat(Stat.Intelligence(statValue), expectedModifier)
-            testStat(Stat.Wisdom(statValue), expectedModifier)
-            testStat(Stat.Charisma(statValue), expectedModifier)
-        }
-    }
+    fun `test modifier function`() = check()
 
+    override val dataSet: Collection<T.Data<Int, Modifier>> = listOf(
+        T.Data(name = "Stat value = 0", input = 0, output = Modifier(-5)),
+        T.Data(name = "Stat value = 1", input = 1, output = Modifier(-5)),
+        T.Data(name = "Stat value = 2", input = 2, output = Modifier(-4)),
+        T.Data(name = "Stat value = 3", input = 3, output = Modifier(-4)),
+        T.Data(name = "Stat value = 4", input = 4, output = Modifier(-3)),
+        T.Data(name = "Stat value = 5", input = 5, output = Modifier(-3)),
+        T.Data(name = "Stat value = 6", input = 6, output = Modifier(-2)),
+        T.Data(name = "Stat value = 7", input = 7, output = Modifier(-2)),
+        T.Data(name = "Stat value = 8", input = 8, output = Modifier(-1)),
+        T.Data(name = "Stat value = 9", input = 9, output = Modifier(-1)),
+        T.Data(name = "Stat value = 10", input = 10, output = Modifier(0)),
+        T.Data(name = "Stat value = 11", input = 11, output = Modifier(0)),
+        T.Data(name = "Stat value = 12", input = 12, output = Modifier(1)),
+        T.Data(name = "Stat value = 13", input = 13, output = Modifier(1)),
+        T.Data(name = "Stat value = 14", input = 14, output = Modifier(2)),
+        T.Data(name = "Stat value = 15", input = 15, output = Modifier(2)),
+        T.Data(name = "Stat value = 16", input = 16, output = Modifier(3)),
+        T.Data(name = "Stat value = 17", input = 17, output = Modifier(3)),
+        T.Data(name = "Stat value = 18", input = 18, output = Modifier(4)),
+        T.Data(name = "Stat value = 19", input = 19, output = Modifier(4)),
+        T.Data(name = "Stat value = 20", input = 20, output = Modifier(5)),
+        T.Data(name = "Stat value = 21", input = 21, output = Modifier(5)),
+        T.Data(name = "Stat value = 22", input = 22, output = Modifier(6)),
+        T.Data(name = "Stat value = 23", input = 23, output = Modifier(6)),
+        T.Data(name = "Stat value = 24", input = 24, output = Modifier(7)),
+        T.Data(name = "Stat value = 25", input = 25, output = Modifier(7)),
+        T.Data(name = "Stat value = 26", input = 26, output = Modifier(8)),
+        T.Data(name = "Stat value = 27", input = 27, output = Modifier(8)),
+        T.Data(name = "Stat value = 28", input = 28, output = Modifier(9)),
+        T.Data(name = "Stat value = 29", input = 29, output = Modifier(9)),
+        T.Data(name = "Stat value = 30", input = 30, output = Modifier(10)),
+    )
 
-    private fun testStat(stat: Stat, expectedModifier: Modifier) {
-        val actualModifier = stat.modifier
-        assertEquals(
-            expected = expectedModifier,
-            actual = actualModifier,
-            message = "Expected modifier for $stat is $expectedModifier but was $actualModifier",
-        )
+    override fun act(input: Int): Modifier {
+        val statBlock = StatBlock(strength = input)
+        return statBlock.modifier(StatType.STR)
     }
 }
