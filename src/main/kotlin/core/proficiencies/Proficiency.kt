@@ -1,7 +1,11 @@
-package io.vbytsyuk.dnd.core
+package io.vbytsyuk.dnd.core.proficiencies
+
+import io.vbytsyuk.dnd.core.Level
+import io.vbytsyuk.dnd.core.Modifier
+import kotlin.math.ceil
 
 fun calculateProficiencyBonus(level: Level): Modifier =
-    Modifier(kotlin.math.ceil(level.value / 4.0).toInt() + 1)
+    Modifier(ceil(level.value / 4.0).toInt() + 1)
 
 fun calculateCanonicalProficiencyBonus(level: Level): Modifier = when (level.value) {
     in 1 .. 4 -> Modifier(2)

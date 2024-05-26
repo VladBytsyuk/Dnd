@@ -1,5 +1,7 @@
 package io.vbytsyuk.dnd.core
 
+import io.vbytsyuk.dnd.core.`class`.Class
+import io.vbytsyuk.dnd.core.proficiencies.calculateProficiencyBonus
 import io.vbytsyuk.dnd.core.race.Race
 
 data class Character(
@@ -10,7 +12,8 @@ data class Character(
     val level: Level,
 ) {
 
-    val statBlock: StatBlock = initialRawStatBlock + race.bonusStatBlock
+    val statBlock: StatBlock = initialRawStatBlock +
+            race.bonusStatBlock
     
     val maxHp: Hp = calculateMaximumHp(
         hpDice = `class`.hpDice,
