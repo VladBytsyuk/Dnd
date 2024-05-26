@@ -2,24 +2,6 @@ package io.vbytsyuk.dnd.core.money
 
 import io.vbytsyuk.dnd.core.money.CoinType.*
 
-enum class CoinType(
-    val coefficient: Int,
-) {
-    COPPER(coefficient = 1),
-    SILVER(coefficient = 10),
-    GOLD(coefficient = 100),
-    PLATINUM(coefficient = 1000);
-}
-
-data class Coins(val amount: Int, val type: CoinType) {
-
-    init {
-        require(amount >= 0) {
-            "Coiins [$this] should has only positive amount of coins."
-        }
-    }
-}
-
 data class Wallet(
     val copper: Int = 0,
     val silver: Int = 0,
