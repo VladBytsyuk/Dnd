@@ -1,8 +1,10 @@
-package io.vbytsyuk.dnd.core
+package io.vbytsyuk.dnd.core.weapon
 
+import io.vbytsyuk.dnd.core.Damage
 import io.vbytsyuk.dnd.core.Damage.Type.*
+import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.Dice.*
-import io.vbytsyuk.dnd.core.Weapon.Property.*
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.*
 import io.vbytsyuk.dnd.core.money.CoinType.*
 import io.vbytsyuk.dnd.core.money.Coins
 
