@@ -1,26 +1,28 @@
 package io.vbytsyuk.dnd.core.`class`
 
 import io.vbytsyuk.dnd.core.HpDice
-import io.vbytsyuk.dnd.core.StatType
-import io.vbytsyuk.dnd.core.proficiencies.Skills
-import io.vbytsyuk.dnd.core.skills.Skill
+import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
+import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 
 sealed class Class(
     val hpDice: HpDice,
-    val proficientSavingThrows: List<StatType>,
-    val allowedProficientSkills: List<Skill>,
-    val selectedProficientSkills: Skills,
+    val proficiencies: Proficiencies,
 ) {
 
     init {
-        checkProficientSkills()
+        proficiencies.check()
     }
 
-    private fun checkProficientSkills() {
-        require(selectedProficientSkills.list.all { it in allowedProficientSkills }) {
+    private fun Proficiencies.check() {
+        skills.check()
+    }
+
+    private fun ProficiencySkills.check() {
+        require(selected.list.all { it in allowed }) {
             """
-                Incorrect proficient skills. Selected ${selectedProficientSkills.list},
-                but should be ${selectedProficientSkills.list.size} of $allowedProficientSkills.
+                Incorrect proficient skills for ${this@Class::class.simpleName}.
+                Selected ${selected.list},
+                but should be ${selected.list.size} of $allowed.
             """.trimIndent()
         }
     }

@@ -2,7 +2,19 @@ package io.vbytsyuk.dnd.core.proficiencies
 
 import io.vbytsyuk.dnd.core.Level
 import io.vbytsyuk.dnd.core.Modifier
+import io.vbytsyuk.dnd.core.StatType
+import io.vbytsyuk.dnd.core.skills.Skill
 import kotlin.math.ceil
+
+data class Proficiencies(
+    val savingThrows: List<StatType>,
+    val skills: ProficiencySkills,
+)
+
+data class ProficiencySkills(
+    val allowed: List<Skill>,
+    val selected: Skills,
+)
 
 fun calculateProficiencyBonus(level: Level): Modifier =
     Modifier(ceil(level.value / 4.0).toInt() + 1)
