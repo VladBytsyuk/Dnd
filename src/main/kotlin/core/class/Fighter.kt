@@ -22,7 +22,7 @@ class Fighter(
             selected = proficientSkills,
         ),
         weapons = { true },
-
+        armor = { true },
     ),
 ) {
 

@@ -23,6 +23,7 @@ class Monk(
             selected = proficientSkills,
         ),
         weapons = { it.proficiencyType == SIMPLE || it == Shortsword },
+        armor = { false },
     ),
 ) {
 

@@ -2,6 +2,7 @@ package io.vbytsyuk.dnd.core.`class`
 
 import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.StatType
+import io.vbytsyuk.dnd.core.armor.Armor.Type.*
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills2
@@ -20,6 +21,7 @@ class Druid(
             selected = proficientSkills,
         ),
         weapons = { it in setOf(Quarterstaff, Mace, Dart, Club, Dagger, Spear, Javelin, Sling, Sickle, Scimitar) },
+        armor = { it.type is Light || it.type is Medium || it.type is Shield }
     ),
 ) {
 

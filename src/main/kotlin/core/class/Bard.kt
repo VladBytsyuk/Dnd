@@ -2,6 +2,7 @@ package io.vbytsyuk.dnd.core.`class`
 
 import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.StatType
+import io.vbytsyuk.dnd.core.armor.Armor.Type.Light
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills3
@@ -24,6 +25,7 @@ class Bard(
             selected = proficientSkills,
         ),
         weapons = { it.proficiencyType == SIMPLE || it in setOf(Longsword, Shortsword, Rapier, HandCrossbow) },
+        armor = {  it.type is Light },
     ),
 ) {
 

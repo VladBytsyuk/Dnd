@@ -20,6 +20,7 @@ class Wizard(
             selected = proficientSkills,
         ),
         weapons = { it in setOf(Dagger, Dart, Sling, Quarterstaff, LightCrossbow) },
+        armor = { false }
     ),
 ) {
 

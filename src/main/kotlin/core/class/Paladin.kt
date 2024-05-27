@@ -21,6 +21,7 @@ class Paladin(
             selected = proficientSkills,
         ),
         weapons = { true },
+        armor = { true },
     ),
 ) {
 

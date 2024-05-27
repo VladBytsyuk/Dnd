@@ -4,6 +4,7 @@ import io.vbytsyuk.dnd.core.util.Checker
 import io.vbytsyuk.dnd.core.Level
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatType
+import io.vbytsyuk.dnd.core.armor.Armor
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.weapon.Weapon
 import kotlin.math.ceil
@@ -12,6 +13,7 @@ data class Proficiencies(
     val savingThrows: List<StatType>,
     val skills: ProficiencySkills,
     val weapons: Checker<Weapon>,
+    val armor: (arg: Armor) -> Unit,
 )
 
 data class ProficiencySkills(

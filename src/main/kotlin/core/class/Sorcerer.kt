@@ -20,7 +20,8 @@ class Sorcerer(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
-        weapons = { it in setOf(Quarterstaff, Dart, Dagger, LightCrossbow, Sling) }
+        weapons = { it in setOf(Quarterstaff, Dart, Dagger, LightCrossbow, Sling) },
+        armor = { false },
     ),
 ) {
 
