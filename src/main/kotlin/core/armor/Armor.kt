@@ -4,11 +4,12 @@ import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatValue
 import io.vbytsyuk.dnd.core.money.Coins
 import io.vbytsyuk.dnd.core.time.Time
+import io.vbytsyuk.dnd.core.weight.Weight
 
 open class Armor(
     val type: Type,
     val cost: Coins,
-    val weight: Double,
+    val weight: Weight,
     val hasStealthDisadvantage: Boolean,
     val strengthRequirement: StatValue? = null,
     val timeToPutOn: Time,
