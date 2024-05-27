@@ -8,6 +8,7 @@ import io.vbytsyuk.dnd.core.proficiencies.Skills2
 import io.vbytsyuk.dnd.core.skills.Skill.Charisma.*
 import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.*
 import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.*
+import io.vbytsyuk.dnd.core.weapon.*
 
 class Sorcerer(
     proficientSkills: Skills2,
@@ -19,6 +20,7 @@ class Sorcerer(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
+        weapons = { it in setOf(Quarterstaff, Dart, Dagger, LightCrossbow, Sling) }
     ),
 ) {
 

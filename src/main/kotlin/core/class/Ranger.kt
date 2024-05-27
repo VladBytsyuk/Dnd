@@ -20,6 +20,7 @@ class Ranger(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
+        weapons = { true },
     ),
 ) {
 

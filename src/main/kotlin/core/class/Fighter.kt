@@ -21,6 +21,8 @@ class Fighter(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
+        weapons = { true },
+
     ),
 ) {
 

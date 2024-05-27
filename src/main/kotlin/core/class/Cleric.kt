@@ -8,6 +8,8 @@ import io.vbytsyuk.dnd.core.proficiencies.Skills2
 import io.vbytsyuk.dnd.core.skills.Skill.Charisma.*
 import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.*
 import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.*
+import io.vbytsyuk.dnd.core.weapon.Weapon
+import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.SIMPLE
 
 class Cleric(
     proficientSkills: Skills2,
@@ -19,6 +21,7 @@ class Cleric(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
+        weapons = { it.proficiencyType == SIMPLE },
     ),
 ) {
 

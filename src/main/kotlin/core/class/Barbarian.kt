@@ -20,6 +20,7 @@ class Barbarian(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
+        weapons = { true },
     ),
 ) {
 

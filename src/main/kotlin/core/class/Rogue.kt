@@ -10,6 +10,8 @@ import io.vbytsyuk.dnd.core.skills.Skill.Dexterity.*
 import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.*
 import io.vbytsyuk.dnd.core.skills.Skill.Strength.*
 import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.*
+import io.vbytsyuk.dnd.core.weapon.*
+import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.SIMPLE
 
 class Rogue(
     proficientSkills: Skills4,
@@ -21,6 +23,7 @@ class Rogue(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
+        weapons = { it.proficiencyType == SIMPLE || it in setOf(HandCrossbow, Longsword, Rapier, Shortsword) },
     ),
 ) {
 

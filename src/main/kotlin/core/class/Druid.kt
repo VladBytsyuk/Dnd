@@ -7,6 +7,7 @@ import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills2
 import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.*
 import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.*
+import io.vbytsyuk.dnd.core.weapon.*
 
 class Druid(
     proficientSkills: Skills2,
@@ -18,6 +19,7 @@ class Druid(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
+        weapons = { it in setOf(Quarterstaff, Mace, Dart, Club, Dagger, Spear, Javelin, Sling, Sickle, Scimitar) },
     ),
 ) {
 

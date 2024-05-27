@@ -20,6 +20,7 @@ class Paladin(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
+        weapons = { true },
     ),
 ) {
 
