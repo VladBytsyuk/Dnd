@@ -5,14 +5,16 @@ import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.money.Coins
 
 open class Weapon(
-    val type: Type,
+    val rangeType: RangeType,
+    val proficiencyType: ProficiencyType,
     val cost: Coins,
     val damage: Damage,
     val weight: Double,
     val properties: List<Property> = emptyList(),
 ) {
 
-    enum class Type { SIMPLE_MELEE, SIMPLE_RANGED, MATRIAL_MELEE, MATRIAL_RANGED }
+    enum class RangeType { MELEE, RANGED }
+    enum class ProficiencyType { SIMPLE, MATRIAL }
 
     sealed class Property {
         data class Ammunition(val shortRange: Int, val longRange: Int) : Property()

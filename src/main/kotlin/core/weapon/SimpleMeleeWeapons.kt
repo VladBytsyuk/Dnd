@@ -3,86 +3,96 @@ package io.vbytsyuk.dnd.core.weapon
 import io.vbytsyuk.dnd.core.Damage
 import io.vbytsyuk.dnd.core.Damage.Type.*
 import io.vbytsyuk.dnd.core.Dice.*
-import io.vbytsyuk.dnd.core.money.CoinType.GOLD
-import io.vbytsyuk.dnd.core.money.CoinType.SILVER
-import io.vbytsyuk.dnd.core.money.Coins
+import io.vbytsyuk.dnd.core.money.gold
+import io.vbytsyuk.dnd.core.money.silver
+import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.SIMPLE
 import io.vbytsyuk.dnd.core.weapon.Weapon.Property.*
-import io.vbytsyuk.dnd.core.weapon.Weapon.Type.SIMPLE_MELEE
+import io.vbytsyuk.dnd.core.weapon.Weapon.RangeType.MELEE
 
 data object Quarterstaff : Weapon(
-    type = SIMPLE_MELEE,
-    cost = Coins(2, SILVER),
+    rangeType = MELEE,
+    proficiencyType = SIMPLE,
+    cost = 2.silver,
     damage = Damage(dice = D6, type = BLUDGEONING),
     weight = 4.0,
     properties = listOf(Versatile(twoHandedDice = D8)),
 )
 
 data object Mace : Weapon(
-    type = SIMPLE_MELEE,
-    cost = Coins(5, GOLD),
+    rangeType = MELEE,
+    proficiencyType = SIMPLE,
+    cost = 5.gold,
     damage = Damage(dice = D6, type = BLUDGEONING),
     weight = 4.0,
 )
 
 data object Club : Weapon(
-    type = SIMPLE_MELEE,
-    cost = Coins(1, SILVER),
+    rangeType = MELEE,
+    proficiencyType = SIMPLE,
+    cost = 1.silver,
     damage = Damage(dice = D4, type = BLUDGEONING),
     weight = 2.0,
     properties = listOf(Light)
 )
 
 data object Dagger : Weapon(
-    type = SIMPLE_MELEE,
-    cost = Coins(2, GOLD),
+    rangeType = MELEE,
+    proficiencyType = SIMPLE,
+    cost = 2.gold,
     damage = Damage(dice = D4, type = PIERCING),
     weight = 1.0,
     properties = listOf(Light, Finesse, Thrown(shortRange = 20, longRange = 60)),
 )
 
 data object Spear : Weapon(
-    type = SIMPLE_MELEE,
-    cost = Coins(1, GOLD),
+    rangeType = MELEE,
+    proficiencyType = SIMPLE,
+    cost = 1.gold,
     damage = Damage(dice = D6, type = PIERCING),
     weight = 3.0,
     properties = listOf(Thrown(shortRange = 20, longRange = 60), Versatile(twoHandedDice = D8)),
 )
 
 data object LightHammer : Weapon(
-    type = SIMPLE_MELEE,
-    cost = Coins(2, GOLD),
+    rangeType = MELEE,
+    proficiencyType = SIMPLE,
+    cost = 2.gold,
     damage = Damage(dice = D4, type = BLUDGEONING),
     weight = 2.0,
     properties = listOf(Light, Thrown(shortRange = 20, longRange = 60)),
 )
 
 data object Javelin : Weapon(
-    type = SIMPLE_MELEE,
-    cost = Coins(5, SILVER),
+    rangeType = MELEE,
+    proficiencyType = SIMPLE,
+    cost = 5.silver,
     damage = Damage(dice = D6, type = PIERCING),
     weight = 2.0,
     properties = listOf(Thrown(shortRange = 30, longRange = 120)),
 )
 
 data object Greatclub : Weapon(
-    type = SIMPLE_MELEE,
-    cost = Coins(2, SILVER),
+    rangeType = MELEE,
+    proficiencyType = SIMPLE,
+    cost = 2.silver,
     damage = Damage(dice = D8, type = BLUDGEONING),
     weight = 10.0,
     properties = listOf(TwoHanded),
 )
 
 data object Handaxe : Weapon(
-    type = SIMPLE_MELEE,
-    cost = Coins(5, GOLD),
+    rangeType = MELEE,
+    proficiencyType = SIMPLE,
+    cost = 5.gold,
     damage = Damage(dice = D6, type = SLASHING),
     weight = 2.0,
     properties = listOf(Light, Thrown(shortRange = 20, longRange = 60)),
 )
 
 data object Sickle : Weapon(
-    type = SIMPLE_MELEE,
-    cost = Coins(1, GOLD),
+    rangeType = MELEE,
+    proficiencyType = SIMPLE,
+    cost = 1.gold,
     damage = Damage(dice = D4, type = SLASHING),
     weight = 2.0,
     properties = listOf(Light),
