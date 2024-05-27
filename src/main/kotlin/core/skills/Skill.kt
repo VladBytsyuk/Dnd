@@ -72,4 +72,27 @@ sealed class Skill(val originStatType: StatType) {
         /** Убеждение */
         data object Persuasion : Charisma()
     }
+
+    companion object {
+        val skillsSet = setOf(
+            Strength.Athletics,
+            Dexterity.Acrobatics,
+            Dexterity.SleightOfHand,
+            Dexterity.Stealth,
+            Intelligence.Arcana,
+            Intelligence.Nature,
+            Intelligence.History,
+            Intelligence.Religion,
+            Intelligence.Investigation,
+            Wisdom.Insight,
+            Wisdom.Survival,
+            Wisdom.Medicine,
+            Wisdom.Perception,
+            Wisdom.AnimalHandling,
+            Charisma.Persuasion,
+            Charisma.Deception,
+            Charisma.Performance,
+            Charisma.Intimidation,
+        )
+    }
 }

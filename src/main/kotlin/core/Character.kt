@@ -3,6 +3,7 @@ package io.vbytsyuk.dnd.core
 import io.vbytsyuk.dnd.core.`class`.Class
 import io.vbytsyuk.dnd.core.proficiencies.calculateProficiencyBonus
 import io.vbytsyuk.dnd.core.race.Race
+import io.vbytsyuk.dnd.core.skills.Skill
 
 data class Character(
     val name: String,
@@ -22,4 +23,18 @@ data class Character(
     )
 
     val proficiencyBonus: Modifier = calculateProficiencyBonus(level)
+
+    val skills: Map<Skill, Modifier> = buildMap {
+        Skill.skillsSet
+            .filterNotNull()
+            .forEach { skill -> this += skill to calculateSkillModifier(skill) }
+    }
+
+    private fun calculateSkillModifier(skill: Skill): Modifier {
+        val modifierFromStatBlock = statBlock.modifier(skill.originStatType)
+        return when {
+            skill in `class`.proficiencies.skills.selected.list -> modifierFromStatBlock + proficiencyBonus
+            else -> modifierFromStatBlock
+        }
+    }
 }

@@ -9,6 +9,8 @@ enum class StatType { STR, DEX, CON, INT, WIS, CHA }
 @JvmInline
 value class Modifier(val value: Int) {
     override fun toString() = if (value < 0) "$value" else "+$value"
+
+    operator fun plus(other: Modifier): Modifier = Modifier(this.value + other.value)
 }
 
 class StatBlock(

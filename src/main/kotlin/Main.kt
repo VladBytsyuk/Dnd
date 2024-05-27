@@ -14,8 +14,8 @@ fun main() {
         race = HalfElf(chosenStat1 = StatType.DEX, chosenStat2 = StatType.WIS),
         `class` = Monk(
             proficientSkills = Skills2(
-                Skill.Dexterity.Acrobatics,
                 Skill.Strength.Athletics,
+                Skill.Dexterity.Acrobatics,
             )
         ),
         initialRawStatBlock = StatBlock(
