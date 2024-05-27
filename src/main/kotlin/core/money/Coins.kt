@@ -13,7 +13,7 @@ data class Coins(val amount: Int, val type: CoinType) {
 
     init {
         require(amount >= 0) {
-            "Coiins [$this] should has only positive amount of coins."
+            "Coins [$this] should has only positive amount of coins."
         }
     }
 }
