@@ -74,7 +74,7 @@ sealed class Skill(val originStatType: StatType) {
     }
 
     companion object {
-        val skillsSet = setOf(
+        fun skills() = listOf(
             Strength.Athletics,
             Dexterity.Acrobatics,
             Dexterity.SleightOfHand,
