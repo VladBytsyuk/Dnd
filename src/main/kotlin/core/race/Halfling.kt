@@ -1,8 +1,17 @@
 package io.vbytsyuk.dnd.core.race
 
+import io.vbytsyuk.dnd.core.Speed
 import io.vbytsyuk.dnd.core.StatBlock
+import io.vbytsyuk.dnd.core.length.feet
+import io.vbytsyuk.dnd.core.sizie.Size
 
-sealed class Halfling(bonusStatBlock: StatBlock) : Race(bonusStatBlock) {
+sealed class Halfling(
+    bonusStatBlock: StatBlock,
+) : Race(
+    bonusStatBlock = bonusStatBlock,
+    size = Size.SMALL,
+    baseSpeed = Speed(25.feet),
+) {
     data object Stout : Halfling(bonusStatBlock = StatBlock(dexterity = 2, constitution = 1))
     data object Lightfoot : Halfling(bonusStatBlock = StatBlock(dexterity = 2, charisma = 1))
 }

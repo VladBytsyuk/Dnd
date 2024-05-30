@@ -1,8 +1,17 @@
 package io.vbytsyuk.dnd.core.race
 
+import io.vbytsyuk.dnd.core.Speed
 import io.vbytsyuk.dnd.core.StatBlock
+import io.vbytsyuk.dnd.core.length.feet
+import io.vbytsyuk.dnd.core.sizie.Size
 
-sealed class Tiefling(bonusStatBlock: StatBlock) : Race(bonusStatBlock) {
+sealed class Tiefling(
+    bonusStatBlock: StatBlock,
+) : Race(
+    bonusStatBlock = bonusStatBlock,
+    size = Size.MEDIUM,
+    baseSpeed = Speed(30.feet),
+) {
     data object Asmodeus : Tiefling(bonusStatBlock = StatBlock(charisma = 2, intelligence = 1))
     data object Baalzebul : Tiefling(bonusStatBlock = StatBlock(charisma = 2, intelligence = 1))
     data object Dispater : Tiefling(bonusStatBlock = StatBlock(charisma = 2, dexterity = 1))

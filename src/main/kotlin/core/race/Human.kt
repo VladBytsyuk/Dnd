@@ -1,6 +1,9 @@
 package io.vbytsyuk.dnd.core.race
 
+import io.vbytsyuk.dnd.core.Speed
 import io.vbytsyuk.dnd.core.StatBlock
+import io.vbytsyuk.dnd.core.length.feet
+import io.vbytsyuk.dnd.core.sizie.Size
 
 data object Human : Race(
     bonusStatBlock = StatBlock(
@@ -11,4 +14,6 @@ data object Human : Race(
         wisdom = 1,
         charisma = 1,
     ),
+    size = Size.MEDIUM,
+    baseSpeed = Speed(30.feet),
 )
