@@ -13,4 +13,5 @@ data class HalfElf(
     bonusStatBlock = StatBlock(charisma = 2).applyChosenStats(chosenStat1, chosenStat2),
     size = Size.MEDIUM,
     baseSpeed = Speed(30.feet),
+    darkVision = 60.feet,
 )

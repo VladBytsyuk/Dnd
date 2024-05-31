@@ -9,4 +9,5 @@ data object HalfOrc : Race(
     bonusStatBlock = StatBlock(strength = 2, constitution = 1),
     size = Size.MEDIUM,
     baseSpeed = Speed(30.feet),
+    darkVision = 60.feet,
 )

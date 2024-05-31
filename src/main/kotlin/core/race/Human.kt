@@ -16,4 +16,5 @@ data object Human : Race(
     ),
     size = Size.MEDIUM,
     baseSpeed = Speed(30.feet),
+    darkVision = null,
 )

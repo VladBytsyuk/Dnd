@@ -11,6 +11,7 @@ sealed class Dwarf(
     bonusStatBlock = bonusStatBlock,
     size = Size.MEDIUM,
     baseSpeed = Speed(25.feet),
+    darkVision = 60.feet,
 ) {
     data object Mountain : Dwarf(bonusStatBlock = StatBlock(strength = 2, constitution = 2))
     data object Hill : Dwarf(bonusStatBlock = StatBlock(constitution = 2, wisdom = 1))

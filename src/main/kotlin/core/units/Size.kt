@@ -1,9 +1,9 @@
 package io.vbytsyuk.dnd.core.units
 
 enum class Size(
-    val height: Length.Range,
+    val height: Distance.Range,
     val weight: Weight.Range,
-    val space: Length,
+    val space: Distance,
 ) {
     FINE(
         height = 0.inches..6.inches,

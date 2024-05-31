@@ -11,6 +11,7 @@ sealed class Gnome(
     bonusStatBlock = bonusStatBlock,
     size = Size.SMALL,
     baseSpeed = Speed(25.feet),
+    darkVision = 60.feet,
 ) {
     data object Forest : Gnome(bonusStatBlock = StatBlock(intelligence = 2, dexterity = 1))
     data object Rock : Gnome(bonusStatBlock = StatBlock(intelligence = 2, constitution = 1))

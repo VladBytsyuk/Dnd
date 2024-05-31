@@ -11,6 +11,7 @@ sealed class Tiefling(
     bonusStatBlock = bonusStatBlock,
     size = Size.MEDIUM,
     baseSpeed = Speed(30.feet),
+    darkVision = 60.feet,
 ) {
     data object Asmodeus : Tiefling(bonusStatBlock = StatBlock(charisma = 2, intelligence = 1))
     data object Baalzebul : Tiefling(bonusStatBlock = StatBlock(charisma = 2, intelligence = 1))
