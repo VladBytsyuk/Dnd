@@ -1,6 +1,6 @@
-package io.vbytsyuk.dnd.core.money
+package io.vbytsyuk.dnd.core.units
 
-import io.vbytsyuk.dnd.core.money.CoinType.*
+import io.vbytsyuk.dnd.core.units.CoinType.*
 
 data class Wallet(
     val copper: Int = 0,

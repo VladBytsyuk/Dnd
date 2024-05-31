@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.core.weight
+package io.vbytsyuk.dnd.core.units
 
 @JvmInline
 value class Weight(val value: Double) {

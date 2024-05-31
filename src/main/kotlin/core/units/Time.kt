@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.core.time
+package io.vbytsyuk.dnd.core.units
 
 enum class TimeType(
     val coefficient: Int,

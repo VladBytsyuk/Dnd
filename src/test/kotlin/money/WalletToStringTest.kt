@@ -1,6 +1,7 @@
 package io.vbytsyuk.dnd.core.money
 
 import io.vbytsyuk.dnd.core.T
+import io.vbytsyuk.dnd.core.units.Wallet
 import org.junit.jupiter.api.Test
 
 class WalletToStringTest : T<Wallet, String> {

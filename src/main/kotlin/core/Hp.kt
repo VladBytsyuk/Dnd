@@ -1,5 +1,6 @@
 package io.vbytsyuk.dnd.core
 
+import io.vbytsyuk.dnd.core.units.Level
 import kotlin.math.max
 
 @JvmInline

@@ -1,7 +1,9 @@
 package io.vbytsyuk.dnd.core.money
 
 import io.vbytsyuk.dnd.core.T
-import io.vbytsyuk.dnd.core.money.CoinType.*
+import io.vbytsyuk.dnd.core.units.CoinType.*
+import io.vbytsyuk.dnd.core.units.Coins
+import io.vbytsyuk.dnd.core.units.Wallet
 import org.junit.jupiter.api.Test
 
 class WalletPlusTest : T<Pair<Wallet, Coins>, Wallet> {

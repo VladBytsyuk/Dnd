@@ -1,9 +1,9 @@
 package io.vbytsyuk.dnd.core.armor
 
 import io.vbytsyuk.dnd.core.armor.Armor.Type.Heavy
-import io.vbytsyuk.dnd.core.money.gold
-import io.vbytsyuk.dnd.core.time.minutes
-import io.vbytsyuk.dnd.core.weight.lb
+import io.vbytsyuk.dnd.core.units.gold
+import io.vbytsyuk.dnd.core.units.minutes
+import io.vbytsyuk.dnd.core.units.lb
 
 object RingMail : Armor(
     type = Heavy(armorClass = 14),

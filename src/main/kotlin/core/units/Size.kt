@@ -1,10 +1,4 @@
-package io.vbytsyuk.dnd.core.sizie
-
-import io.vbytsyuk.dnd.core.length.Length
-import io.vbytsyuk.dnd.core.length.feet
-import io.vbytsyuk.dnd.core.length.inches
-import io.vbytsyuk.dnd.core.weight.Weight
-import io.vbytsyuk.dnd.core.weight.lb
+package io.vbytsyuk.dnd.core.units
 
 enum class Size(
     val height: Length.Range,

@@ -2,9 +2,9 @@ package io.vbytsyuk.dnd.core.armor
 
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatValue
-import io.vbytsyuk.dnd.core.money.Coins
-import io.vbytsyuk.dnd.core.time.Time
-import io.vbytsyuk.dnd.core.weight.Weight
+import io.vbytsyuk.dnd.core.units.Coins
+import io.vbytsyuk.dnd.core.units.Time
+import io.vbytsyuk.dnd.core.units.Weight
 
 open class Armor(
     val type: Type,

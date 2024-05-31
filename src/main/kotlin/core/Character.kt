@@ -5,6 +5,7 @@ import io.vbytsyuk.dnd.core.proficiencies.Mastery
 import io.vbytsyuk.dnd.core.proficiencies.calculateProficiencyBonus
 import io.vbytsyuk.dnd.core.race.Race
 import io.vbytsyuk.dnd.core.skills.Skill
+import io.vbytsyuk.dnd.core.units.Level
 
 data class Character(
     val name: String,

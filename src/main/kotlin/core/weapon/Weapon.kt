@@ -1,9 +1,9 @@
 package io.vbytsyuk.dnd.core.weapon
 
-import io.vbytsyuk.dnd.core.Damage
+import io.vbytsyuk.dnd.core.units.Damage
 import io.vbytsyuk.dnd.core.Dice
-import io.vbytsyuk.dnd.core.money.Coins
-import io.vbytsyuk.dnd.core.weight.Weight
+import io.vbytsyuk.dnd.core.units.Coins
+import io.vbytsyuk.dnd.core.units.Weight
 
 open class Weapon(
     val rangeType: RangeType,

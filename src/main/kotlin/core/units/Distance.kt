@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.core.length
+package io.vbytsyuk.dnd.core.units
 
 @JvmInline
 value class Length(val inches: Int) {

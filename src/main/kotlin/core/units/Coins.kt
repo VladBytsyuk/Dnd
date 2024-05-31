@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.core.money
+package io.vbytsyuk.dnd.core.units
 
 enum class CoinType(
     val coefficient: Int,

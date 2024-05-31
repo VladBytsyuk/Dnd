@@ -1,4 +1,6 @@
-package io.vbytsyuk.dnd.core
+package io.vbytsyuk.dnd.core.units
+
+import io.vbytsyuk.dnd.core.Dice
 
 data class Damage(
     val amount: Int = 1,

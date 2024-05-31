@@ -1,16 +1,16 @@
 package io.vbytsyuk.dnd.core.weapon
 
-import io.vbytsyuk.dnd.core.Damage
-import io.vbytsyuk.dnd.core.Damage.Type.BLUDGEONING
-import io.vbytsyuk.dnd.core.Damage.Type.PIERCING
+import io.vbytsyuk.dnd.core.units.Damage
+import io.vbytsyuk.dnd.core.units.Damage.Type.BLUDGEONING
+import io.vbytsyuk.dnd.core.units.Damage.Type.PIERCING
 import io.vbytsyuk.dnd.core.Dice.*
-import io.vbytsyuk.dnd.core.money.copper
-import io.vbytsyuk.dnd.core.money.gold
-import io.vbytsyuk.dnd.core.money.silver
+import io.vbytsyuk.dnd.core.units.copper
+import io.vbytsyuk.dnd.core.units.gold
+import io.vbytsyuk.dnd.core.units.silver
 import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.SIMPLE
 import io.vbytsyuk.dnd.core.weapon.Weapon.Property.*
 import io.vbytsyuk.dnd.core.weapon.Weapon.RangeType.RANGED
-import io.vbytsyuk.dnd.core.weight.lb
+import io.vbytsyuk.dnd.core.units.lb
 
 data object LightCrossbow : Weapon(
     rangeType = RANGED,

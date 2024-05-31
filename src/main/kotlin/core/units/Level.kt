@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.core
+package io.vbytsyuk.dnd.core.units
 
 @JvmInline
 value class Level(val value: Int) {

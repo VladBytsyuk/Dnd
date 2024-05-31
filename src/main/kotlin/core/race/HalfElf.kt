@@ -1,10 +1,10 @@
 package io.vbytsyuk.dnd.core.race
 
-import io.vbytsyuk.dnd.core.Speed
+import io.vbytsyuk.dnd.core.units.Speed
 import io.vbytsyuk.dnd.core.StatBlock
 import io.vbytsyuk.dnd.core.StatType
-import io.vbytsyuk.dnd.core.length.feet
-import io.vbytsyuk.dnd.core.sizie.Size
+import io.vbytsyuk.dnd.core.units.feet
+import io.vbytsyuk.dnd.core.units.Size
 
 data class HalfElf(
     val chosenStat1: StatType,

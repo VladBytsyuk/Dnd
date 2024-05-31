@@ -1,13 +1,13 @@
 package io.vbytsyuk.dnd.core.weapon
 
-import io.vbytsyuk.dnd.core.Damage
-import io.vbytsyuk.dnd.core.Damage.Type.*
+import io.vbytsyuk.dnd.core.units.Damage
+import io.vbytsyuk.dnd.core.units.Damage.Type.*
 import io.vbytsyuk.dnd.core.Dice.*
-import io.vbytsyuk.dnd.core.money.gold
+import io.vbytsyuk.dnd.core.units.gold
 import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.MATRIAL
 import io.vbytsyuk.dnd.core.weapon.Weapon.Property.*
 import io.vbytsyuk.dnd.core.weapon.Weapon.RangeType.MELEE
-import io.vbytsyuk.dnd.core.weight.lb
+import io.vbytsyuk.dnd.core.units.lb
 
 data object Halberd : Weapon(
     rangeType = MELEE,

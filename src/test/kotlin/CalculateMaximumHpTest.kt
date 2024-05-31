@@ -1,5 +1,6 @@
 package io.vbytsyuk.dnd.core
 
+import io.vbytsyuk.dnd.core.units.Level
 import org.junit.jupiter.api.Test
 
 class CalculateMaximumHpTest : T<CalculateMaximumHpTest.Input, Hp> {

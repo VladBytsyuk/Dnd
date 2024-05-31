@@ -1,7 +1,7 @@
 package io.vbytsyuk.dnd.core.proficiencies
 
 import io.vbytsyuk.dnd.core.util.Checker
-import io.vbytsyuk.dnd.core.Level
+import io.vbytsyuk.dnd.core.units.Level
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatType
 import io.vbytsyuk.dnd.core.armor.Armor

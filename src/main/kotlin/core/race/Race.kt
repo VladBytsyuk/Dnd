@@ -1,8 +1,8 @@
 package io.vbytsyuk.dnd.core.race
 
-import io.vbytsyuk.dnd.core.Speed
+import io.vbytsyuk.dnd.core.units.Speed
 import io.vbytsyuk.dnd.core.StatBlock
-import io.vbytsyuk.dnd.core.sizie.Size
+import io.vbytsyuk.dnd.core.units.Size
 
 sealed class Race(
     val bonusStatBlock: StatBlock = StatBlock(),
