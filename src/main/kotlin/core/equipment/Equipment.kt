@@ -1,6 +1,8 @@
 package io.vbytsyuk.dnd.core.equipment
 
-interface Item
+interface Item {
+    val name: String
+}
 
 fun Item.equipped(count: Int = 1): Pair<Item, Equipment.Data> =
     this to Equipment.Data(count = count, isEquipped = true)
@@ -12,7 +14,9 @@ class Equipment(vararg items: Pair<Item, Equipment.Data>) : HashMap<Item, Equipm
 
     data class Data(val count: Int = 1, val isEquipped: Boolean)
 
-    override fun toString() = entries.joinToString { (item, data) ->
-        "$item${if (data.count == 1) "" else " (${data.count})"}${if (data.isEquipped) "*" else ""}"
-    }
+    override fun toString() = entries
+        .sortedByDescending { (_, data) -> data.isEquipped }
+        .joinToString { (item, data) ->
+            "${item.name}${if (data.count == 1) "" else " (${data.count})"}${if (data.isEquipped) "*" else ""}"
+        }
 }

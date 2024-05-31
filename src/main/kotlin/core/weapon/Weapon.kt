@@ -15,6 +15,8 @@ open class Weapon(
     val properties: List<Property> = emptyList(),
 ) : Item {
 
+    override val name = this::class.simpleName.orEmpty()
+
     enum class RangeType { MELEE, RANGED }
     enum class ProficiencyType { SIMPLE, MATRIAL }
 

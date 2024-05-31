@@ -12,12 +12,11 @@ import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.units.Level
 import io.vbytsyuk.dnd.core.weapon.Dagger
 import io.vbytsyuk.dnd.core.weapon.Dart
-import io.vbytsyuk.dnd.core.weapon.Weapon
 import io.vbytsyuk.dnd.sheet.Sheet
 import io.vbytsyuk.dnd.sheet.print
 
 fun main() {
-    val artur = Character(
+    val alice = Character(
         name = "Alice",
         race = Elf.High,
         `class` = Bard(
@@ -34,10 +33,11 @@ fun main() {
         level = Level(1),
         equipment = Equipment(
             Dagger.equipped(),
-            Dart.unequipped(count = 20),
+            Dart.equipped(count = 20),
+            PlateArmor.unequipped(),
         )
     )
-    val sheet = Sheet(character = artur, playerName = "Artem")
+    val sheet = Sheet(character = alice, playerName = "Alice")
     sheet.print()
 }
 

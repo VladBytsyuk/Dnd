@@ -17,6 +17,8 @@ open class Armor(
     val timeToRemove: Time,
 ) : Item {
 
+    override val name = this::class.simpleName.orEmpty()
+
     sealed class Type(val armorClass: StatValue) {
         abstract fun calculateAC(dexterityModifier: Modifier): StatValue
 
