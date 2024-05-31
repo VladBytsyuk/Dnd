@@ -5,7 +5,9 @@ import io.vbytsyuk.dnd.core.proficiencies.Mastery
 import io.vbytsyuk.dnd.core.proficiencies.calculateProficiencyBonus
 import io.vbytsyuk.dnd.core.race.Race
 import io.vbytsyuk.dnd.core.skills.Skill
+import io.vbytsyuk.dnd.core.units.Hp
 import io.vbytsyuk.dnd.core.units.Level
+import io.vbytsyuk.dnd.core.units.calculateMaximumHp
 
 data class Character(
     val name: String,
@@ -13,6 +15,7 @@ data class Character(
     val `class`: Class,
     val initialRawStatBlock: StatBlock,
     val level: Level,
+    val temporaryHp: Hp = Hp(0),
 ) {
 
     val statBlock: StatBlock = initialRawStatBlock +
@@ -23,6 +26,8 @@ data class Character(
         constitutionModifier = statBlock.modifier(StatType.CON),
         level = level,
     )
+
+    var hp: Hp = maxHp
 
     val proficiencyBonus: Modifier = calculateProficiencyBonus(level)
 

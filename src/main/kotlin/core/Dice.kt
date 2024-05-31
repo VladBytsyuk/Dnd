@@ -1,5 +1,7 @@
 package io.vbytsyuk.dnd.core
 
+import io.vbytsyuk.dnd.core.units.Hp
+
 sealed interface HpDice {
     val hpBase: Hp
     val hpIncrement: Hp

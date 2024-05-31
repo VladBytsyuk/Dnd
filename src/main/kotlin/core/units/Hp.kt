@@ -1,6 +1,7 @@
-package io.vbytsyuk.dnd.core
+package io.vbytsyuk.dnd.core.units
 
-import io.vbytsyuk.dnd.core.units.Level
+import io.vbytsyuk.dnd.core.HpDice
+import io.vbytsyuk.dnd.core.Modifier
 import kotlin.math.max
 
 @JvmInline
@@ -8,7 +9,15 @@ value class Hp(val value: Int) {
     init { require(value >= 0) }
     operator fun plus(other: Hp): Hp = Hp(this.value + other.value)
     operator fun plus(other: Int): Hp = Hp(this.value + other)
-    override fun toString() = "hp=$value"
+    override fun toString() = "${value}hp"
+
+    data class Range(val start: Hp, val end: Hp) {
+        init { require(start.value <= end.value) }
+
+        operator fun contains(hp: Hp) = hp.value in start.value..end.value
+    }
+
+    operator fun rangeTo(other: Hp) = Range(start = this, end = other)
 }
 
 fun calculateMaximumHp(

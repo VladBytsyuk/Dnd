@@ -46,8 +46,8 @@ enum class Size(
         space = 20.feet,
     ),
     COLOSSAL(
-        height = 64.feet..Int.MAX_VALUE.feet,
-        weight = 250_000.lb..Int.MAX_VALUE.lb,
+        height = 64.feet..MAX_DISTANCE,
+        weight = 250_000.lb..MAX_WEIGHT,
         space = 30.feet,
     );
 }

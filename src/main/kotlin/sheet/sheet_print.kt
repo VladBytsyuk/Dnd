@@ -1,10 +1,12 @@
 package io.vbytsyuk.dnd.sheet
 
 fun Sheet.print() = buildString {
+    val char = character
     appendLine("----------------------------------")
-    append("${character.name}, ")
-    appendLine("${character.race::class.simpleName} ${character.level} ${character.`class`::class.simpleName}")
-    appendLine("${character.statBlock}")
-    appendLine("${character.skills}")
-    appendLine("${character.savingThrows}")
+    append("${char.name}, ")
+    append("${char.race::class.simpleName} ${char.level} ${char.`class`::class.simpleName} ")
+    appendLine("${char.hp}${if (char.temporaryHp.value > 0) char.temporaryHp else ""}/${char.maxHp}")
+    appendLine("${char.statBlock}")
+    appendLine("${char.skills}")
+    appendLine("Saving throws: ${char.savingThrows}")
 }.let(::println)
