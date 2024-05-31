@@ -2,6 +2,7 @@ package io.vbytsyuk.dnd.core.armor
 
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatValue
+import io.vbytsyuk.dnd.core.equipment.Item
 import io.vbytsyuk.dnd.core.units.Coins
 import io.vbytsyuk.dnd.core.units.Time
 import io.vbytsyuk.dnd.core.units.Weight
@@ -14,7 +15,7 @@ open class Armor(
     val strengthRequirement: StatValue? = null,
     val timeToPutOn: Time,
     val timeToRemove: Time,
-) {
+) : Item {
 
     sealed class Type(val armorClass: StatValue) {
         abstract fun calculateAC(dexterityModifier: Modifier): StatValue

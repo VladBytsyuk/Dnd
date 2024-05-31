@@ -1,11 +1,18 @@
 package io.vbytsyuk.dnd
 
 import io.vbytsyuk.dnd.core.*
+import io.vbytsyuk.dnd.core.armor.PlateArmor
 import io.vbytsyuk.dnd.core.`class`.Bard
+import io.vbytsyuk.dnd.core.equipment.Equipment
+import io.vbytsyuk.dnd.core.equipment.equipped
+import io.vbytsyuk.dnd.core.equipment.unequipped
 import io.vbytsyuk.dnd.core.proficiencies.Skills3
 import io.vbytsyuk.dnd.core.race.*
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.units.Level
+import io.vbytsyuk.dnd.core.weapon.Dagger
+import io.vbytsyuk.dnd.core.weapon.Dart
+import io.vbytsyuk.dnd.core.weapon.Weapon
 import io.vbytsyuk.dnd.sheet.Sheet
 import io.vbytsyuk.dnd.sheet.print
 
@@ -25,6 +32,10 @@ fun main() {
             intelligence = 12, wisdom = 10, charisma = 15,
         ),
         level = Level(1),
+        equipment = Equipment(
+            Dagger.equipped(),
+            Dart.unequipped(count = 20),
+        )
     )
     val sheet = Sheet(character = artur, playerName = "Artem")
     sheet.print()

@@ -1,6 +1,7 @@
 package io.vbytsyuk.dnd.core
 
 import io.vbytsyuk.dnd.core.`class`.Class
+import io.vbytsyuk.dnd.core.equipment.Equipment
 import io.vbytsyuk.dnd.core.proficiencies.Mastery
 import io.vbytsyuk.dnd.core.proficiencies.calculateProficiencyBonus
 import io.vbytsyuk.dnd.core.race.Race
@@ -16,6 +17,7 @@ data class Character(
     val initialRawStatBlock: StatBlock,
     val level: Level,
     val temporaryHp: Hp = Hp(0),
+    val equipment: Equipment,
 ) {
 
     val statBlock: StatBlock = initialRawStatBlock +

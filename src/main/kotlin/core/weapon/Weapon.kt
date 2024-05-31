@@ -2,6 +2,7 @@ package io.vbytsyuk.dnd.core.weapon
 
 import io.vbytsyuk.dnd.core.units.Damage
 import io.vbytsyuk.dnd.core.Dice
+import io.vbytsyuk.dnd.core.equipment.Item
 import io.vbytsyuk.dnd.core.units.Coins
 import io.vbytsyuk.dnd.core.units.Weight
 
@@ -12,7 +13,7 @@ open class Weapon(
     val damage: Damage,
     val weight: Weight,
     val properties: List<Property> = emptyList(),
-) {
+) : Item {
 
     enum class RangeType { MELEE, RANGED }
     enum class ProficiencyType { SIMPLE, MATRIAL }
