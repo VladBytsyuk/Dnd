@@ -89,4 +89,6 @@ data class Character(
             else -> 10 + dexterityModifier.value
         }
     }
+
+    val initiative: Modifier get() = statBlock.modifier(StatType.DEX)
 }

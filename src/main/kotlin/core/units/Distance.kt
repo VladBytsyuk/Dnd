@@ -4,6 +4,8 @@ package io.vbytsyuk.dnd.core.units
 value class Distance(val inches: Int) {
     val feet: Double get() = inches / 12.0
 
+    override fun toString() = "${feet.toInt()} feet"
+
     data class Range(val start: Distance, val end: Distance) {
         init { require(start.inches <= end.inches) }
         
