@@ -80,4 +80,13 @@ data class Character(
             else -> modifierFromStatBlock
         }
     }
+
+    val armorClass: StatValue get() {
+        val dexterityModifier = statBlock.modifier(StatType.DEX)
+        val equippedArmor = equipment.equippedArmor.firstOrNull()
+        return when {
+            equippedArmor != null -> equippedArmor.type.calculateAC(dexterityModifier)
+            else -> 10 + dexterityModifier.value
+        }
+    }
 }

@@ -10,4 +10,5 @@ fun Sheet.print() = buildString {
     appendLine("${char.skills}")
     appendLine("Saving throws: ${char.savingThrows}")
     appendLine("Equipment: ${char.equipment}")
+    appendLine("AC: ${char.armorClass}")
 }.let(::println)

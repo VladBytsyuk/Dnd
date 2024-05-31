@@ -1,5 +1,7 @@
 package io.vbytsyuk.dnd.core.equipment
 
+import io.vbytsyuk.dnd.core.armor.Armor
+
 interface Item {
     val name: String
 }
@@ -19,4 +21,8 @@ class Equipment(vararg items: Pair<Item, Equipment.Data>) : HashMap<Item, Equipm
         .joinToString { (item, data) ->
             "${item.name}${if (data.count == 1) "" else " (${data.count})"}${if (data.isEquipped) "*" else ""}"
         }
+
+    val equippedArmor: List<Armor> get() = entries
+        .filter { (item, data) -> item is Armor && data.isEquipped }
+        .map { (item, _) -> item as Armor }
 }
