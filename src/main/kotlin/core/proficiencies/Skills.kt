@@ -6,6 +6,14 @@ interface Skills {
     val list: List<Skill>
 }
 
+data object Skills0 : Skills {
+    override val list = emptyList<Skill>()
+}
+
+data class Skills1(val skill: Skill) : Skills {
+    override val list = listOf(skill)
+}
+
 data class Skills2(
     val skill1: Skill,
     val skill2: Skill,

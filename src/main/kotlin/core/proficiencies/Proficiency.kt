@@ -10,15 +10,15 @@ import io.vbytsyuk.dnd.core.weapon.Weapon
 import kotlin.math.ceil
 
 data class Proficiencies(
-    val savingThrows: List<StatType>,
-    val skills: ProficiencySkills,
-    val weapons: Checker<Weapon>,
-    val armor: (arg: Armor) -> Unit,
+    val savingThrows: List<StatType> = emptyList(),
+    val skills: ProficiencySkills = ProficiencySkills(),
+    val weapons: Checker<Weapon> = Checker { false },
+    val armor: Checker<Armor> = Checker { false },
 )
 
 data class ProficiencySkills(
-    val allowed: List<Skill>,
-    val selected: Skills,
+    val allowed: List<Skill> = Skill.skills(),
+    val selected: Skills = Skills0,
 )
 
 fun calculateProficiencyBonus(level: Level): Modifier =

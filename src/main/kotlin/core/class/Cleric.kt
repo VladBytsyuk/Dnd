@@ -22,7 +22,7 @@ class Cleric(
             selected = proficientSkills,
         ),
         weapons = { it.proficiencyType == SIMPLE },
-        armor = {  it.type is Light || it.type is Medium || it.type is Shield },
+        armor = { it.type is Light || it.type is Medium || it.type is Shield },
     ),
 ) {
 

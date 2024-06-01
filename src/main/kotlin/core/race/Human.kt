@@ -2,6 +2,7 @@ package io.vbytsyuk.dnd.core.race
 
 import io.vbytsyuk.dnd.core.units.Speed
 import io.vbytsyuk.dnd.core.StatBlock
+import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.units.feet
 import io.vbytsyuk.dnd.core.units.Size
 
@@ -17,4 +18,5 @@ data object Human : Race(
     size = Size.MEDIUM,
     baseSpeed = Speed(30.feet),
     darkVision = null,
+    proficiencies = Proficiencies(),
 )
