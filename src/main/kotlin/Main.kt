@@ -2,6 +2,7 @@ package io.vbytsyuk.dnd
 
 import io.vbytsyuk.dnd.core.*
 import io.vbytsyuk.dnd.core.armor.PlateArmor
+import io.vbytsyuk.dnd.core.character.Character
 import io.vbytsyuk.dnd.core.`class`.Bard
 import io.vbytsyuk.dnd.core.equipment.Equipment
 import io.vbytsyuk.dnd.core.equipment.equipped
