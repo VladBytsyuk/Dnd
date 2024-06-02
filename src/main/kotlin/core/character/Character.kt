@@ -20,7 +20,7 @@ class Character(
     val statBlock: StatBlock = initialRawStatBlock +
             race.bonusStatBlock
 
-    val hpBlock: HpBlock = HpBlock(this)
+    var hpBlock: HpBlock = HpBlock(this)
 
     val proficiencyBonus: Modifier = calculateProficiencyBonus(level)
 }
