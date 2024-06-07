@@ -7,10 +7,9 @@ import io.vbytsyuk.dnd.core.units.MasteryModifier
 typealias SavingThrowsMap = Map<StatType, MasteryModifier>
 
 val Character.savingThrows: SavingThrowsMap get() = buildMap {
-    val proficientSavingThrowsList = `class`.proficiencies.savingThrows + race.proficiencies.savingThrows
     StatType.entries.forEach { stat ->
         val mastery = when {
-            stat in proficientSavingThrowsList -> PROFICIENT
+            stat in proficiencies.savingThrows -> PROFICIENT
             else -> NONE
         }
         val modifierFromStatBlock = statBlock.modifier(stat)
