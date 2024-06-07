@@ -1,14 +1,13 @@
 package io.vbytsyuk.dnd.core.race
 
-import io.vbytsyuk.dnd.core.units.Speed
 import io.vbytsyuk.dnd.core.StatBlock
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills1
 import io.vbytsyuk.dnd.core.skills.Skill
-import io.vbytsyuk.dnd.core.units.Distance
-import io.vbytsyuk.dnd.core.units.feet
-import io.vbytsyuk.dnd.core.units.Size
+import io.vbytsyuk.dnd.core.units.*
+import io.vbytsyuk.dnd.core.units.Language.COMMON
+import io.vbytsyuk.dnd.core.units.Language.ELVISH
 import io.vbytsyuk.dnd.core.util.Checker
 import io.vbytsyuk.dnd.core.weapon.*
 
@@ -25,6 +24,7 @@ sealed class Elf(
     proficiencies = Proficiencies(
         skills = ProficiencySkills(selected = Skills1(skill = Skill.Wisdom.Perception)),
         weapons = weaponProficiency,
+        languages = { it in listOf(COMMON, ELVISH) },
     )
 ) {
     data object High : Elf(

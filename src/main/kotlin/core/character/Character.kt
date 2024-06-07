@@ -4,6 +4,7 @@ import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatBlock
 import io.vbytsyuk.dnd.core.`class`.Class
 import io.vbytsyuk.dnd.core.equipment.Equipment
+import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.calculateProficiencyBonus
 import io.vbytsyuk.dnd.core.race.Race
 import io.vbytsyuk.dnd.core.units.Level
@@ -23,4 +24,6 @@ class Character(
     var hpBlock: HpBlock = HpBlock(this)
 
     val proficiencyBonus: Modifier = calculateProficiencyBonus(level)
+
+    val proficiencies: Proficiencies = race.proficiencies + `class`.proficiencies
 }

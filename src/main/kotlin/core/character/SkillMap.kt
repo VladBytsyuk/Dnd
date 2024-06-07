@@ -7,10 +7,9 @@ import io.vbytsyuk.dnd.core.units.MasteryModifier
 typealias SkillMap = Map<Skill, MasteryModifier>
 
 val Character.skills: SkillMap get() = buildMap {
-    val proficientSkillsList = `class`.proficiencies.skills.selected.list + race.proficiencies.skills.selected.list
     Skill.skills().forEach { skill ->
         val mastery = when {
-            skill in proficientSkillsList -> PROFICIENT
+            skill in proficiencies.skills -> PROFICIENT
             else -> NONE
         }
         val modifierFromStatBlock = statBlock.modifier(skill.originStatType)

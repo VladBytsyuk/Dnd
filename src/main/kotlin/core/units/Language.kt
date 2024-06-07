@@ -1,6 +1,6 @@
 package io.vbytsyuk.dnd.core.units
 
-enum class Languages(val script: Script) {
+enum class Language(val script: Script) {
     COMMON(script = Script.COMMON),
     DWARVISH(script = Script.DWARVISH),
     ELVISH(script = Script.ELVISH),

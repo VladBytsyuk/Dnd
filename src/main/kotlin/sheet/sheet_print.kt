@@ -4,6 +4,7 @@ import io.vbytsyuk.dnd.core.character.armorClass
 import io.vbytsyuk.dnd.core.character.initiative
 import io.vbytsyuk.dnd.core.character.savingThrows
 import io.vbytsyuk.dnd.core.character.skills
+import io.vbytsyuk.dnd.core.units.Language
 
 fun Sheet.print() = buildString {
     val char = character
@@ -14,6 +15,7 @@ fun Sheet.print() = buildString {
     appendLine("Proficiency: ${char.proficiencyBonus}")
     append("AC: ${char.armorClass}, Initiative: ${char.initiative}, Speed: ${char.race.baseSpeed}")
     appendLine(if (char.race.darkVision != null) ", Dark vision: ${char.race.darkVision}" else "")
+    appendLine("Languages: ${Language.entries.filter { char.proficiencies.languages.check(it) }}")
     appendLine("${char.statBlock}")
     appendLine("${char.skills}")
     appendLine("Saving throws: ${char.savingThrows}")
