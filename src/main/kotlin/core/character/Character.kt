@@ -7,12 +7,14 @@ import io.vbytsyuk.dnd.core.equipment.Equipment
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.calculateProficiencyBonus
 import io.vbytsyuk.dnd.core.race.Race
+import io.vbytsyuk.dnd.core.units.Alignment
 import io.vbytsyuk.dnd.core.units.Level
 
 class Character(
     val name: String,
     val race: Race,
     val `class`: Class,
+    val aliignment: Alignment,
     val initialRawStatBlock: StatBlock,
     val level: Level,
     val equipment: Equipment,

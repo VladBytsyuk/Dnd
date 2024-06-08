@@ -10,7 +10,10 @@ import io.vbytsyuk.dnd.core.equipment.unequipped
 import io.vbytsyuk.dnd.core.proficiencies.Skills3
 import io.vbytsyuk.dnd.core.race.*
 import io.vbytsyuk.dnd.core.skills.Skill
+import io.vbytsyuk.dnd.core.units.GoodVsEvil.GOOD
+import io.vbytsyuk.dnd.core.units.LawVsChaos.LAWFUL
 import io.vbytsyuk.dnd.core.units.Level
+import io.vbytsyuk.dnd.core.units.plus
 import io.vbytsyuk.dnd.core.weapon.Dagger
 import io.vbytsyuk.dnd.core.weapon.Dart
 import io.vbytsyuk.dnd.sheet.Sheet
@@ -27,6 +30,7 @@ fun main() {
                 Skill.Intelligence.History,
             ),
         ),
+        aliignment = LAWFUL + GOOD,
         initialRawStatBlock = StatBlock(
             strength = 8, dexterity = 14, constitution = 13,
             intelligence = 12, wisdom = 10, charisma = 15,
