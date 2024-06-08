@@ -6,6 +6,10 @@ interface Skills {
     val list: List<Skill>
 }
 
+fun Skills(vararg skill: Skill) = object : Skills {
+    override val list = skill.toList()
+}
+
 data object Skills0 : Skills {
     override val list = emptyList<Skill>()
 }
