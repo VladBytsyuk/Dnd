@@ -14,6 +14,7 @@ fun Sheet.print() = buildString {
     append("${char.hpBlock}, ")
     append("Proficiency: ${char.proficiencyBonus}, ")
     appendLine("Alignment = ${char.aliignment}")
+    appendLine("Background = ${char.background}")
     append("AC: ${char.armorClass}, Initiative: ${char.initiative}, Speed: ${char.race.baseSpeed}")
     appendLine(if (char.race.darkVision != null) ", Dark vision: ${char.race.darkVision}" else "")
     appendLine("Languages: ${Language.entries.filter { char.proficiencies.languages.check(it) }}")

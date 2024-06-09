@@ -1,5 +1,6 @@
 package io.vbytsyuk.dnd.core.tools
 
+import io.vbytsyuk.dnd.core.equipment.Item
 import io.vbytsyuk.dnd.core.units.Coins
 import io.vbytsyuk.dnd.core.units.Weight
 import io.vbytsyuk.dnd.core.units.gold
@@ -9,7 +10,9 @@ sealed class Tools(
     val cost: Coins,
     val weight: Weight,
     val description: String,
-)
+) : Item {
+    override val name = this::class.simpleName.toString()
+}
 
 data object ThievesTools : Tools(
     cost = 25.gold,

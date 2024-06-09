@@ -6,6 +6,7 @@ import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatType
 import io.vbytsyuk.dnd.core.armor.Armor
 import io.vbytsyuk.dnd.core.skills.Skill
+import io.vbytsyuk.dnd.core.tools.Tools
 import io.vbytsyuk.dnd.core.units.Language
 import io.vbytsyuk.dnd.core.weapon.Weapon
 import kotlin.math.ceil
@@ -15,6 +16,7 @@ class Proficiencies(
     val skills: List<Skill>,
     val weapons: Checker<Weapon> = Checker { false },
     val armor: Checker<Armor> = Checker { false },
+    val tools: Checker<Tools> = Checker { false },
     val languages: Checker<Language> = Checker { false }
 ) {
     constructor(
@@ -22,12 +24,14 @@ class Proficiencies(
         skills: ProficiencySkills = ProficiencySkills(),
         weapons: Checker<Weapon> = Checker { false },
         armor: Checker<Armor> = Checker { false },
+        tools: Checker<Tools> = Checker { false },
         languages: Checker<Language> = Checker { false }
     ) : this(
         savingThrows = savingThrows,
         skills = skills.selected.list,
         weapons = weapons,
         armor = armor,
+        tools = tools,
         languages = languages,
     )
 
@@ -36,6 +40,7 @@ class Proficiencies(
         skills = (this.skills + other.skills).distinct(),
         weapons = this.weapons + other.weapons,
         armor = this.armor + other.armor,
+        tools = this.tools + other.tools,
         languages = this.languages + other.languages,
     )
 }

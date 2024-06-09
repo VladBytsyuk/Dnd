@@ -2,6 +2,7 @@ package io.vbytsyuk.dnd.core.character
 
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatBlock
+import io.vbytsyuk.dnd.core.background.Background
 import io.vbytsyuk.dnd.core.`class`.Class
 import io.vbytsyuk.dnd.core.equipment.Equipment
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
@@ -15,6 +16,7 @@ class Character(
     val race: Race,
     val `class`: Class,
     val aliignment: Alignment,
+    val background: Background,
     val initialRawStatBlock: StatBlock,
     val level: Level,
     val equipment: Equipment,
@@ -27,5 +29,5 @@ class Character(
 
     val proficiencyBonus: Modifier = calculateProficiencyBonus(level)
 
-    val proficiencies: Proficiencies = race.proficiencies + `class`.proficiencies
+    val proficiencies: Proficiencies = race.proficiencies + `class`.proficiencies + background.proficiencies
 }

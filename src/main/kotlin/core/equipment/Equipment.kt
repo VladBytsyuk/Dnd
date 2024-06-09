@@ -6,6 +6,10 @@ interface Item {
     val name: String
 }
 
+fun Item(name: String): Item = object : Item {
+    override val name = name
+}
+
 fun Item.equipped(count: Int = 1): Pair<Item, Equipment.Data> =
     this to Equipment.Data(count = count, isEquipped = true)
 
