@@ -1,100 +1,97 @@
 package io.vbytsyuk.dnd.core.weapon
 
-import io.vbytsyuk.dnd.core.units.Damage
 import io.vbytsyuk.dnd.core.units.Damage.Type.*
 import io.vbytsyuk.dnd.core.Dice.*
-import io.vbytsyuk.dnd.core.units.gold
-import io.vbytsyuk.dnd.core.units.silver
+import io.vbytsyuk.dnd.core.units.*
 import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.SIMPLE
 import io.vbytsyuk.dnd.core.weapon.Weapon.Property.*
 import io.vbytsyuk.dnd.core.weapon.Weapon.RangeType.MELEE
-import io.vbytsyuk.dnd.core.units.lb
 
-data object Quarterstaff : Weapon(
-    rangeType = MELEE,
-    proficiencyType = SIMPLE,
-    cost = 2.silver,
-    damage = Damage(dice = D6, type = BLUDGEONING),
-    weight = 4.lb,
-    properties = listOf(Versatile(twoHandedDice = D8)),
-)
+data object Quarterstaff : Weapon {
+    override val rangeType = MELEE
+    override val proficiencyType = SIMPLE
+    override val cost = 2.silver
+    override val damage = 1.d6(BLUDGEONING)
+    override val weight = 4.lb
+    override val properties = setOf(Versatile(twoHandedDice = D8))
+}
 
-data object Mace : Weapon(
-    rangeType = MELEE,
-    proficiencyType = SIMPLE,
-    cost = 5.gold,
-    damage = Damage(dice = D6, type = BLUDGEONING),
-    weight = 4.lb,
-)
+data object Mace : Weapon {
+    override val rangeType = MELEE
+    override val proficiencyType = SIMPLE
+    override val cost = 5.gold
+    override val damage = 1.d6(BLUDGEONING)
+    override val weight = 4.lb
+}
 
-data object Club : Weapon(
-    rangeType = MELEE,
-    proficiencyType = SIMPLE,
-    cost = 1.silver,
-    damage = Damage(dice = D4, type = BLUDGEONING),
-    weight = 2.lb,
-    properties = listOf(Light)
-)
+data object Club : Weapon {
+    override val rangeType = MELEE
+    override val proficiencyType = SIMPLE
+    override val cost = 1.silver
+    override val damage = 1.d4(BLUDGEONING)
+    override val weight = 2.lb
+    override val properties = setOf(Light)
+}
 
-data object Dagger : Weapon(
-    rangeType = MELEE,
-    proficiencyType = SIMPLE,
-    cost = 2.gold,
-    damage = Damage(dice = D4, type = PIERCING),
-    weight = 1.lb,
-    properties = listOf(Light, Finesse, Thrown(shortRange = 20, longRange = 60)),
-)
+data object Dagger : Weapon {
+    override val rangeType = MELEE
+    override val proficiencyType = SIMPLE
+    override val cost = 2.gold
+    override val damage = 1.d4(PIERCING)
+    override val weight = 1.lb
+    override val properties = setOf(Light, Finesse, Thrown(shortRange = 20, longRange = 60))
+}
 
-data object Spear : Weapon(
-    rangeType = MELEE,
-    proficiencyType = SIMPLE,
-    cost = 1.gold,
-    damage = Damage(dice = D6, type = PIERCING),
-    weight = 3.lb,
-    properties = listOf(Thrown(shortRange = 20, longRange = 60), Versatile(twoHandedDice = D8)),
-)
+data object Spear : Weapon {
+    override val rangeType = MELEE
+    override val proficiencyType = SIMPLE
+    override val cost = 1.gold
+    override val damage = 1.d6(PIERCING)
+    override val weight = 3.lb
+    override val properties = setOf(Thrown(shortRange = 20, longRange = 60), Versatile(twoHandedDice = D8))
+}
 
-data object LightHammer : Weapon(
-    rangeType = MELEE,
-    proficiencyType = SIMPLE,
-    cost = 2.gold,
-    damage = Damage(dice = D4, type = BLUDGEONING),
-    weight = 2.lb,
-    properties = listOf(Light, Thrown(shortRange = 20, longRange = 60)),
-)
+data object LightHammer : Weapon {
+    override val rangeType = MELEE
+    override val proficiencyType = SIMPLE
+    override val cost = 2.gold
+    override val damage = 1.d4(BLUDGEONING)
+    override val weight = 2.lb
+    override val properties = setOf(Light, Thrown(shortRange = 20, longRange = 60))
+}
 
-data object Javelin : Weapon(
-    rangeType = MELEE,
-    proficiencyType = SIMPLE,
-    cost = 5.silver,
-    damage = Damage(dice = D6, type = PIERCING),
-    weight = 2.lb,
-    properties = listOf(Thrown(shortRange = 30, longRange = 120)),
-)
+data object Javelin : Weapon {
+    override val rangeType = MELEE
+    override val proficiencyType = SIMPLE
+    override val cost = 5.silver
+    override val damage = 1.d6(PIERCING)
+    override val weight = 2.lb
+    override val properties = setOf(Thrown(shortRange = 30, longRange = 120))
+}
 
-data object Greatclub : Weapon(
-    rangeType = MELEE,
-    proficiencyType = SIMPLE,
-    cost = 2.silver,
-    damage = Damage(dice = D8, type = BLUDGEONING),
-    weight = 10.lb,
-    properties = listOf(TwoHanded),
-)
+data object Greatclub : Weapon {
+    override val rangeType = MELEE
+    override val proficiencyType = SIMPLE
+    override val cost = 2.silver
+    override val damage = 1.d8(BLUDGEONING)
+    override val weight = 10.lb
+    override val properties = setOf(TwoHanded)
+}
 
-data object Handaxe : Weapon(
-    rangeType = MELEE,
-    proficiencyType = SIMPLE,
-    cost = 5.gold,
-    damage = Damage(dice = D6, type = SLASHING),
-    weight = 2.lb,
-    properties = listOf(Light, Thrown(shortRange = 20, longRange = 60)),
-)
+data object Handaxe : Weapon {
+    override val rangeType = MELEE
+    override val proficiencyType = SIMPLE
+    override val cost = 5.gold
+    override val damage = 1.d6(SLASHING)
+    override val weight = 2.lb
+    override val properties = setOf(Light, Thrown(shortRange = 20, longRange = 60))
+}
 
-data object Sickle : Weapon(
-    rangeType = MELEE,
-    proficiencyType = SIMPLE,
-    cost = 1.gold,
-    damage = Damage(dice = D4, type = SLASHING),
-    weight = 2.lb,
-    properties = listOf(Light),
-)
+data object Sickle : Weapon {
+    override val rangeType = MELEE
+    override val proficiencyType = SIMPLE
+    override val cost = 1.gold
+    override val damage = 1.d4(SLASHING)
+    override val weight = 2.lb
+    override val properties = setOf(Light)
+}

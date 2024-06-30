@@ -6,16 +6,16 @@ import io.vbytsyuk.dnd.core.equipment.Item
 import io.vbytsyuk.dnd.core.units.Coins
 import io.vbytsyuk.dnd.core.units.Weight
 
-open class Weapon(
-    val rangeType: RangeType,
-    val proficiencyType: ProficiencyType,
-    val cost: Coins,
-    val damage: Damage,
-    val weight: Weight,
-    val properties: List<Property> = emptyList(),
-) : Item {
+interface Weapon : Item {
 
-    override val name = this::class.simpleName.orEmpty()
+    val rangeType: RangeType
+    val proficiencyType: ProficiencyType
+    val cost: Coins
+    val damage: Damage
+    val weight: Weight
+    val properties: Set<Property> get() = emptySet()
+
+    override val name get() = this::class.simpleName.orEmpty()
 
     enum class RangeType { MELEE, RANGED }
     enum class ProficiencyType { SIMPLE, MATRIAL }
