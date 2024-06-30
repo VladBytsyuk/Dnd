@@ -1,7 +1,8 @@
 package io.vbytsyuk.dnd.core.`class`
 
 import io.vbytsyuk.dnd.core.Dice
-import io.vbytsyuk.dnd.core.StatType
+import io.vbytsyuk.dnd.core.StatType.DEX
+import io.vbytsyuk.dnd.core.StatType.INT
 import io.vbytsyuk.dnd.core.armor.Armor.Type.Light
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
@@ -16,18 +17,18 @@ import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.SIMPLE
 
 class Rogue(
     proficientSkills: Skills4,
-) : Class(
-    hpDice = Dice.D8,
-    proficiencies = Proficiencies(
-        savingThrows = listOf(StatType.DEX, StatType.INT),
+) : Class {
+
+    override val hpDice = Dice.D8
+    override val proficiencies = Proficiencies(
+        savingThrows = listOf(DEX, INT),
         skills = ProficiencySkills(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
         weapons = { it.proficiencyType == SIMPLE || it in setOf(HandCrossbow, Longsword, Rapier, Shortsword) },
         armor = { it.type is Light }
-    ),
-) {
+    )
 
     companion object {
         val allowedProficientSkills = listOf(

@@ -1,7 +1,8 @@
 package io.vbytsyuk.dnd.core.`class`
 
 import io.vbytsyuk.dnd.core.Dice
-import io.vbytsyuk.dnd.core.StatType
+import io.vbytsyuk.dnd.core.StatType.DEX
+import io.vbytsyuk.dnd.core.StatType.STR
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills2
@@ -14,18 +15,17 @@ import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.SIMPLE
 
 class Monk(
     proficientSkills: Skills2,
-) : Class(
-    hpDice = Dice.D8,
-    proficiencies = Proficiencies(
-        savingThrows = listOf(StatType.STR, StatType.DEX),
+) : Class {
+
+    override val hpDice = Dice.D8
+    override val proficiencies = Proficiencies(
+        savingThrows = listOf(STR, DEX),
         skills = ProficiencySkills(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
         weapons = { it.proficiencyType == SIMPLE || it == Shortsword },
-        armor = { false },
-    ),
-) {
+    )
 
     companion object {
         val allowedProficientSkills = listOf(

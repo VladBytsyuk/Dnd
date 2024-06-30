@@ -1,7 +1,8 @@
 package io.vbytsyuk.dnd.core.`class`
 
 import io.vbytsyuk.dnd.core.Dice
-import io.vbytsyuk.dnd.core.StatType
+import io.vbytsyuk.dnd.core.StatType.INT
+import io.vbytsyuk.dnd.core.StatType.WIS
 import io.vbytsyuk.dnd.core.armor.Armor.Type.*
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
@@ -12,18 +13,18 @@ import io.vbytsyuk.dnd.core.weapon.*
 
 class Druid(
     proficientSkills: Skills2,
-) : Class(
-    hpDice = Dice.D8,
-    proficiencies = Proficiencies(
-        savingThrows = listOf(StatType.INT, StatType.WIS),
+) : Class {
+
+    override val hpDice = Dice.D8
+    override val proficiencies = Proficiencies(
+        savingThrows = listOf(INT, WIS),
         skills = ProficiencySkills(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
         weapons = { it in setOf(Quarterstaff, Mace, Dart, Club, Dagger, Spear, Javelin, Sling, Sickle, Scimitar) },
         armor = { it.type is Light || it.type is Medium || it.type is Shield }
-    ),
-) {
+    )
 
     companion object {
         val allowedProficientSkills = listOf(

@@ -8,6 +8,9 @@ sealed interface HpDice {
 }
 
 sealed class Dice(val maxValue: Int) {
+
+    val valuesRange: IntRange = 1..maxValue
+
     data object D4 : Dice(maxValue = 4) {
         override fun toString() = "d4"
     }

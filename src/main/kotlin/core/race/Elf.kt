@@ -12,21 +12,21 @@ import io.vbytsyuk.dnd.core.util.Checker
 import io.vbytsyuk.dnd.core.weapon.*
 
 sealed class Elf(
-    bonusStatBlock: StatBlock,
+    override val bonusStatBlock: StatBlock,
     baseSpeed: Speed? = null,
     darkVision: Distance? = null,
     weaponProficiency: Checker<Weapon>,
-) : Race(
-    bonusStatBlock = bonusStatBlock,
-    size = Size.MEDIUM,
-    baseSpeed = baseSpeed ?: Speed(30.feet),
-    darkVision = darkVision ?: 60.feet,
-    proficiencies = Proficiencies(
+) : Race {
+
+    override val size = Size.MEDIUM
+    override val baseSpeed = baseSpeed ?: Speed(30.feet)
+    override val darkVision = darkVision ?: 60.feet
+    override val proficiencies = Proficiencies(
         skills = ProficiencySkills(selected = Skills1(skill = Skill.Wisdom.Perception)),
         weapons = weaponProficiency,
         languages = { it in listOf(COMMON, ELVISH) },
     )
-) {
+
     data object High : Elf(
         bonusStatBlock = StatBlock(dexterity = 2, intelligence = 1),
         weaponProficiency = Checker { it in setOf(Longsword, Shortsword, Longbow, Shortbow) },

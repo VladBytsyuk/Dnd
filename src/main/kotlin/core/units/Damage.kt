@@ -8,5 +8,18 @@ data class Damage(
     val type: Type,
 ) {
 
-    enum class Type { BLUDGEONING, PIERCING, SLASHING }
+    enum class Type {
+        BLUDGEONING,
+        PIERCING,
+        SLASHING,
+        ACID,
+        COLD,
+        FIRE,
+        FORCE,
+        LIGHTNING,
+        POISON,
+        PSYCHIC,
+        RADIANT,
+        THUNDER;
+    }
 }

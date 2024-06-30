@@ -17,16 +17,16 @@ data class HalfElf(
     val chosenStat2: StatType,
     val chosenSkills: Skills2,
     val chosenLanguage: Language,
-) : Race(
-    bonusStatBlock = StatBlock(charisma = 2).applyChosenStats(chosenStat1, chosenStat2),
-    size = Size.MEDIUM,
-    baseSpeed = Speed(30.feet),
-    darkVision = 60.feet,
-    proficiencies = Proficiencies(
+) : Race {
+
+    override val bonusStatBlock = StatBlock(charisma = 2).applyChosenStats(chosenStat1, chosenStat2)
+    override val size = Size.MEDIUM
+    override val baseSpeed = Speed(30.feet)
+    override val darkVision = 60.feet
+    override val proficiencies = Proficiencies(
         skills = ProficiencySkills(selected = chosenSkills),
         languages = { it in listOf(COMMON, ELVISH, chosenLanguage) }
-    ),
-) {
+    )
 
     init { requireUniqueChosenLanguage() }
 

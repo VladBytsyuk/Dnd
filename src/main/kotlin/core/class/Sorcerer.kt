@@ -1,7 +1,8 @@
 package io.vbytsyuk.dnd.core.`class`
 
 import io.vbytsyuk.dnd.core.Dice
-import io.vbytsyuk.dnd.core.StatType
+import io.vbytsyuk.dnd.core.StatType.CHA
+import io.vbytsyuk.dnd.core.StatType.CON
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills2
@@ -12,18 +13,17 @@ import io.vbytsyuk.dnd.core.weapon.*
 
 class Sorcerer(
     proficientSkills: Skills2,
-) : Class(
-    hpDice = Dice.D6,
-    proficiencies = Proficiencies(
-        savingThrows = listOf(StatType.CON, StatType.CHA),
+) : Class {
+
+    override val hpDice = Dice.D6
+    override val proficiencies = Proficiencies(
+        savingThrows = listOf(CON, CHA),
         skills = ProficiencySkills(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
         weapons = { it in setOf(Quarterstaff, Dart, Dagger, LightCrossbow, Sling) },
-        armor = { false },
-    ),
-) {
+    )
 
     companion object {
         val allowedProficientSkills = listOf(

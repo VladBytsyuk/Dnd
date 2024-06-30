@@ -4,20 +4,21 @@ import io.vbytsyuk.dnd.core.units.Speed
 import io.vbytsyuk.dnd.core.StatBlock
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
-import io.vbytsyuk.dnd.core.proficiencies.Skills1
-import io.vbytsyuk.dnd.core.skills.Skill
+import io.vbytsyuk.dnd.core.proficiencies.Skills
+import io.vbytsyuk.dnd.core.skills.Skill.Charisma.Intimidation
 import io.vbytsyuk.dnd.core.units.Language.COMMON
 import io.vbytsyuk.dnd.core.units.Language.ORC
 import io.vbytsyuk.dnd.core.units.feet
 import io.vbytsyuk.dnd.core.units.Size
 
-data object HalfOrc : Race(
-    bonusStatBlock = StatBlock(strength = 2, constitution = 1),
-    size = Size.MEDIUM,
-    baseSpeed = Speed(30.feet),
-    darkVision = 60.feet,
-    proficiencies = Proficiencies(
-        skills = ProficiencySkills(selected = Skills1(Skill.Charisma.Intimidation)),
+data object HalfOrc : Race {
+
+    override val bonusStatBlock = StatBlock(strength = 2, constitution = 1)
+    override val size = Size.MEDIUM
+    override val baseSpeed = Speed(30.feet)
+    override val darkVision = 60.feet
+    override val proficiencies = Proficiencies(
+        skills = ProficiencySkills(selected = Skills(Intimidation)),
         languages = { it in listOf(COMMON, ORC) }
-    ),
-)
+    )
+}

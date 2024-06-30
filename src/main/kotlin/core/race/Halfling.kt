@@ -9,16 +9,16 @@ import io.vbytsyuk.dnd.core.units.feet
 import io.vbytsyuk.dnd.core.units.Size
 
 sealed class Halfling(
-    bonusStatBlock: StatBlock,
-) : Race(
-    bonusStatBlock = bonusStatBlock,
-    size = Size.SMALL,
-    baseSpeed = Speed(25.feet),
-    darkVision = null,
-    proficiencies = Proficiencies(
+    override val bonusStatBlock: StatBlock,
+) : Race {
+
+    override val size = Size.SMALL
+    override val baseSpeed = Speed(25.feet)
+    override val darkVision = null
+    override val proficiencies = Proficiencies(
         languages = { it in listOf(COMMON, HALFLING) },
-    ),
-) {
+    )
+
     data object Stout : Halfling(bonusStatBlock = StatBlock(dexterity = 2, constitution = 1))
     data object Lightfoot : Halfling(bonusStatBlock = StatBlock(dexterity = 2, charisma = 1))
 }

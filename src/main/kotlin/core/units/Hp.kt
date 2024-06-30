@@ -31,11 +31,13 @@ fun calculateMaximumHp(
     hpDice: HpDice,
     constitutionModifier: Modifier,
     level: Level,
+    traits: List<Trait>,
 ) = calculateMaximumHp(
     hpBase = hpDice.hpBase,
     hpIncrement = hpDice.hpIncrement,
     constitutionModifier = constitutionModifier,
-    level = level
+    level = level,
+    traits = traits,
 )
 
 fun calculateMaximumHp(
@@ -43,6 +45,7 @@ fun calculateMaximumHp(
     hpIncrement: Hp,
     constitutionModifier: Modifier,
     level: Level,
+    traits: List<Trait>,
 ): Hp {
     val hpOn1stLevel = hpBase + constitutionModifier.value
     if (level.value == 1) return hpOn1stLevel
@@ -51,5 +54,10 @@ fun calculateMaximumHp(
     for (i in 2..level.value) {
         hp += hpIncrement + max(constitutionModifier.value, 1) * (i - 1)
     }
+
+    traits.filterWithHpForLevelAffect().forEach { trait ->
+        hp += trait.affect.hpForLevel * level.value
+    }
+
     return hp
 }

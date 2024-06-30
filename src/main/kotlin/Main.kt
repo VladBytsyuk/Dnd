@@ -13,6 +13,7 @@ import io.vbytsyuk.dnd.core.race.*
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.tools.Flute
 import io.vbytsyuk.dnd.core.units.GoodVsEvil.GOOD
+import io.vbytsyuk.dnd.core.units.Language
 import io.vbytsyuk.dnd.core.units.LawVsChaos.LAWFUL
 import io.vbytsyuk.dnd.core.units.Level
 import io.vbytsyuk.dnd.core.units.plus
@@ -24,7 +25,9 @@ import io.vbytsyuk.dnd.sheet.print
 fun main() {
     val alice = Character(
         name = "Alice",
-        race = Elf.High,
+        race = Human(
+            chosenLanguage = Language.DWARVISH,
+        ),
         `class` = Bard(
             proficientSkills = Skills3(
                 Skill.Charisma.Intimidation,
@@ -36,7 +39,7 @@ fun main() {
             musicalInstrument = Flute,
             routine = Entertainer.Routine.INSTRUMENTALIST,
         ),
-        aliignment = LAWFUL + GOOD,
+        alignment = LAWFUL + GOOD,
         initialRawStatBlock = StatBlock(
             strength = 8, dexterity = 14, constitution = 13,
             intelligence = 12, wisdom = 10, charisma = 15,
@@ -50,5 +53,6 @@ fun main() {
     )
     val sheet = Sheet(character = alice, playerName = "Alice")
     sheet.print()
+    println(alice.rollSkillCheck(Skill.Charisma.Performance))
 }
 

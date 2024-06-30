@@ -57,6 +57,7 @@ class CalculateMaximumHpTest : T<CalculateMaximumHpTest.Input, Hp> {
         hpIncrement = input.hpIncrement,
         constitutionModifier = input.constitutionModifier,
         level = input.level,
+        traits = emptyList(),
     )
 
     @Test

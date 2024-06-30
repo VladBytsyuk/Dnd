@@ -10,22 +10,21 @@ import io.vbytsyuk.dnd.core.units.Size
 
 data class Human(
     val chosenLanguage: Language,
-) : Race(
-    bonusStatBlock = StatBlock(
+) : Race {
+
+    override val bonusStatBlock = StatBlock(
         strength = 1,
         dexterity = 1,
         constitution = 1,
         intelligence = 1,
         wisdom = 1,
         charisma = 1,
-    ),
-    size = Size.MEDIUM,
-    baseSpeed = Speed(30.feet),
-    darkVision = null,
-    proficiencies = Proficiencies(
+    )
+    override val size = Size.MEDIUM
+    override val baseSpeed = Speed(30.feet)
+    override val proficiencies = Proficiencies(
         languages = { it in listOf(COMMON, chosenLanguage) }
-    ),
-) {
+    )
 
     init { requireUniqueChosenLanguage() }
 

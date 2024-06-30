@@ -9,16 +9,16 @@ import io.vbytsyuk.dnd.core.units.feet
 import io.vbytsyuk.dnd.core.units.Size
 
 sealed class Tiefling(
-    bonusStatBlock: StatBlock,
-) : Race(
-    bonusStatBlock = bonusStatBlock,
-    size = Size.MEDIUM,
-    baseSpeed = Speed(30.feet),
-    darkVision = 60.feet,
-    proficiencies = Proficiencies(
+    override val bonusStatBlock: StatBlock,
+) : Race {
+
+    override val size = Size.MEDIUM
+    override val baseSpeed = Speed(30.feet)
+    override val darkVision = 60.feet
+    override val proficiencies = Proficiencies(
         languages = { it in listOf(COMMON, INFERNAL) },
-    ),
-) {
+    )
+
     data object Asmodeus : Tiefling(bonusStatBlock = StatBlock(charisma = 2, intelligence = 1))
     data object Baalzebul : Tiefling(bonusStatBlock = StatBlock(charisma = 2, intelligence = 1))
     data object Dispater : Tiefling(bonusStatBlock = StatBlock(charisma = 2, dexterity = 1))

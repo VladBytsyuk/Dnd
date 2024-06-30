@@ -41,4 +41,5 @@ val Character.maxHp: Hp get() = calculateMaximumHp(
     hpDice = `class`.hpDice,
     constitutionModifier = statBlock.modifier(StatType.CON),
     level = level,
+    traits = traits,
 )
