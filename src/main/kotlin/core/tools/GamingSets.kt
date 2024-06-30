@@ -1,17 +1,21 @@
 package io.vbytsyuk.dnd.core.tools
 
-import io.vbytsyuk.dnd.core.units.Coins
 import io.vbytsyuk.dnd.core.units.lb
 import io.vbytsyuk.dnd.core.units.silver
 
-sealed class GamingSet(cost: Coins) : Tools(
-    cost = cost,
-    weight = 0.lb,
-    description = """
+interface GamingSet: Tools {
+
+    override val weight get() = 0.lb
+    override val description get() = """
         If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to 
         play a game with that set. Each type of gaming set requires a separate proficiency.
-    """.trimIndent(),
-)
+    """.trimIndent()
+}
 
-data object DiceSet : GamingSet(cost = 1.silver)
-data object PlayingCardSet : GamingSet(cost = 5.silver)
+data object DiceSet : GamingSet {
+    override val cost = 1.silver
+}
+
+data object PlayingCardSet : GamingSet {
+    override val cost = 5.silver
+}
