@@ -6,14 +6,14 @@ import io.vbytsyuk.dnd.core.units.Coins
 import io.vbytsyuk.dnd.core.units.GoodVsEvil
 import io.vbytsyuk.dnd.core.units.LawVsChaos
 
-sealed class Background(
-    val description: String,
-    val proficiencies: Proficiencies,
-    val startCoins: Coins,
-    val equipment: Equipment,
-    val features: List<Feature> = emptyList(),
-    val suggestedCharacteristics: SuggestedCharacteristics,
-) {
+interface Background {
+
+    val description: String
+    val proficiencies: Proficiencies
+    val startCoins: Coins
+    val equipment: Equipment
+    val features: List<Feature> get() = emptyList()
+    val suggestedCharacteristics: SuggestedCharacteristics
 
     data class Feature(
         val name: String,

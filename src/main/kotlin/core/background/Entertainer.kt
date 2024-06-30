@@ -20,27 +20,27 @@ import io.vbytsyuk.dnd.core.weapon.Weapon
 data class Entertainer(
     val musicalInstrument: MusicalInstrument,
     val routine: Routine = Routine.entries.random(),
-) : Background(
-    description = """
+) : Background {
+
+    override val description = """
         You thrive in front of an audience. You know how to entrance them, entertain them, and even inspire them. 
         Your poetics can stir the hearts of those who hear you, awakening grief or joy, laughter or anger. Your music 
         raises their spirits or captures their sorrow. Your dance steps captivate, your humor cuts to the quick. 
         Whatever techniques you use, your art is your life.
-    """.trimIndent(),
-    proficiencies = Proficiencies(
+    """.trimIndent()
+    override val proficiencies = Proficiencies(
         skills = entertainerSkills.list,
         tools = { it is DisguiseKit || it == musicalInstrument },
-    ),
-    startCoins = 15.gold,
-    equipment = Equipment(
+    )
+    override val startCoins = 15.gold
+    override val equipment = Equipment(
         musicalInstrument.unequipped(),
         Item("the favor of an admirer (love letter, lock of hair, or trinket)").unequipped(),
         Item("costume clothes").unequipped(),
         Item("a pouch").unequipped(),
-    ),
-    features = listOf(featureByPopularDemand),
-    suggestedCharacteristics = entertainerSuggestedCharacteristics,
-) {
+    )
+    override val features = listOf(ByPopularDemand)
+    override val suggestedCharacteristics = entertainerSuggestedCharacteristics
 
     enum class Routine {
         ACTOR, DANCER, FIRE_EATER, JESTER, JUGGLER, INSTRUMENTALIST, POET, SINGER, STORYTELLER, TUMBLER;
@@ -50,34 +50,36 @@ data class Entertainer(
 
 data class Gladiator(
     val weapon: Weapon,
-) : Background(
-    description = """
+) : Background {
+
+
+    override val description = """
         A gladiator is as much an entertainer as any minstrel or circus performer, trained to make the arts of combat 
         into a spectacle the crowd can enjoy. This kind of flashy combat is your entertainer routine, though you might 
         also have some skills as a tumbler or actor. Using your By Popular Demand feature, you can find a place to 
         perform in any place that features combat for entertainment — perhaps a gladiatorial arena or secret pit 
         fighting club. You can replace the musical instrument in your equipment package with an inexpensive but unusual 
         weapon, such as a trident or net.
-    """.trimIndent(),
-    proficiencies = Proficiencies(
+    """.trimIndent()
+    override val proficiencies = Proficiencies(
         skills = entertainerSkills.list,
         weapons = { it == weapon },
         tools = { it is DisguiseKit },
-    ),
-    equipment = Equipment(
+    )
+    override val equipment = Equipment(
         weapon.equipped(),
         Item("the favor of an admirer (love letter, lock of hair, or trinket)").unequipped(),
         Item("costume clothes").unequipped(),
         Item("a pouch").unequipped(),
-    ),
-    startCoins = 15.gold,
-    features = listOf(featureByPopularDemand),
-    suggestedCharacteristics = entertainerSuggestedCharacteristics,
-)
+    )
+    override val startCoins = 15.gold
+    override val features = listOf(ByPopularDemand)
+    override val suggestedCharacteristics = entertainerSuggestedCharacteristics
+}
 
 private val entertainerSkills = Skills(Skill.Dexterity.Acrobatics, Skill.Charisma.Performance)
 
-private val featureByPopularDemand = Feature(
+private val ByPopularDemand = Feature(
     name = "By Popular Demand",
     description = """
         You can always find a place to perform, usually in an inn or tavern but possibly with a circus, at a 

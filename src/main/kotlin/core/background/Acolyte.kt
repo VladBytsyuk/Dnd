@@ -1,5 +1,6 @@
 package io.vbytsyuk.dnd.core.background
 
+import io.vbytsyuk.dnd.core.background.Background.Statement
 import io.vbytsyuk.dnd.core.equipment.Equipment
 import io.vbytsyuk.dnd.core.equipment.Item
 import io.vbytsyuk.dnd.core.equipment.equipped
@@ -16,8 +17,9 @@ import io.vbytsyuk.dnd.core.units.gold
 class Acolyte(
     language1: Language,
     language2: Language,
-) : Background(
-    description = """
+) : Background {
+
+    override val description = """
         You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an 
         intermediary between the realm of the holy and the mortal world, performing sacred rites and offering 
         sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric — 
@@ -28,22 +30,22 @@ class Acolyte(
         temple, raised from childhood to assist the priests in the sacred rites? Or were you a high priest who suddenly 
         experienced a call to serve your god in a different way? Perhaps you were the leader of a small cult outside of 
         any established temple structure, or even an occult group that served a fiendish master that you now deny.
-    """.trimIndent(),
-    proficiencies = Proficiencies(
+    """.trimIndent()
+    override val proficiencies = Proficiencies(
         skills = Skills(Skill.Wisdom.Insight, Skill.Intelligence.Religion).list,
         languages = { it == language1 || it == language2 },
-    ),
-    equipment = Equipment(
+    )
+    override val equipment = Equipment(
         Item("A holy symbol (a gift to you when you entered the priesthood)").equipped(),
         Item("A prayer book or prayer wheel").unequipped(),
         Item("Stick of incense").unequipped(count = 5),
         Item("Vestments").unequipped(),
         Item("A set of common clothes").unequipped(),
         Item("A pouch").unequipped(),
-    ),
-    startCoins = 15.gold,
-    features = listOf(
-        Feature(
+    )
+    override val startCoins = 15.gold
+    override val features = listOf(
+        Background.Feature(
             name = "Shelter of the Faithful",
             description = """
                 As an acolyte, you command the respect of those who share your faith, and you can perform the religious 
@@ -59,8 +61,8 @@ class Acolyte(
                 with your temple.
             """.trimIndent(),
         ),
-    ),
-    suggestedCharacteristics = SuggestedCharacteristics(
+    )
+    override val suggestedCharacteristics = Background.SuggestedCharacteristics(
         description = """
             Acolytes are shaped by their experience in temples or other religious communities. Their study of the 
             history and tenets of their faith and their relationships to temples, shrines, or hierarchies affect their 
@@ -102,6 +104,6 @@ class Acolyte(
             Statement("Once I pick a goal, I become obsessed with it to the detriment of everything else in my life."),
         ),
     )
-) {
+
     init { require(language1 != language2) }
 }
