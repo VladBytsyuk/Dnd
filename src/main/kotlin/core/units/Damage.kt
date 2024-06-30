@@ -4,7 +4,7 @@ import io.vbytsyuk.dnd.core.Dice
 
 data class Damage(
     val amount: Int = 1,
-    val dice: Dice? = null,
+    val dice: Dice,
     val type: Type,
 ) {
 

@@ -8,7 +8,10 @@ import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.calculateProficiencyBonus
 import io.vbytsyuk.dnd.core.race.Race
 import io.vbytsyuk.dnd.core.skills.Skill
+import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.Perception
 import io.vbytsyuk.dnd.core.units.*
+import io.vbytsyuk.dnd.core.weapon.Weapon
+import io.vbytsyuk.dnd.core.weapon.Weapon.RangeType.RANGED
 
 class Character(
     val name: String,
@@ -34,9 +37,8 @@ class Character(
 
     val proficiencies: Proficiencies = race.proficiencies + `class`.proficiencies + background.proficiencies
 
-    val passivePerception: StatValue = 10 +
-            statBlock.modifier(StatType.WIS).value +
-            (proficiencyBonus.value.takeIf { Skill.Wisdom.Perception in proficiencies.skills } ?: 0)
+    val passivePerception: StatValue = 10 + statBlock.modifier(StatType.WIS).value +
+            proficiencyBonus.takeModifierIf { Perception in proficiencies.skills }.value
 
     val traits: List<Trait> get() = race.traits
 
@@ -54,5 +56,20 @@ class Character(
         return rolledValue to traits
     }
 
-
+    fun rollAttack(weapon: Weapon): Triple<Int, Pair<Hp, Damage.Type>, List<Trait>> {
+        require(equipment[weapon]?.isEquipped == true)
+        val strModifier = statBlock.modifier(StatType.STR)
+        val dexModifier = statBlock.modifier(StatType.DEX)
+        val rawAttackModifier = when {
+            weapon.rangeType == RANGED || weapon.isFinesse && dexModifier > strModifier -> dexModifier
+            else -> strModifier
+        }
+        val isProficient = proficiencies.weapons.check(weapon)
+        val attackModifier = rawAttackModifier + proficiencyBonus.takeModifierIf { isProficient }
+        val attackRolledValue = Dice.D20.valuesRange.random() + attackModifier.value
+        val damage = (1..weapon.damage.amount)
+            .fold(initial = 0) { acc, _ -> acc + weapon.damage.dice.valuesRange.random() }.hp + rawAttackModifier.value
+        val traits = emptyList<Trait>()
+        return Triple(attackRolledValue, damage to weapon.damage.type, traits)
+    }
 }

@@ -33,4 +33,6 @@ interface Weapon : Item {
         data object TwoHanded : Property()
         data class Versatile(val twoHandedDice: Dice) : Property()
     }
+
+    val isFinesse: Boolean get() = Property.Finesse in properties
 }

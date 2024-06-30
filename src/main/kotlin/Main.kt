@@ -51,6 +51,6 @@ fun main() {
     )
     val sheet = Sheet(character = alice, playerName = "Alice")
     sheet.print()
-    println(alice.rollSkillCheck(Skill.Charisma.Performance))
+    println("Dagger attack: (${alice.rollAttack(Dagger)})")
 }
 

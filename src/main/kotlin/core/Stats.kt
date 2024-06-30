@@ -11,6 +11,11 @@ value class Modifier(val value: Int) {
     override fun toString() = if (value < 0) "$value" else "+$value"
 
     operator fun plus(other: Modifier): Modifier = Modifier(this.value + other.value)
+
+    operator fun compareTo(other: Modifier): Int = this.value.compareTo(other.value)
+
+    fun takeModifierIf(predicate: (Modifier) -> Boolean): Modifier =
+        if (predicate(this)) this else Modifier(0)
 }
 
 class StatBlock(

@@ -24,6 +24,8 @@ value class Hp(val value: Int) {
     }
 }
 
+val Int.hp: Hp get() = Hp(this)
+
 fun min(a: Hp, b: Hp): Hp = Hp(kotlin.math.min(a.value, b.value))
 fun max(a: Hp, b: Hp): Hp = Hp(kotlin.math.max(a.value, b.value))
 
