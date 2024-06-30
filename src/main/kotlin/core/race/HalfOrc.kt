@@ -6,8 +6,8 @@ import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills
 import io.vbytsyuk.dnd.core.skills.Skill.Charisma.Intimidation
-import io.vbytsyuk.dnd.core.units.Language.COMMON
-import io.vbytsyuk.dnd.core.units.Language.ORC
+import io.vbytsyuk.dnd.core.units.Language.Common
+import io.vbytsyuk.dnd.core.units.Language.Orc
 import io.vbytsyuk.dnd.core.units.feet
 import io.vbytsyuk.dnd.core.units.Size
 
@@ -19,6 +19,6 @@ data object HalfOrc : Race {
     override val darkVision = 60.feet
     override val proficiencies = Proficiencies(
         skills = ProficiencySkills(selected = Skills(Intimidation)),
-        languages = { it in listOf(COMMON, ORC) }
+        languages = { it in listOf(Common, Orc) }
     )
 }

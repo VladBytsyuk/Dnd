@@ -1,7 +1,5 @@
 package io.vbytsyuk.dnd.core.tools
 
-import io.vbytsyuk.dnd.core.units.Coins
-import io.vbytsyuk.dnd.core.units.Weight
 import io.vbytsyuk.dnd.core.units.gold
 import io.vbytsyuk.dnd.core.units.lb
 

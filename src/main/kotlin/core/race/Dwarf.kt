@@ -12,8 +12,8 @@ import io.vbytsyuk.dnd.core.tools.SmithsTools
 import io.vbytsyuk.dnd.core.tools.Tools
 import io.vbytsyuk.dnd.core.units.*
 import io.vbytsyuk.dnd.core.units.Damage.Type.POISON
-import io.vbytsyuk.dnd.core.units.Language.COMMON
-import io.vbytsyuk.dnd.core.units.Language.DWARVISH
+import io.vbytsyuk.dnd.core.units.Language.Common
+import io.vbytsyuk.dnd.core.units.Language.Dwarvish
 import io.vbytsyuk.dnd.core.weapon.Battleaxe
 import io.vbytsyuk.dnd.core.weapon.Handaxe
 import io.vbytsyuk.dnd.core.weapon.LightHammer
@@ -32,7 +32,7 @@ sealed class Dwarf(
     override val darkVision = 60.feet
     override val proficiencies = Proficiencies(
         weapons = { it in listOf(Battleaxe, Handaxe, LightHammer, Warhammer) },
-        languages = { it in listOf(COMMON, DWARVISH) },
+        languages = { it in listOf(Common, Dwarvish) },
         tools = { it == selectedTool },
     ) + proficiencies
     override val traits = listOf(DwarvenResilience, Stonecunning) + traits

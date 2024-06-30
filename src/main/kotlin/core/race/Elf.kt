@@ -6,8 +6,8 @@ import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills1
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.units.*
-import io.vbytsyuk.dnd.core.units.Language.COMMON
-import io.vbytsyuk.dnd.core.units.Language.ELVISH
+import io.vbytsyuk.dnd.core.units.Language.Common
+import io.vbytsyuk.dnd.core.units.Language.Elvish
 import io.vbytsyuk.dnd.core.util.Checker
 import io.vbytsyuk.dnd.core.weapon.*
 
@@ -24,7 +24,7 @@ sealed class Elf(
     override val proficiencies = Proficiencies(
         skills = ProficiencySkills(selected = Skills1(skill = Skill.Wisdom.Perception)),
         weapons = weaponProficiency,
-        languages = { it in listOf(COMMON, ELVISH) },
+        languages = { it in listOf(Common, Elvish) },
     )
 
     data object High : Elf(

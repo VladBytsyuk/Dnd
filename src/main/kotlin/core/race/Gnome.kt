@@ -3,13 +3,12 @@ package io.vbytsyuk.dnd.core.race
 import io.vbytsyuk.dnd.core.StatBlock
 import io.vbytsyuk.dnd.core.StatType.*
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
-import io.vbytsyuk.dnd.core.proficiencies.Skills
 import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.History
 import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.AnimalHandling
 import io.vbytsyuk.dnd.core.tools.TinkersTools
 import io.vbytsyuk.dnd.core.units.*
-import io.vbytsyuk.dnd.core.units.Language.COMMON
-import io.vbytsyuk.dnd.core.units.Language.GNOMISH
+import io.vbytsyuk.dnd.core.units.Language.Common
+import io.vbytsyuk.dnd.core.units.Language.Gnomish
 
 sealed class Gnome(
     override val description: String,
@@ -22,7 +21,7 @@ sealed class Gnome(
     override val baseSpeed = Speed(25.feet)
     override val darkVision = 60.feet
     override val proficiencies = Proficiencies(
-        languages = { it in listOf(COMMON, GNOMISH) },
+        languages = { it in listOf(Common, Gnomish) },
     ) + proficiencies
     override val traits = listOf(GnomeCunning) + traits
     override val ageInfo = AgeInfo(mature = 18.years, limit = 350.years..500.years)

@@ -7,8 +7,8 @@ import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills2
 import io.vbytsyuk.dnd.core.units.Language
-import io.vbytsyuk.dnd.core.units.Language.COMMON
-import io.vbytsyuk.dnd.core.units.Language.ELVISH
+import io.vbytsyuk.dnd.core.units.Language.Common
+import io.vbytsyuk.dnd.core.units.Language.Elvish
 import io.vbytsyuk.dnd.core.units.feet
 import io.vbytsyuk.dnd.core.units.Size
 
@@ -25,10 +25,10 @@ data class HalfElf(
     override val darkVision = 60.feet
     override val proficiencies = Proficiencies(
         skills = ProficiencySkills(selected = chosenSkills),
-        languages = { it in listOf(COMMON, ELVISH, chosenLanguage) }
+        languages = { it in listOf(Common, Elvish, chosenLanguage) }
     )
 
     init { requireUniqueChosenLanguage() }
 
-    private fun requireUniqueChosenLanguage() = require(chosenLanguage != COMMON && chosenLanguage != ELVISH)
+    private fun requireUniqueChosenLanguage() = require(chosenLanguage != Common && chosenLanguage != Elvish)
 }

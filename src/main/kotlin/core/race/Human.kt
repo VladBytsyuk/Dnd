@@ -4,7 +4,7 @@ import io.vbytsyuk.dnd.core.units.Speed
 import io.vbytsyuk.dnd.core.StatBlock
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.units.Language
-import io.vbytsyuk.dnd.core.units.Language.COMMON
+import io.vbytsyuk.dnd.core.units.Language.Common
 import io.vbytsyuk.dnd.core.units.feet
 import io.vbytsyuk.dnd.core.units.Size
 
@@ -23,10 +23,10 @@ data class Human(
     override val size = Size.MEDIUM
     override val baseSpeed = Speed(30.feet)
     override val proficiencies = Proficiencies(
-        languages = { it in listOf(COMMON, chosenLanguage) }
+        languages = { it in listOf(Common, chosenLanguage) }
     )
 
     init { requireUniqueChosenLanguage() }
 
-    private fun requireUniqueChosenLanguage() = require(chosenLanguage != COMMON)
+    private fun requireUniqueChosenLanguage() = require(chosenLanguage != Common)
 }
