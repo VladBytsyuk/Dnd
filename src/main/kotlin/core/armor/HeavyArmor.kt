@@ -5,42 +5,42 @@ import io.vbytsyuk.dnd.core.units.gold
 import io.vbytsyuk.dnd.core.units.minutes
 import io.vbytsyuk.dnd.core.units.lb
 
-object RingMail : Armor(
-    type = Heavy(armorClass = 14),
-    cost = 30.gold,
-    weight = 40.lb,
-    hasStealthDisadvantage = true,
-    strengthRequirement = null,
-    timeToPutOn = 10.minutes,
-    timeToRemove = 5.minutes,
-)
+object RingMail : Armor {
+    override val type = Heavy(armorClass = 14)
+    override val cost = 30.gold
+    override val weight = 40.lb
+    override val hasStealthDisadvantage = true
+    override val strengthRequirement = null
+    override val timeToPutOn = 10.minutes
+    override val timeToRemove = 5.minutes
+}
 
-object ChainMail : Armor(
-    type = Heavy(armorClass = 16),
-    cost = 75.gold,
-    weight = 55.lb,
-    hasStealthDisadvantage = true,
-    strengthRequirement = 13,
-    timeToPutOn = 10.minutes,
-    timeToRemove = 5.minutes,
-)
+object ChainMail : Armor {
+    override val type = Heavy(armorClass = 16)
+    override val cost = 75.gold
+    override val weight = 55.lb
+    override val hasStealthDisadvantage = true
+    override val strengthRequirement = 13
+    override val timeToPutOn = 10.minutes
+    override val timeToRemove = 5.minutes
+}
 
-object SplintArmor : Armor(
-    type = Heavy(armorClass = 17),
-    cost = 200.gold,
-    weight = 60.lb,
-    hasStealthDisadvantage = true,
-    strengthRequirement = 15,
-    timeToPutOn = 10.minutes,
-    timeToRemove = 5.minutes,
-)
+object SplintArmor : Armor {
+    override val type = Heavy(armorClass = 17)
+    override val cost = 200.gold
+    override val weight = 60.lb
+    override val hasStealthDisadvantage = true
+    override val strengthRequirement = 15
+    override val timeToPutOn = 10.minutes
+    override val timeToRemove = 5.minutes
+}
 
-object PlateArmor : Armor(
-    type = Heavy(armorClass = 18),
-    cost = 1500.gold,
-    weight = 65.lb,
-    hasStealthDisadvantage = true,
-    strengthRequirement = 15,
-    timeToPutOn = 10.minutes,
-    timeToRemove = 5.minutes,
-)
+object PlateArmor : Armor {
+    override val type = Heavy(armorClass = 18)
+    override val cost = 1500.gold
+    override val weight = 65.lb
+    override val hasStealthDisadvantage = true
+    override val strengthRequirement = 15
+    override val timeToPutOn = 10.minutes
+    override val timeToRemove = 5.minutes
+}

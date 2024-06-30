@@ -5,62 +5,62 @@ import io.vbytsyuk.dnd.core.units.gold
 import io.vbytsyuk.dnd.core.units.minutes
 import io.vbytsyuk.dnd.core.units.lb
 
-object HideArmor : Armor(
-    type = Medium(12),
-    cost = 10.gold,
-    weight = 12.lb,
-    hasStealthDisadvantage = false,
-    strengthRequirement = null,
-    timeToPutOn = 5.minutes,
-    timeToRemove = 1.minutes,
-)
+object HideArmor : Armor {
+    override val type = Medium(12)
+    override val cost = 10.gold
+    override val weight = 12.lb
+    override val hasStealthDisadvantage = false
+    override val strengthRequirement = null
+    override val timeToPutOn = 5.minutes
+    override val timeToRemove = 1.minutes
+}
 
-object ChainShirt : Armor(
-    type = Medium(13),
-    cost = 50.gold,
-    weight = 20.lb,
-    hasStealthDisadvantage = false,
-    strengthRequirement = null,
-    timeToPutOn = 5.minutes,
-    timeToRemove = 1.minutes,
-)
+object ChainShirt : Armor {
+    override val type = Medium(13)
+    override val cost = 50.gold
+    override val weight = 20.lb
+    override val hasStealthDisadvantage = false
+    override val strengthRequirement = null
+    override val timeToPutOn = 5.minutes
+    override val timeToRemove = 1.minutes
+}
 
-object ScaleMailArmor : Armor(
-    type = Medium(14),
-    cost = 50.gold,
-    weight = 45.lb,
-    hasStealthDisadvantage = true,
-    strengthRequirement = null,
-    timeToPutOn = 5.minutes,
-    timeToRemove = 1.minutes,
-)
+object ScaleMailArmor : Armor {
+    override val type = Medium(14)
+    override val cost = 50.gold
+    override val weight = 45.lb
+    override val hasStealthDisadvantage = true
+    override val strengthRequirement = null
+    override val timeToPutOn = 5.minutes
+    override val timeToRemove = 1.minutes
+}
 
-object Breastplate : Armor(
-    type = Medium(14),
-    cost = 400.gold,
-    weight = 20.lb,
-    hasStealthDisadvantage = false,
-    strengthRequirement = null,
-    timeToPutOn = 5.minutes,
-    timeToRemove = 1.minutes,
-)
+object Breastplate : Armor {
+    override val type = Medium(14)
+    override val cost = 400.gold
+    override val weight = 20.lb
+    override val hasStealthDisadvantage = false
+    override val strengthRequirement = null
+    override val timeToPutOn = 5.minutes
+    override val timeToRemove = 1.minutes
+}
 
-object SpikedArmor : Armor(
-    type = Medium(14),
-    cost = 75.gold,
-    weight = 45.lb,
-    hasStealthDisadvantage = true,
-    strengthRequirement = null,
-    timeToPutOn = 5.minutes,
-    timeToRemove = 1.minutes,
-)
+object SpikedArmor : Armor {
+    override val type = Medium(14)
+    override val cost = 75.gold
+    override val weight = 45.lb
+    override val hasStealthDisadvantage = true
+    override val strengthRequirement = null
+    override val timeToPutOn = 5.minutes
+    override val timeToRemove = 1.minutes
+}
 
-object HalfPlateArmor : Armor(
-    type = Medium(15),
-    cost = 750.gold,
-    weight = 40.lb,
-    hasStealthDisadvantage = true,
-    strengthRequirement = null,
-    timeToPutOn = 5.minutes,
-    timeToRemove = 1.minutes,
-)
+object HalfPlateArmor : Armor {
+    override val type = Medium(15)
+    override val cost = 750.gold
+    override val weight = 40.lb
+    override val hasStealthDisadvantage = true
+    override val strengthRequirement = null
+    override val timeToPutOn = 5.minutes
+    override val timeToRemove = 1.minutes
+}

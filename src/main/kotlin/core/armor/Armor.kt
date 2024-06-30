@@ -7,17 +7,17 @@ import io.vbytsyuk.dnd.core.units.Coins
 import io.vbytsyuk.dnd.core.units.Time
 import io.vbytsyuk.dnd.core.units.Weight
 
-open class Armor(
-    val type: Type,
-    val cost: Coins,
-    val weight: Weight,
-    val hasStealthDisadvantage: Boolean,
-    val strengthRequirement: StatValue? = null,
-    val timeToPutOn: Time,
-    val timeToRemove: Time,
-) : Item {
+interface Armor : Item {
 
-    override val name = this::class.simpleName.orEmpty()
+    val type: Type
+    val cost: Coins
+    val weight: Weight
+    val hasStealthDisadvantage: Boolean
+    val strengthRequirement: StatValue?
+    val timeToPutOn: Time
+    val timeToRemove: Time
+
+    override val name get() = this::class.simpleName.orEmpty()
 
     sealed class Type(val armorClass: StatValue) {
         abstract fun calculateAC(dexterityModifier: Modifier): StatValue
