@@ -13,20 +13,21 @@ import io.vbytsyuk.dnd.core.units.*
 import io.vbytsyuk.dnd.core.weapon.Weapon
 import io.vbytsyuk.dnd.core.weapon.Weapon.RangeType.RANGED
 
-class Character(
+data class Character(
     val name: String,
     val race: Race,
     val `class`: Class,
     val alignment: Alignment,
     val background: Background,
     val initialRawStatBlock: StatBlock,
-    val level: Level,
+    val exp: Exp,
     val equipment: Equipment,
-    // archtype
-    // exp
+    // subclass
     // hit dices
     // saving throws from death
 ) {
+
+    val level: Level get() = exp.level
 
     val statBlock: StatBlock = initialRawStatBlock +
             race.bonusStatBlock

@@ -10,7 +10,7 @@ fun Sheet.print() = buildString {
     val char = character
     appendLine("----------------------------------")
     append("${char.name}, ")
-    append("${char.race::class.simpleName}, ${char.level}, ${char.`class`::class.simpleName}, ")
+    append("${char.race::class.simpleName}, ${char.level} (${char.exp}), ${char.`class`::class.simpleName}, ")
     append("${char.hpBlock}, ")
     append("Proficiency: ${char.proficiencyBonus}, ")
     appendLine("Alignment = ${char.alignment}")

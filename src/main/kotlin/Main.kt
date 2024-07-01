@@ -15,7 +15,7 @@ import io.vbytsyuk.dnd.core.tools.Flute
 import io.vbytsyuk.dnd.core.units.GoodVsEvil.GOOD
 import io.vbytsyuk.dnd.core.units.Language
 import io.vbytsyuk.dnd.core.units.LawVsChaos.LAWFUL
-import io.vbytsyuk.dnd.core.units.level
+import io.vbytsyuk.dnd.core.units.exp
 import io.vbytsyuk.dnd.core.units.plus
 import io.vbytsyuk.dnd.core.weapon.Dagger
 import io.vbytsyuk.dnd.core.weapon.Dart
@@ -42,7 +42,7 @@ fun main() {
             strength = 8, dexterity = 14, constitution = 13,
             intelligence = 12, wisdom = 10, charisma = 15,
         ),
-        level = 1.level,
+        exp = 0.exp,
         equipment = Equipment(
             Dagger.equipped(),
             Dart.equipped(count = 20),
