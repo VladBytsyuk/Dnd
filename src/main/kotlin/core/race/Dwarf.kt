@@ -91,7 +91,7 @@ sealed class Dwarf(
 val DwarvenResilience = Trait(
     name = "Dwarven Resilience",
     description = "You have advantage on saving throws against poison, and you have resistance against poison damage.",
-    affect = Affect(savingThrows = { it in listOf(CON)}, resistances = { it == POISON })
+    affect = Affect(savingThrows = { it == CON }, resistances = { it == POISON })
 )
 
 val Stonecunning = Trait(

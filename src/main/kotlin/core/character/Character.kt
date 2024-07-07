@@ -22,9 +22,6 @@ data class Character(
     val initialRawStatBlock: StatBlock,
     val exp: Exp,
     val equipment: Equipment,
-    // subclass
-    // hit dices
-    // saving throws from death
 ) {
 
     val level: Level get() = exp.level
