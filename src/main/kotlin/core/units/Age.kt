@@ -1,10 +1,16 @@
 package io.vbytsyuk.dnd.core.units
 
 @JvmInline
-value class Age(val value: Int) {
+value class Age(val value: Int) : Comparable<Age> {
+
+    init { require(value >= 0) }
+
+    override fun toString(): String = "$value year${if (value != 1) "s" else ""}"
+
+    override fun compareTo(other: Age) = this.value.compareTo(other.value)
 
     data class Range(val start: Age, val end: Age) {
-        init { require(start.value <= end.value) }
+        init { require(start <= end) }
 
         operator fun contains(age: Age) = age.value in start.value..end.value
     }
