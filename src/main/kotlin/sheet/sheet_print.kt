@@ -11,7 +11,7 @@ fun Sheet.print() = buildString {
     appendLine("----------------------------------")
     append("${char.name}, ")
     append("${char.race::class.simpleName}, ${char.level} (${char.exp}), ${char.`class`::class.simpleName}, ")
-    append("${char.hpBlock}, ")
+    append("${char.maxHp}, ")
     append("Proficiency: ${char.proficiencyBonus}, ")
     appendLine("Alignment = ${char.alignment}")
     appendLine("Background = ${char.background}")

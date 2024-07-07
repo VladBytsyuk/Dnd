@@ -32,7 +32,12 @@ data class Character(
     val statBlock: StatBlock = initialRawStatBlock +
             race.bonusStatBlock
 
-    var hpBlock: HpBlock = HpBlock(this)
+    val maxHp: Hp = calculateMaximumHp(
+        hpDice = `class`.hpDice,
+        constitutionModifier = statBlock.modifier(StatType.CON),
+        level = level,
+        traits = traits,
+    )
 
     val proficiencyBonus: Modifier = calculateProficiencyBonus(level)
 
