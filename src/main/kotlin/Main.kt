@@ -49,7 +49,7 @@ fun main() {
             PlateArmor.unequipped(),
         )
     )
-    val sheet = Sheet(character = alice, playerName = "Alice")
+    val sheet = Sheet(character = alice)
     sheet.print()
     println("Dagger attack: (${alice.rollAttack(Dagger)})")
 }

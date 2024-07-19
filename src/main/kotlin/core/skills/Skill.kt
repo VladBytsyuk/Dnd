@@ -22,6 +22,8 @@ sealed class Skill(val originStatType: StatType) {
         data object Stealth : Dexterity()
     }
 
+    data object Constitution : Skill(originStatType = StatType.CON)
+
     sealed class Intelligence : Skill(originStatType = StatType.INT) {
 
         /** Магия */
