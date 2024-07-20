@@ -46,7 +46,7 @@ class Proficiencies(
 }
 
 data class ProficiencySkills(
-    val allowed: List<Skill> = Skill.skills(),
+    val allowed: List<Skill> = Skill.all(),
     val selected: Skills = Skills0,
 ) {
 

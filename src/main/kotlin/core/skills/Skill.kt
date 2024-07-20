@@ -8,6 +8,10 @@ sealed class Skill(val originStatType: StatType) {
 
         /** Атлетика */
         data object Athletics : Strength()
+
+        companion object {
+            val all = listOf(Athletics)
+        }
     }
 
     sealed class Dexterity : Skill(originStatType = StatType.DEX) { 
@@ -20,9 +24,16 @@ sealed class Skill(val originStatType: StatType) {
 
         /** Скрытность */
         data object Stealth : Dexterity()
+
+        companion object {
+            val all = listOf(Acrobatics, SleightOfHand, Stealth)
+        }
     }
 
-    data object Constitution : Skill(originStatType = StatType.CON)
+    data object Constitution : Skill(originStatType = StatType.CON) {
+
+        val all = emptyList<Constitution>()
+    }
 
     sealed class Intelligence : Skill(originStatType = StatType.INT) {
 
@@ -40,6 +51,10 @@ sealed class Skill(val originStatType: StatType) {
 
         /** Религия */
         data object Religion : Intelligence()
+
+        companion object {
+            val all = listOf(Arcana, History, Investigation, Nature, Religion)
+        }
     }
 
     sealed class Wisdom : Skill(originStatType = StatType.WIS) {
@@ -58,6 +73,10 @@ sealed class Skill(val originStatType: StatType) {
 
         /** Выживание */
         data object Survival : Wisdom()
+
+        companion object {
+            val all = listOf(AnimalHandling, Insight, Medicine, Perception, Survival)
+        }
     }
 
     sealed class Charisma : Skill(originStatType = StatType.CHA) {
@@ -73,28 +92,13 @@ sealed class Skill(val originStatType: StatType) {
 
         /** Убеждение */
         data object Persuasion : Charisma()
+
+        companion object {
+            val all = listOf(Deception, Intimidation, Performance, Persuasion)
+        }
     }
 
     companion object {
-        fun skills() = listOf(
-            Strength.Athletics,
-            Dexterity.Acrobatics,
-            Dexterity.SleightOfHand,
-            Dexterity.Stealth,
-            Intelligence.Arcana,
-            Intelligence.Nature,
-            Intelligence.History,
-            Intelligence.Religion,
-            Intelligence.Investigation,
-            Wisdom.Insight,
-            Wisdom.Survival,
-            Wisdom.Medicine,
-            Wisdom.Perception,
-            Wisdom.AnimalHandling,
-            Charisma.Persuasion,
-            Charisma.Deception,
-            Charisma.Performance,
-            Charisma.Intimidation,
-        )
+        fun all() = Strength.all + Dexterity.all + Constitution.all + Intelligence.all + Wisdom.all + Charisma.all
     }
 }
