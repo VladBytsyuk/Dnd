@@ -16,7 +16,9 @@ fun Sheet.print() = buildString {
     appendLine("Background = ${base.background}")
     append("AC: ${health.armorClass}, Initiative: ${passive.initiative}, Speed: ${passive.speed}, Size: ${passive.size}")
     appendLine(if (passive.darkVision != null) ", Dark vision = ${passive.darkVision}" else "")
-//    appendLine("Languages: ${Language.all.filter { char.proficiencies.languages.check(it) }}")
+//    appendLine("Languages: ${Language.all.filter { it.toString() in proficiencies.languages }}")
+    appendLine("${proficiencies}")
     appendLine("${skills}")
+
     appendLine("Equipment: ${equipment}")
 }.let(::println)

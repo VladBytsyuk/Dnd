@@ -2,6 +2,10 @@ package io.vbytsyuk.dnd.sheet
 
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatType
+import io.vbytsyuk.dnd.core.armor.Armor
+import io.vbytsyuk.dnd.core.armor.HideArmor
+import io.vbytsyuk.dnd.core.armor.LeatherArmor
+import io.vbytsyuk.dnd.core.armor.PlateArmor
 import io.vbytsyuk.dnd.core.character.*
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.units.MasteryModifier
@@ -11,7 +15,7 @@ data class Sheet(
     val health: Health,
     val passive: Passive,
     val skills: Skills,
-//    val proficiencies: Proficiencies,
+    val proficiencies: Proficiencies,
     val equipment: Equipment,
 ) {
 
@@ -80,7 +84,7 @@ data class Sheet(
                         StatType.INT -> Skill.Intelligence.all
                         StatType.WIS -> Skill.Wisdom.all
                         StatType.CHA -> Skill.Charisma.all
-                    }.map { it::class.simpleName.orEmpty() to character.skills[it]!! }.toMap()
+                    }.associate { it::class.simpleName.orEmpty() to character.skills[it]!! }
                 )
             }
         }
@@ -108,7 +112,22 @@ data class Sheet(
             val medium: Boolean,
             val heavy: Boolean,
             val shield: Boolean
-        )
+        ) {
+            override fun toString(): String {
+                val map = mapOf(
+                    "Light" to light,
+                    "Medium" to medium,
+                    "Heavy" to heavy,
+                    "Shield" to shield,
+                )
+                return map.filter { it.value }.keys.joinToString()
+            }
+        }
+
+        override fun toString(): String = """
+            Proficiencies:
+                Armor: $armor
+        """.trimIndent()
     }
 
     data class Equipment(
@@ -148,17 +167,17 @@ data class Sheet(
             wisdom = Skills.Data.build(character, StatType.WIS),
             charisma = Skills.Data.build(character, StatType.CHA),
         ),
-//        proficiencies = Proficiencies(
-//            armor = Proficiencies.Armor(
-//                light = character.proficiencies.armor.check(Armor.Type.Light),
-//                medium = character.proficiencies.armor.check(Armor.Type.Medium),
-//                heavy = character.proficiencies.armor.check(Armor.Type.Heavy),
-//                shield = character.proficiencies.armor.check(Armor.Type.Shield),
-//            ),
-//            weapon = character.proficiencies.weapons.check(),
-//            tools = character.proficiencies.tools.check(),
-//            languages = character.proficiencies.languages.check(),
-//        ),
+        proficiencies = Proficiencies(
+            armor = Proficiencies.Armor(
+                light = character.proficiencies.armor.check(LeatherArmor),
+                medium = character.proficiencies.armor.check(HideArmor),
+                heavy = character.proficiencies.armor.check(PlateArmor),
+                shield = false,//character.proficiencies.armor.check(Armor.Type.Shield),
+            ),
+            weapon = "",//character.proficiencies.weapons.check(),
+            tools = "",//character.proficiencies.tools.check(),
+            languages = emptyList(),// character.proficiencies.languages.check(),
+        ),
         equipment = Equipment(
             items = character.equipment.toStringList()
         )
