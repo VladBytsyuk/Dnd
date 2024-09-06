@@ -9,7 +9,7 @@ import io.vbytsyuk.dnd.core.units.Language
 fun Sheet.print() = buildString {
     appendLine("----------------------------------")
     append("${base.name}, ")
-    append("${base.race}, ${base.level} (${base.exp}), ${base.`class`}, ")
+    append("${base.race}, ${base.level} (${base.exp} xp), ${base.`class`}, ")
     append("${health.maxHp}, ")
     append("Proficiency: ${skills.proficiencyBonus}, ")
     appendLine("Alignment = ${base.alignment}")

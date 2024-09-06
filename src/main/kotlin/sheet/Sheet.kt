@@ -1,5 +1,6 @@
 package io.vbytsyuk.dnd.sheet
 
+import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatType
 import io.vbytsyuk.dnd.core.character.*
 import io.vbytsyuk.dnd.core.skills.Skill
@@ -41,7 +42,7 @@ data class Sheet(
     )
 
     data class Skills(
-        val proficiencyBonus: Int,
+        val proficiencyBonus: Modifier,
         val strength: Data,
         val dexterity: Data,
         val constitution: Data,
@@ -52,7 +53,7 @@ data class Sheet(
 
         data class Data(
             val value: Int,
-            val modifier: Int,
+            val modifier: Modifier,
             val savingThrow: MasteryModifier,
             val skills: Map<String, MasteryModifier>
         ) {
@@ -70,7 +71,7 @@ data class Sheet(
                         StatType.WIS -> character.statBlock.wisdom
                         StatType.CHA -> character.statBlock.charisma
                     },
-                    modifier = character.statBlock.modifier(type).value,
+                    modifier = character.statBlock.modifier(type),
                     savingThrow = character.savingThrows[type]!!,
                     skills = when (type) {
                         StatType.STR -> Skill.Strength.all
@@ -139,7 +140,7 @@ data class Sheet(
             passivePerception = character.passivePerception,
         ),
         skills = Skills(
-            proficiencyBonus = character.proficiencyBonus.value,
+            proficiencyBonus = character.proficiencyBonus,
             strength = Skills.Data.build(character, StatType.STR),
             dexterity = Skills.Data.build(character, StatType.DEX),
             constitution = Skills.Data.build(character, StatType.CON),
@@ -159,9 +160,7 @@ data class Sheet(
 //            languages = character.proficiencies.languages.check(),
 //        ),
         equipment = Equipment(
-            items = character.equipment.toList().map { (item, data) ->
-                "${item.name}${if (data.count == 1) "" else " (${data.count})"}${if (data.isEquipped) "*" else ""}"
-            },
+            items = character.equipment.toStringList()
         )
     )
 }

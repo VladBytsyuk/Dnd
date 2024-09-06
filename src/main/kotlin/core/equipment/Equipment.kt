@@ -22,9 +22,14 @@ class Equipment(vararg items: Pair<Item, Equipment.Data>) : HashMap<Item, Equipm
 
     override fun toString() = entries
         .sortedByDescending { (_, data) -> data.isEquipped }
-        .joinToString { (item, data) ->
-            "${item.name}${if (data.count == 1) "" else " (${data.count})"}${if (data.isEquipped) "*" else ""}"
-        }
+        .joinToString { it.toSimpleString() }
+
+    fun toStringList() = entries
+        .sortedByDescending { (_, data) -> data.isEquipped }
+        .map { it.toSimpleString() }
+
+    private fun MutableMap.MutableEntry<Item, Equipment.Data>.toSimpleString() =
+        "${key.name}${if (value.count == 1) "" else " (${value.count})"}${if (value.isEquipped) "*" else ""}"
 
     val equippedArmor: List<Armor> get() = entries
         .filter { (item, data) -> item is Armor && data.isEquipped }
