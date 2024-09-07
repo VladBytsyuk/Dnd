@@ -4,6 +4,7 @@ import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.StatType.CHA
 import io.vbytsyuk.dnd.core.StatType.DEX
 import io.vbytsyuk.dnd.core.armor.Armor.Type.Light
+import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills3
@@ -27,7 +28,7 @@ class Bard(
             selected = proficientSkills,
         ),
         weapons = { it.proficiencyType == SIMPLE || it in setOf(Longsword, Shortsword, Rapier, HandCrossbow) },
-        armor = {  it.type is Light },
+        armor = ArmorChecker(light = true),
     )
 
     companion object {

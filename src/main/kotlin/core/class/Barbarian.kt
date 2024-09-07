@@ -4,6 +4,7 @@ import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.StatType.CON
 import io.vbytsyuk.dnd.core.StatType.STR
 import io.vbytsyuk.dnd.core.armor.Armor.Type.*
+import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills2
@@ -24,7 +25,7 @@ class Barbarian(
             selected = proficientSkills,
         ),
         weapons = { true },
-        armor = {  it.type is Light || it.type is Medium || it.type is Shield },
+        armor = ArmorChecker(light = true, medium = true, shield = true),
     )
 
     companion object{

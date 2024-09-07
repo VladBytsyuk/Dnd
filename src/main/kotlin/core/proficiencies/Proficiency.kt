@@ -5,6 +5,7 @@ import io.vbytsyuk.dnd.core.units.Level
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatType
 import io.vbytsyuk.dnd.core.armor.Armor
+import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.tools.Tools
 import io.vbytsyuk.dnd.core.units.Language
@@ -15,7 +16,7 @@ class Proficiencies(
     val savingThrows: List<StatType> = emptyList(),
     val skills: List<Skill>,
     val weapons: Checker<Weapon> = Checker { false },
-    val armor: Checker<Armor> = Checker { false },
+    val armor: ArmorChecker = ArmorChecker(),
     val tools: Checker<Tools> = Checker { false },
     val languages: Checker<Language> = Checker { false }
 ) {
@@ -23,7 +24,7 @@ class Proficiencies(
         savingThrows: List<StatType> = emptyList(),
         skills: ProficiencySkills = ProficiencySkills(),
         weapons: Checker<Weapon> = Checker { false },
-        armor: Checker<Armor> = Checker { false },
+        armor: ArmorChecker = ArmorChecker(),
         tools: Checker<Tools> = Checker { false },
         languages: Checker<Language> = Checker { false }
     ) : this(

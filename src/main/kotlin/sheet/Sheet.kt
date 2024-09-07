@@ -2,10 +2,6 @@ package io.vbytsyuk.dnd.sheet
 
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatType
-import io.vbytsyuk.dnd.core.armor.Armor
-import io.vbytsyuk.dnd.core.armor.HideArmor
-import io.vbytsyuk.dnd.core.armor.LeatherArmor
-import io.vbytsyuk.dnd.core.armor.PlateArmor
 import io.vbytsyuk.dnd.core.character.*
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.units.MasteryModifier
@@ -169,10 +165,10 @@ data class Sheet(
         ),
         proficiencies = Proficiencies(
             armor = Proficiencies.Armor(
-                light = character.proficiencies.armor.check(LeatherArmor),
-                medium = character.proficiencies.armor.check(HideArmor),
-                heavy = character.proficiencies.armor.check(PlateArmor),
-                shield = false,//character.proficiencies.armor.check(Armor.Type.Shield),
+                light = character.proficiencies.armor.light,
+                medium = character.proficiencies.armor.medium,
+                heavy = character.proficiencies.armor.heavy,
+                shield = character.proficiencies.armor.shield,
             ),
             weapon = "",//character.proficiencies.weapons.check(),
             tools = "",//character.proficiencies.tools.check(),

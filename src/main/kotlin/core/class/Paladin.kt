@@ -3,6 +3,7 @@ package io.vbytsyuk.dnd.core.`class`
 import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.StatType.CHA
 import io.vbytsyuk.dnd.core.StatType.WIS
+import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills2
@@ -23,7 +24,7 @@ class Paladin(
             selected = proficientSkills,
         ),
         weapons = { true },
-        armor = { true },
+        armor = ArmorChecker.Full(),
     )
 
     companion object {

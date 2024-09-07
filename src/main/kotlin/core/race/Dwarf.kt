@@ -2,8 +2,7 @@ package io.vbytsyuk.dnd.core.race
 
 import io.vbytsyuk.dnd.core.StatBlock
 import io.vbytsyuk.dnd.core.StatType.CON
-import io.vbytsyuk.dnd.core.armor.Armor.Type.Light
-import io.vbytsyuk.dnd.core.armor.Armor.Type.Medium
+import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.History
 import io.vbytsyuk.dnd.core.tools.BrewersSupplies
@@ -63,7 +62,7 @@ sealed class Dwarf(
         description = "As a mountain dwarf, you're strong and hardy, accustomed to a difficult life in rugged terrain.",
         bonusStatBlock = StatBlock(strength = 2, constitution = 2),
         selectedTool = selectedTool,
-        proficiencies = Proficiencies(armor = { it.type is Light || it.type is Medium }),
+        proficiencies = Proficiencies(armor = ArmorChecker(light = true, medium = true)),
         traits = listOf(DwarvenArmorTraining),
     )
 
