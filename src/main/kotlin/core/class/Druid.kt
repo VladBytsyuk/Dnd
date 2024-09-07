@@ -3,7 +3,6 @@ package io.vbytsyuk.dnd.core.`class`
 import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.StatType.INT
 import io.vbytsyuk.dnd.core.StatType.WIS
-import io.vbytsyuk.dnd.core.armor.Armor.Type.*
 import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
@@ -23,7 +22,9 @@ class Druid(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
-        weapons = { it in setOf(Quarterstaff, Mace, Dart, Club, Dagger, Spear, Javelin, Sling, Sickle, Scimitar) },
+        weapons = WeaponChecker(
+            specific = setOf(Quarterstaff, Mace, Dart, Club, Dagger, Spear, Javelin, Sling, Sickle, Scimitar),
+        ),
         armor = ArmorChecker(light = true, medium = true, shield = true),
     )
 

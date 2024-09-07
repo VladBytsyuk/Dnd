@@ -5,10 +5,12 @@ import io.vbytsyuk.dnd.core.armor.PlateArmor
 import io.vbytsyuk.dnd.core.background.Entertainer
 import io.vbytsyuk.dnd.core.character.Character
 import io.vbytsyuk.dnd.core.`class`.Bard
+import io.vbytsyuk.dnd.core.`class`.Rogue
 import io.vbytsyuk.dnd.core.equipment.Equipment
 import io.vbytsyuk.dnd.core.equipment.equipped
 import io.vbytsyuk.dnd.core.equipment.unequipped
 import io.vbytsyuk.dnd.core.proficiencies.Skills3
+import io.vbytsyuk.dnd.core.proficiencies.Skills4
 import io.vbytsyuk.dnd.core.race.*
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.tools.Flute

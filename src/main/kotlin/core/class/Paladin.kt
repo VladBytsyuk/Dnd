@@ -11,6 +11,7 @@ import io.vbytsyuk.dnd.core.skills.Skill.Charisma.*
 import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.*
 import io.vbytsyuk.dnd.core.skills.Skill.Strength.Athletics
 import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.*
+import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 class Paladin(
     proficientSkills: Skills2,
@@ -23,7 +24,7 @@ class Paladin(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
-        weapons = { true },
+        weapons = WeaponChecker.Full(),
         armor = ArmorChecker.Full(),
     )
 

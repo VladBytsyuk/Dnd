@@ -11,6 +11,7 @@ import io.vbytsyuk.dnd.core.proficiencies.Skills2
 import io.vbytsyuk.dnd.core.skills.Skill.Charisma.*
 import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.*
 import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.SIMPLE
+import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 class Warlock(
     proficientSkills: Skills2,
@@ -23,7 +24,7 @@ class Warlock(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
-        weapons = { it.proficiencyType == SIMPLE },
+        weapons = WeaponChecker(simple = true),
         armor = ArmorChecker(light = true),
     )
 

@@ -21,7 +21,7 @@ class Wizard(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
-        weapons = { it in setOf(Dagger, Dart, Sling, Quarterstaff, LightCrossbow) },
+        weapons = WeaponChecker(specific = setOf(Dagger, Dart, Sling, Quarterstaff, LightCrossbow)),
     )
 
     companion object {

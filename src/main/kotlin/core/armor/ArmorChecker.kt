@@ -7,8 +7,10 @@ class ArmorChecker(
     val medium: Boolean = false,
     val heavy: Boolean = false,
     val shield: Boolean = false,
-    val specific: Set<Armor> = emptySet(),
+    specific: Set<Armor> = emptySet(),
 ) : Checker<Armor> {
+
+    val specific: Set<Armor> = specific.filterNot(::checkType).toSet()
 
     override fun check(arg: Armor): Boolean =
         arg in specific || checkType(arg)

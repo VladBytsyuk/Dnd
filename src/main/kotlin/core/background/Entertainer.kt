@@ -16,6 +16,7 @@ import io.vbytsyuk.dnd.core.units.LawVsChaos.CHAOTIC
 import io.vbytsyuk.dnd.core.units.LawVsChaos.LAWFUL
 import io.vbytsyuk.dnd.core.units.gold
 import io.vbytsyuk.dnd.core.weapon.Weapon
+import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 data class Entertainer(
     val musicalInstrument: MusicalInstrument,
@@ -63,7 +64,7 @@ data class Gladiator(
     """.trimIndent()
     override val proficiencies = Proficiencies(
         skills = entertainerSkills.list,
-        weapons = { it == weapon },
+        weapons = WeaponChecker(specific = setOf(weapon)),
         tools = { it is DisguiseKit },
     )
     override val equipment = Equipment(

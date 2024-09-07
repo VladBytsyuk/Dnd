@@ -12,6 +12,7 @@ import io.vbytsyuk.dnd.core.skills.Skill.Dexterity.*
 import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.*
 import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.*
 import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.SIMPLE
+import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 class Artificer(
     proficientSkills: Skills2,
@@ -24,7 +25,7 @@ class Artificer(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
-        weapons = { it.proficiencyType == SIMPLE },
+        weapons = WeaponChecker(simple = true),
         armor = ArmorChecker(light = true, medium = true, shield = true),
     )
 

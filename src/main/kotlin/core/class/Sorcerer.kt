@@ -22,7 +22,7 @@ class Sorcerer(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
-        weapons = { it in setOf(Quarterstaff, Dart, Dagger, LightCrossbow, Sling) },
+        weapons = WeaponChecker(specific = setOf(Quarterstaff, Dart, Dagger, LightCrossbow, Sling)),
     )
 
     companion object {

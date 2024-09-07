@@ -2,9 +2,11 @@ package io.vbytsyuk.dnd.sheet
 
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatType
+import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.character.*
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.units.MasteryModifier
+import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 data class Sheet(
     val base: Base,
@@ -97,32 +99,16 @@ data class Sheet(
     }
 
     data class Proficiencies(
-        val armor: Armor,
+        val armor: String,
         val weapon: String,
         val tools: String,
         val languages: List<String>,
     ) {
 
-        data class Armor(
-            val light: Boolean,
-            val medium: Boolean,
-            val heavy: Boolean,
-            val shield: Boolean
-        ) {
-            override fun toString(): String {
-                val map = mapOf(
-                    "Light" to light,
-                    "Medium" to medium,
-                    "Heavy" to heavy,
-                    "Shield" to shield,
-                )
-                return map.filter { it.value }.keys.joinToString()
-            }
-        }
-
         override fun toString(): String = """
             Proficiencies:
                 Armor: $armor
+                Weapon: $weapon
         """.trimIndent()
     }
 
@@ -164,13 +150,8 @@ data class Sheet(
             charisma = Skills.Data.build(character, StatType.CHA),
         ),
         proficiencies = Proficiencies(
-            armor = Proficiencies.Armor(
-                light = character.proficiencies.armor.light,
-                medium = character.proficiencies.armor.medium,
-                heavy = character.proficiencies.armor.heavy,
-                shield = character.proficiencies.armor.shield,
-            ),
-            weapon = "",//character.proficiencies.weapons.check(),
+            armor = character.proficiencies.armor.toStringOutput(),
+            weapon = character.proficiencies.weapons.toStringOutput(),
             tools = "",//character.proficiencies.tools.check(),
             languages = emptyList(),// character.proficiencies.languages.check(),
         ),

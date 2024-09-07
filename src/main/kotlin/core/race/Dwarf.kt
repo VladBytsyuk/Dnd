@@ -13,10 +13,7 @@ import io.vbytsyuk.dnd.core.units.*
 import io.vbytsyuk.dnd.core.units.Damage.Type.POISON
 import io.vbytsyuk.dnd.core.units.Language.Common
 import io.vbytsyuk.dnd.core.units.Language.Dwarvish
-import io.vbytsyuk.dnd.core.weapon.Battleaxe
-import io.vbytsyuk.dnd.core.weapon.Handaxe
-import io.vbytsyuk.dnd.core.weapon.LightHammer
-import io.vbytsyuk.dnd.core.weapon.Warhammer
+import io.vbytsyuk.dnd.core.weapon.*
 
 sealed class Dwarf(
     override val description: String,
@@ -30,7 +27,7 @@ sealed class Dwarf(
     override val baseSpeed = Speed(25.feet)
     override val darkVision = 60.feet
     override val proficiencies = Proficiencies(
-        weapons = { it in listOf(Battleaxe, Handaxe, LightHammer, Warhammer) },
+        weapons = WeaponChecker(specific = setOf(Battleaxe, Handaxe, LightHammer, Warhammer)),
         languages = { it in listOf(Common, Dwarvish) },
         tools = { it == selectedTool },
     ) + proficiencies

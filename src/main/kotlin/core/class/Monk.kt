@@ -11,7 +11,7 @@ import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.*
 import io.vbytsyuk.dnd.core.skills.Skill.Strength.Athletics
 import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.*
 import io.vbytsyuk.dnd.core.weapon.Shortsword
-import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.SIMPLE
+import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 class Monk(
     proficientSkills: Skills2,
@@ -24,7 +24,7 @@ class Monk(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
-        weapons = { it.proficiencyType == SIMPLE || it == Shortsword },
+        weapons = WeaponChecker(simple = true, specific = setOf(Shortsword)),
     )
 
     companion object {

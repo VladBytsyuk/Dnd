@@ -15,7 +15,7 @@ sealed class Elf(
     override val bonusStatBlock: StatBlock,
     baseSpeed: Speed? = null,
     darkVision: Distance? = null,
-    weaponProficiency: Checker<Weapon>,
+    weaponProficiency: WeaponChecker,
 ) : Race {
 
     override val size = Size.MEDIUM
@@ -29,18 +29,18 @@ sealed class Elf(
 
     data object High : Elf(
         bonusStatBlock = StatBlock(dexterity = 2, intelligence = 1),
-        weaponProficiency = Checker { it in setOf(Longsword, Shortsword, Longbow, Shortbow) },
+        weaponProficiency = WeaponChecker(specific = setOf(Longsword, Shortsword, Longbow, Shortbow)),
     )
 
     data object Wood : Elf(
         bonusStatBlock = StatBlock(dexterity = 2, wisdom = 1),
         baseSpeed = Speed(35.feet),
-        weaponProficiency = Checker { it in setOf(Longsword, Shortsword, Longbow, Shortbow) },
+        weaponProficiency = WeaponChecker(specific = setOf(Longsword, Shortsword, Longbow, Shortbow)),
     )
 
     data object Drow : Elf(
         bonusStatBlock = StatBlock(dexterity = 2, charisma = 1),
         darkVision = 120.feet,
-        weaponProficiency = Checker { it in setOf(Rapier, Shortsword, HandCrossbow) },
+        weaponProficiency = WeaponChecker(specific = setOf(Rapier, Shortsword, HandCrossbow)),
     )
 }

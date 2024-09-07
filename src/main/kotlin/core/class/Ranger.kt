@@ -13,6 +13,7 @@ import io.vbytsyuk.dnd.core.skills.Skill.Dexterity.*
 import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.*
 import io.vbytsyuk.dnd.core.skills.Skill.Strength.Athletics
 import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.*
+import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 class Ranger(
     proficientSkills: Skills3,
@@ -25,7 +26,7 @@ class Ranger(
             allowed = allowedProficientSkills,
             selected = proficientSkills,
         ),
-        weapons = { true },
+        weapons = WeaponChecker.Full(),
         armor = ArmorChecker(light = true, medium = true, shield = true),
     )
 
