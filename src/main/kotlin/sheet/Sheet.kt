@@ -36,7 +36,7 @@ data class Sheet(
     )
 
     data class Passive(
-        val initiative: Int,
+        val initiative: Modifier,
         val speed: Int,
         val size: String,
         val darkVision: Int?,
@@ -109,6 +109,7 @@ data class Sheet(
             Proficiencies:
                 Armor: $armor
                 Weapon: $weapon
+                Tools: $tools
                 Languages: $languages
         """.trimIndent()
     }
@@ -135,7 +136,7 @@ data class Sheet(
             maxHp = character.maxHp.value,
         ),
         passive = Passive(
-            initiative = character.initiative.modifier.value,
+            initiative = character.initiative.modifier,
             speed = character.race.baseSpeed.value.feet.toInt(),
             size = character.race.size.name,
             darkVision = character.race.darkVision?.feet?.toInt(),
@@ -153,7 +154,7 @@ data class Sheet(
         proficiencies = Proficiencies(
             armor = character.proficiencies.armor.toStringOutput(),
             weapon = character.proficiencies.weapons.toStringOutput(),
-            tools = "",//character.proficiencies.tools.check(),
+            tools = character.proficiencies.tools.toStringOutput(),
             languages = character.proficiencies.languages.toStringOutput(),
         ),
         equipment = Equipment(

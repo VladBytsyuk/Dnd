@@ -10,6 +10,7 @@ import io.vbytsyuk.dnd.core.units.*
 import io.vbytsyuk.dnd.core.language.Language.Common
 import io.vbytsyuk.dnd.core.language.Language.Gnomish
 import io.vbytsyuk.dnd.core.language.LanguageChecker
+import io.vbytsyuk.dnd.core.tools.ToolsChecker
 
 sealed class Gnome(
     override val description: String,
@@ -61,7 +62,7 @@ sealed class Gnome(
         description = "As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.",
         bonusStatBlock = StatBlock(intelligence = 2, constitution = 1),
         proficiencies = Proficiencies(
-            tools = { it == TinkersTools },
+            tools = ToolsChecker(specific = setOf(TinkersTools)),
         ),
         traits = listOf(ArtificersLore, Tinker),
     )

@@ -11,6 +11,7 @@ import io.vbytsyuk.dnd.core.proficiencies.Skills
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.tools.DisguiseKit
 import io.vbytsyuk.dnd.core.tools.MusicalInstrument
+import io.vbytsyuk.dnd.core.tools.ToolsChecker
 import io.vbytsyuk.dnd.core.units.GoodVsEvil.*
 import io.vbytsyuk.dnd.core.units.LawVsChaos.CHAOTIC
 import io.vbytsyuk.dnd.core.units.LawVsChaos.LAWFUL
@@ -31,7 +32,7 @@ data class Entertainer(
     """.trimIndent()
     override val proficiencies = Proficiencies(
         skills = entertainerSkills.list,
-        tools = { it is DisguiseKit || it == musicalInstrument },
+        tools = ToolsChecker(specific = setOf(DisguiseKit, musicalInstrument)),
     )
     override val startCoins = 15.gold
     override val equipment = Equipment(
@@ -65,7 +66,7 @@ data class Gladiator(
     override val proficiencies = Proficiencies(
         skills = entertainerSkills.list,
         weapons = WeaponChecker(specific = setOf(weapon)),
-        tools = { it is DisguiseKit },
+        tools = ToolsChecker(specific = setOf(DisguiseKit)),
     )
     override val equipment = Equipment(
         weapon.equipped(),

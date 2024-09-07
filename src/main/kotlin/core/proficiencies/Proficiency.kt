@@ -9,6 +9,7 @@ import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.tools.Tools
 import io.vbytsyuk.dnd.core.language.Language
 import io.vbytsyuk.dnd.core.language.LanguageChecker
+import io.vbytsyuk.dnd.core.tools.ToolsChecker
 import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 import kotlin.math.ceil
 
@@ -17,7 +18,7 @@ class Proficiencies(
     val skills: List<Skill>,
     val weapons: WeaponChecker = WeaponChecker(),
     val armor: ArmorChecker = ArmorChecker(),
-    val tools: Checker<Tools> = Checker { false },
+    val tools: ToolsChecker = ToolsChecker(),
     val languages: LanguageChecker = LanguageChecker(),
 ) {
     constructor(
@@ -25,7 +26,7 @@ class Proficiencies(
         skills: ProficiencySkills = ProficiencySkills(),
         weapons: WeaponChecker = WeaponChecker(),
         armor: ArmorChecker = ArmorChecker(),
-        tools: Checker<Tools> = Checker { false },
+        tools: ToolsChecker = ToolsChecker(),
         languages: LanguageChecker = LanguageChecker(),
     ) : this(
         savingThrows = savingThrows,
