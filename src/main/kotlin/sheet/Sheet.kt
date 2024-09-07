@@ -33,7 +33,10 @@ data class Sheet(
         val currentHp: Int,
         val temporaryHp: Int,
         val maxHp: Int,
-    )
+    ) {
+
+        fun toHealthString() = "$currentHp${if (temporaryHp > 0) "(+$temporaryHp)" else ""}/$maxHp hp"
+    }
 
     data class Passive(
         val initiative: Modifier,
