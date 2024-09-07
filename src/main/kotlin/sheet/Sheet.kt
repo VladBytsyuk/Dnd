@@ -2,11 +2,10 @@ package io.vbytsyuk.dnd.sheet
 
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatType
-import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.character.*
+import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.units.MasteryModifier
-import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 data class Sheet(
     val base: Base,
@@ -33,10 +32,7 @@ data class Sheet(
         val currentHp: Int,
         val temporaryHp: Int,
         val maxHp: Int,
-    ) {
-
-        fun toHealthString() = "$currentHp${if (temporaryHp > 0) "(+$temporaryHp)" else ""}/$maxHp hp"
-    }
+    )
 
     data class Passive(
         val initiative: Modifier,
@@ -62,9 +58,6 @@ data class Sheet(
             val savingThrow: MasteryModifier,
             val skills: Map<String, MasteryModifier>
         ) {
-
-            override fun toString() = "$value($modifier), savingThrow = $savingThrow\t\t$skills"
-
             companion object {
 
                 fun build(character: Character, type: StatType) = Data(
@@ -89,32 +82,6 @@ data class Sheet(
                 )
             }
         }
-
-        override fun toString(): String = """
-            Skills: Proficiency = $proficiencyBonus,
-                STR = $strength
-                DEX = $dexterity
-                CON = $constitution
-                INT = $intelligence
-                WIS = $wisdom
-                CHA = $charisma
-        """.trimIndent()
-    }
-
-    data class Proficiencies(
-        val armor: String,
-        val weapon: String,
-        val tools: String,
-        val languages: String,
-    ) {
-
-        override fun toString(): String = """
-            Proficiencies:
-                Armor: $armor
-                Weapon: $weapon
-                Tools: $tools
-                Languages: $languages
-        """.trimIndent()
     }
 
     data class Equipment(
@@ -154,12 +121,7 @@ data class Sheet(
             wisdom = Skills.Data.build(character, StatType.WIS),
             charisma = Skills.Data.build(character, StatType.CHA),
         ),
-        proficiencies = Proficiencies(
-            armor = character.proficiencies.armor.toStringOutput(),
-            weapon = character.proficiencies.weapons.toStringOutput(),
-            tools = character.proficiencies.tools.toStringOutput(),
-            languages = character.proficiencies.languages.toStringOutput(),
-        ),
+        proficiencies = character.proficiencies,
         equipment = Equipment(
             items = character.equipment.toStringList()
         )
