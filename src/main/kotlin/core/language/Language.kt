@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.core.units
+package io.vbytsyuk.dnd.core.language
 
 interface Language {
 
@@ -76,13 +76,5 @@ interface Language {
 
     data object Undercommon : Language {
         override val script = Script.Elvish
-    }
-
-    companion object {
-
-        val all = setOf(
-            Common, Dwarvish, Elvish, Giant, Gnomish, Goblin, Halfling, Orc, Abyssal, Celestial, Draconic, DeepSpeech,
-            Infernal, Primordial, Sylvan, Undercommon,
-        )
     }
 }

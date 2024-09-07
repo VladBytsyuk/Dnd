@@ -9,7 +9,8 @@ import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.Skills
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.units.GoodVsEvil.GOOD
-import io.vbytsyuk.dnd.core.units.Language
+import io.vbytsyuk.dnd.core.language.Language
+import io.vbytsyuk.dnd.core.language.LanguageChecker
 import io.vbytsyuk.dnd.core.units.LawVsChaos.CHAOTIC
 import io.vbytsyuk.dnd.core.units.LawVsChaos.LAWFUL
 import io.vbytsyuk.dnd.core.units.gold
@@ -33,7 +34,7 @@ class Acolyte(
     """.trimIndent()
     override val proficiencies = Proficiencies(
         skills = Skills(Skill.Wisdom.Insight, Skill.Intelligence.Religion).list,
-        languages = { it == language1 || it == language2 },
+        languages = LanguageChecker(specific = setOf(language1, language2)),
     )
     override val equipment = Equipment(
         Item("A holy symbol (a gift to you when you entered the priesthood)").equipped(),

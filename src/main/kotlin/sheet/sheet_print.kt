@@ -1,11 +1,5 @@
 package io.vbytsyuk.dnd.sheet
 
-import io.vbytsyuk.dnd.core.character.armorClass
-import io.vbytsyuk.dnd.core.character.initiative
-import io.vbytsyuk.dnd.core.character.savingThrows
-import io.vbytsyuk.dnd.core.character.skills
-import io.vbytsyuk.dnd.core.units.Language
-
 fun Sheet.print() = buildString {
     appendLine("----------------------------------")
     append("${base.name}, ")

@@ -102,13 +102,14 @@ data class Sheet(
         val armor: String,
         val weapon: String,
         val tools: String,
-        val languages: List<String>,
+        val languages: String,
     ) {
 
         override fun toString(): String = """
             Proficiencies:
                 Armor: $armor
                 Weapon: $weapon
+                Languages: $languages
         """.trimIndent()
     }
 
@@ -153,7 +154,7 @@ data class Sheet(
             armor = character.proficiencies.armor.toStringOutput(),
             weapon = character.proficiencies.weapons.toStringOutput(),
             tools = "",//character.proficiencies.tools.check(),
-            languages = emptyList(),// character.proficiencies.languages.check(),
+            languages = character.proficiencies.languages.toStringOutput(),
         ),
         equipment = Equipment(
             items = character.equipment.toStringList()

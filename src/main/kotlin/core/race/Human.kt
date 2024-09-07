@@ -3,8 +3,9 @@ package io.vbytsyuk.dnd.core.race
 import io.vbytsyuk.dnd.core.units.Speed
 import io.vbytsyuk.dnd.core.StatBlock
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
-import io.vbytsyuk.dnd.core.units.Language
-import io.vbytsyuk.dnd.core.units.Language.Common
+import io.vbytsyuk.dnd.core.language.Language
+import io.vbytsyuk.dnd.core.language.Language.Common
+import io.vbytsyuk.dnd.core.language.LanguageChecker
 import io.vbytsyuk.dnd.core.units.feet
 import io.vbytsyuk.dnd.core.units.Size
 
@@ -23,7 +24,7 @@ data class Human(
     override val size = Size.MEDIUM
     override val baseSpeed = Speed(30.feet)
     override val proficiencies = Proficiencies(
-        languages = { it in listOf(Common, chosenLanguage) }
+        languages = LanguageChecker(specific = setOf(Common, chosenLanguage)),
     )
 
     init { requireUniqueChosenLanguage() }

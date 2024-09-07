@@ -4,12 +4,11 @@ import io.vbytsyuk.dnd.core.util.Checker
 import io.vbytsyuk.dnd.core.units.Level
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatType
-import io.vbytsyuk.dnd.core.armor.Armor
 import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.tools.Tools
-import io.vbytsyuk.dnd.core.units.Language
-import io.vbytsyuk.dnd.core.weapon.Weapon
+import io.vbytsyuk.dnd.core.language.Language
+import io.vbytsyuk.dnd.core.language.LanguageChecker
 import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 import kotlin.math.ceil
 
@@ -19,7 +18,7 @@ class Proficiencies(
     val weapons: WeaponChecker = WeaponChecker(),
     val armor: ArmorChecker = ArmorChecker(),
     val tools: Checker<Tools> = Checker { false },
-    val languages: Checker<Language> = Checker { false }
+    val languages: LanguageChecker = LanguageChecker(),
 ) {
     constructor(
         savingThrows: List<StatType> = emptyList(),
@@ -27,7 +26,7 @@ class Proficiencies(
         weapons: WeaponChecker = WeaponChecker(),
         armor: ArmorChecker = ArmorChecker(),
         tools: Checker<Tools> = Checker { false },
-        languages: Checker<Language> = Checker { false }
+        languages: LanguageChecker = LanguageChecker(),
     ) : this(
         savingThrows = savingThrows,
         skills = skills.selected.list,
