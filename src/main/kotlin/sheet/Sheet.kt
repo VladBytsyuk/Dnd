@@ -6,6 +6,7 @@ import io.vbytsyuk.dnd.core.character.*
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.units.MasteryModifier
+import io.vbytsyuk.dnd.core.units.Wallet
 
 data class Sheet(
     val base: Base,
@@ -14,6 +15,7 @@ data class Sheet(
     val skills: Skills,
     val proficiencies: Proficiencies,
     val equipment: Equipment,
+    val wallet: Wallet
 ) {
 
     data class Base(
@@ -124,6 +126,7 @@ data class Sheet(
         proficiencies = character.proficiencies,
         equipment = Equipment(
             items = character.equipment.toStringList()
-        )
+        ),
+        wallet = character.wallet,
     )
 }

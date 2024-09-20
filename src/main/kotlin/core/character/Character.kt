@@ -22,6 +22,7 @@ data class Character(
     val initialRawStatBlock: StatBlock,
     val exp: Exp,
     val equipment: Equipment,
+    val wallet: Wallet = Wallet(background.startCoins),
 ) {
 
     val level: Level get() = exp.level

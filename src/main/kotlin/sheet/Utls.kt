@@ -4,6 +4,7 @@ import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.language.LanguageChecker
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.tools.ToolsChecker
+import io.vbytsyuk.dnd.core.units.Wallet
 import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 fun Sheet.Health.toHealthString() = "$currentHp${if (temporaryHp > 0) "(+$temporaryHp)" else ""}/$maxHp hp"
@@ -47,3 +48,4 @@ fun ToolsChecker.toStringOutput(): String = specific.joinToString()
 
 fun LanguageChecker.toStringOutput(): String = specific.joinToString()
 
+fun Wallet.toStringOutput(): String = "$copper copper, $silver silver, $gold gold, $platinum platinum"

@@ -12,4 +12,5 @@ fun Sheet.print() = buildString {
     appendLine(proficiencies.toProficienciesString())
     appendLine(skills.toSkillsString())
     appendLine("Equipment: $equipment")
+    appendLine("Money: ${wallet.toStringOutput()}")
 }.let(::println)

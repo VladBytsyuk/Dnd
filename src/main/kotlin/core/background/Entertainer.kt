@@ -21,7 +21,7 @@ import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 data class Entertainer(
     val musicalInstrument: MusicalInstrument,
-    val routine: Routine = Routine.entries.random(),
+    val routine: Routine,
 ) : Background {
 
     override val description = """

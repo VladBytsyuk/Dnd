@@ -54,3 +54,5 @@ data class Wallet(
         )
     }
 }
+
+fun Wallet(coins: Coins): Wallet = Wallet() + coins
