@@ -64,6 +64,19 @@ class DamageSumTest : T<List<Damage>, Damage> {
                 ),
             )
         ),
+        T.Data(
+            name = "complex case",
+            input = listOf(
+                1.d4(BLUDGEONING),
+                4.d6(LIGHTNING),
+                6.d4(PIERCING),
+                1.d12(LIGHTNING),
+                2.d4(BLUDGEONING),
+                5.damage(LIGHTNING),
+                6.d6(BLUDGEONING),
+            ),
+            output = (6.d6 + 3.d4).damage(BLUDGEONING) + (1.d12 + 4.d6 + 5).damage(LIGHTNING) + 6.d4(PIERCING)
+        ),
     )
 
     override fun act(input: List<Damage>): Damage = input.reduce { acc, damage -> acc + damage }

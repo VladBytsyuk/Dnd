@@ -17,6 +17,10 @@ data class Damage(
     ) {
 
         operator fun plus(other: Dices): List<Dices> = listOf(this, other)
+
+        operator fun plus(other: List<Dices>): List<Dices> = listOf(this) + other
+
+        operator fun plus(other: Int): List<Dices> = listOf(this, Dices(amount = other, dice = Dice.D1))
     }
 
     enum class Type {
@@ -53,6 +57,17 @@ data class Damage(
         return normalizedList
     }
 }
+
+operator fun List<Damage.Dices>.plus(other: List<Damage.Dices>): List<Damage.Dices> = this + other
+
+operator fun List<Damage.Dices>.plus(other: Damage.Dices): List<Damage.Dices> = other + this
+
+operator fun List<Damage.Dices>.plus(other: Int): List<Damage.Dices> =
+    this + Damage.Dices(amount = other, dice = Dice.D1)
+
+operator fun Int.plus(other: Damage.Dices): List<Damage.Dices> = other + this
+
+operator fun Int.plus(other: List<Damage.Dices>): List<Damage.Dices> = other + this
 
 fun Int.damage(type: Damage.Type): Damage = Damage(
     entries = listOf(Damage.Entry(dices = listOf(Damage.Dices(amount = this, dice = Dice.D1)), type = type)),
