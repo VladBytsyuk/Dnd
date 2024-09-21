@@ -5,8 +5,11 @@ import io.vbytsyuk.dnd.core.StatType
 import io.vbytsyuk.dnd.core.character.*
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.skills.Skill
+import io.vbytsyuk.dnd.core.units.Damage
 import io.vbytsyuk.dnd.core.units.MasteryModifier
 import io.vbytsyuk.dnd.core.units.Wallet
+import io.vbytsyuk.dnd.core.weapon.Weapon
+import jdk.jfr.Description
 
 data class Sheet(
     val base: Base,
@@ -128,5 +131,12 @@ data class Sheet(
             items = character.equipment.toStringList()
         ),
         wallet = character.wallet,
+    )
+
+    data class Attack(
+        val weapon: Weapon,
+        val modifier: Modifier,
+        val damage: Damage,
+        val description: String,
     )
 }

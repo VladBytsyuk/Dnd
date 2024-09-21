@@ -51,6 +51,5 @@ fun main() {
     )
     val sheet = Sheet(character = alice)
     sheet.print()
-    println("Dagger attack: ${alice.rollAttack(Dagger)}")
 }
 

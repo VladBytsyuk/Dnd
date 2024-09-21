@@ -60,20 +60,20 @@ data class Character(
         return rolledValue to traits
     }
 
-    fun rollAttack(weapon: Weapon): Triple<Int, Pair<Hp, Damage.Type>, List<Trait>> {
-        require(equipment[weapon]?.isEquipped == true)
-        val strModifier = statBlock.modifier(StatType.STR)
-        val dexModifier = statBlock.modifier(StatType.DEX)
-        val rawAttackModifier = when {
-            weapon.rangeType == RANGED || weapon.isFinesse && dexModifier > strModifier -> dexModifier
-            else -> strModifier
-        }
-        val isProficient = proficiencies.weapons.check(weapon)
-        val attackModifier = rawAttackModifier + proficiencyBonus.takeModifierIf { isProficient }
-        val attackRolledValue = Dice.D20.valuesRange.random() + attackModifier.value
-        val damage = (1..weapon.damage.amount)
-            .fold(initial = 0) { acc, _ -> acc + weapon.damage.dice.valuesRange.random() }.hp + rawAttackModifier.value
-        val traits = emptyList<Trait>()
-        return Triple(attackRolledValue, damage to weapon.damage.type, traits)
-    }
+//    fun rollAttack(weapon: Weapon): Triple<Int, Pair<Hp, Damage.Type>, List<Trait>> {
+//        require(equipment[weapon]?.isEquipped == true)
+//        val strModifier = statBlock.modifier(StatType.STR)
+//        val dexModifier = statBlock.modifier(StatType.DEX)
+//        val rawAttackModifier = when {
+//            weapon.rangeType == RANGED || weapon.isFinesse && dexModifier > strModifier -> dexModifier
+//            else -> strModifier
+//        }
+//        val isProficient = proficiencies.weapons.check(weapon)
+//        val attackModifier = rawAttackModifier + proficiencyBonus.takeModifierIf { isProficient }
+//        val attackRolledValue = Dice.D20.valuesRange.random() + attackModifier.value
+//        val damage = (1..weapon.damage.amount)
+//            .fold(initial = 0) { acc, _ -> acc + weapon.damage.dice.valuesRange.random() }.hp + rawAttackModifier.value
+//        val traits = emptyList<Trait>()
+//        return Triple(attackRolledValue, damage to weapon.damage.type, traits)
+//    }
 }
