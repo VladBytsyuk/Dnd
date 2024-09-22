@@ -21,6 +21,7 @@ data class Sheet(
     val equipment: Equipment,
     val wallet: Wallet,
     val weaponsAttacks: List<Attack>,
+    val personality: Personality,
 ) {
 
     data class Base(
@@ -85,7 +86,7 @@ data class Sheet(
                         StatType.INT -> Skill.Intelligence.all
                         StatType.WIS -> Skill.Wisdom.all
                         StatType.CHA -> Skill.Charisma.all
-                    }.associate { it::class.simpleName.orEmpty() to character.skills[it]!! }
+                    }.filterNotNull().associate { it::class.simpleName.orEmpty() to character.skills[it]!! }
                 )
             }
         }
@@ -93,6 +94,20 @@ data class Sheet(
 
     data class Equipment(
         val items: List<String>,
+    )
+
+    data class Attack(
+        val weapon: Weapon,
+        val modifier: Modifier,
+        val damage: Damage,
+        val description: String,
+    )
+
+    data class Personality(
+        val trait: String,
+        val ideal: String,
+        val bond: String,
+        val flaw: String,
     )
 
     constructor(character: Character) : this(
@@ -144,20 +159,23 @@ data class Sheet(
                     weapon.isFinesse && dex > str -> dex
                     else -> str
                 } + if (character.proficiencies.weapons.check(weapon)) character.proficiencyBonus else Modifier(0)
-                val damage = if (character.proficiencies.weapons.check(weapon)) weapon.damage + modifier.value.damage(weapon.damage.entries.first().type) else weapon.damage
+                val damage = when {
+                    character.proficiencies.weapons.check(weapon) ->
+                        weapon.damage + modifier.value.damage(weapon.damage.entries.first().type)
+                    else -> weapon.damage
+                }
                 Attack(
                     weapon = weapon,
                     modifier = modifier,
                     damage = damage,
                     description = "${weapon.name} attack",
                 )
-            }
-    )
-
-    data class Attack(
-        val weapon: Weapon,
-        val modifier: Modifier,
-        val damage: Damage,
-        val description: String,
+            },
+        personality = Personality(
+            trait = character.personality.trait,
+            ideal = character.personality.ideal,
+            bond = character.personality.bond,
+            flaw = character.personality.flaw,
+        )
     )
 }

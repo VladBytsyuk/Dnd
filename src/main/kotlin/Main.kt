@@ -24,6 +24,10 @@ import io.vbytsyuk.dnd.sheet.Sheet
 import io.vbytsyuk.dnd.sheet.print
 
 fun main() {
+    val background = Entertainer(
+        musicalInstrument = Flute,
+        routine = Entertainer.Routine.INSTRUMENTALIST,
+    )
     val alice = Character(
         name = "Alice",
         race = Human(chosenLanguage = Language.Dwarvish),
@@ -34,10 +38,7 @@ fun main() {
                 Skill.Intelligence.History,
             ),
         ),
-        background = Entertainer(
-            musicalInstrument = Flute,
-            routine = Entertainer.Routine.INSTRUMENTALIST,
-        ),
+        background = background,
         alignment = LAWFUL + GOOD,
         initialRawStatBlock = StatBlock(
             strength = 8, dexterity = 14, constitution = 13,
@@ -48,6 +49,12 @@ fun main() {
             Rapier.equipped(),
             Dart.equipped(count = 20),
             PlateArmor.unequipped(),
+        ),
+        personality = Character.Personality(
+            trait = background.suggestedCharacteristics.personalityTraits.random().value,
+            ideal = background.suggestedCharacteristics.ideals.random().value,
+            bond = background.suggestedCharacteristics.bonds.random().value,
+            flaw = background.suggestedCharacteristics.flaws.random().value,
         )
     )
     val sheet = Sheet(character = alice)

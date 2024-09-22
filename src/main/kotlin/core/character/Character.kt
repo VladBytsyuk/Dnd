@@ -23,7 +23,15 @@ data class Character(
     val exp: Exp,
     val equipment: Equipment,
     val wallet: Wallet = Wallet(background.startCoins),
+    val personality: Personality,
 ) {
+
+    data class Personality(
+        val trait: String,
+        val ideal: String,
+        val bond: String,
+        val flaw: String,
+    )
 
     val level: Level get() = exp.level
 

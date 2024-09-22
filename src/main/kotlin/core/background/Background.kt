@@ -9,6 +9,7 @@ import io.vbytsyuk.dnd.core.units.LawVsChaos
 interface Background {
 
     val description: String
+
     val proficiencies: Proficiencies
     val startCoins: Coins
     val equipment: Equipment

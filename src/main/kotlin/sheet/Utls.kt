@@ -62,3 +62,11 @@ fun Damage.toStringOutput(): String = entries.joinToString(separator = " + ") { 
         if (dices.dice == Dice.D1) "${dices.amount}" else "${dices.amount}${dices.dice}"
     } + " " + entry.type.toString()
 }
+
+fun Sheet.Personality.toStringOutput(): String = """
+    Personality:
+        Trait: $trait
+        Ideal: $ideal
+        Bond: $bond
+        Flaw: $flaw
+""".trimIndent()
