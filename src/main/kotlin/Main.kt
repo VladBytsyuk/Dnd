@@ -1,6 +1,7 @@
 package io.vbytsyuk.dnd
 
 import io.vbytsyuk.dnd.core.StatBlock
+import io.vbytsyuk.dnd.core.armor.LeatherArmor
 import io.vbytsyuk.dnd.core.armor.PlateArmor
 import io.vbytsyuk.dnd.core.background.Entertainer
 import io.vbytsyuk.dnd.core.character.Character
@@ -48,6 +49,8 @@ fun main() {
         equipment = Equipment(
             Rapier.equipped(),
             Dart.equipped(count = 20),
+            Dagger.unequipped(),
+            LeatherArmor.equipped(),
             PlateArmor.unequipped(),
         ),
         personality = Character.Personality(

@@ -9,9 +9,11 @@ import io.vbytsyuk.dnd.core.units.Damage
 import io.vbytsyuk.dnd.core.units.Wallet
 import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
-fun Sheet.Health.toHealthString() = "$currentHp${if (temporaryHp > 0) "(+$temporaryHp)" else ""}/$maxHp hp"
+fun Sheet.Health.toHealthString() =
+    "$currentHp${if (temporaryHp > 0) "(+$temporaryHp)" else ""}/$maxHp hp " +
+        "(${hitDices.amount}/${hitDices.max} ${hitDices.dice} hit dices)"
 
-fun Sheet.Skills.Data.toDataString() = "$value($modifier), savingThrow = $savingThrow\t\t$skills"
+fun Sheet.Skills.Data.toDataString() = "$value($modifier),\tsavingThrow = $savingThrow\t\t$skills"
 
 fun Sheet.Skills.toSkillsString() = """
     Skills: Proficiency = $proficiencyBonus,
@@ -52,6 +54,8 @@ fun LanguageChecker.toStringOutput(): String = specific.joinToString()
 
 fun Wallet.toStringOutput(): String = "$copper copper, $silver silver, $gold gold, $platinum platinum"
 
+fun Sheet.Equipment.toStringOutput(): String = "Equipment: ${items.joinToString { it }}"
+
 fun List<Sheet.Attack>.toStringOutput(): String =
     "Attacks:\n${this.joinToString(separator = "\n") { "\t${it.toStringOutput()}" }}"
 
@@ -70,3 +74,6 @@ fun Sheet.Personality.toStringOutput(): String = """
         Bond: $bond
         Flaw: $flaw
 """.trimIndent()
+
+fun Sheet.DeathSavingThrows.toStringOutput(): String =
+    "Death saving throws: successes = $successes, failures = $failures"

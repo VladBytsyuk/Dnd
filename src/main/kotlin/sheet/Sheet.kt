@@ -1,5 +1,7 @@
 package io.vbytsyuk.dnd.sheet
 
+import io.vbytsyuk.dnd.core.Dice
+import io.vbytsyuk.dnd.core.HpDice
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatType
 import io.vbytsyuk.dnd.core.character.*
@@ -22,6 +24,7 @@ data class Sheet(
     val wallet: Wallet,
     val weaponsAttacks: List<Attack>,
     val personality: Personality,
+    val deathSavingThrows: DeathSavingThrows = DeathSavingThrows(successes = 0, failures = 0),
 ) {
 
     data class Base(
@@ -40,7 +43,22 @@ data class Sheet(
         val currentHp: Int,
         val temporaryHp: Int,
         val maxHp: Int,
-    )
+        val hitDices: HitDices,
+    ) {
+
+        data class HitDices(
+            val amount: Int,
+            val max: Int,
+            val dice: HpDice,
+        )
+    }
+
+    data class DeathSavingThrows(
+        val successes: Int,
+        val failures: Int,
+    ) {
+        init { require(successes in 0..3 && failures in 0..3) }
+    }
 
     data class Passive(
         val initiative: Modifier,
@@ -126,6 +144,11 @@ data class Sheet(
             currentHp = character.maxHp.value,
             temporaryHp = 0,
             maxHp = character.maxHp.value,
+            hitDices = Health.HitDices(
+                amount = character.level.value,
+                max = character.level.value,
+                dice = character.`class`.hpDice,
+            )
         ),
         passive = Passive(
             initiative = character.initiative.modifier,
