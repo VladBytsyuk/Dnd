@@ -8,6 +8,7 @@ import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.units.Damage
 import io.vbytsyuk.dnd.core.units.MasteryModifier
 import io.vbytsyuk.dnd.core.units.Wallet
+import io.vbytsyuk.dnd.core.units.damage
 import io.vbytsyuk.dnd.core.weapon.Weapon
 import jdk.jfr.Description
 
@@ -18,7 +19,8 @@ data class Sheet(
     val skills: Skills,
     val proficiencies: Proficiencies,
     val equipment: Equipment,
-    val wallet: Wallet
+    val wallet: Wallet,
+    val weaponsAttacks: List<Attack>,
 ) {
 
     data class Base(
@@ -131,6 +133,25 @@ data class Sheet(
             items = character.equipment.toStringList()
         ),
         wallet = character.wallet,
+        weaponsAttacks = character.equipment
+            .mapNotNull { (item, data) ->
+                if (!data.isEquipped) return@mapNotNull null
+                val weapon = item as? Weapon ?: return@mapNotNull null
+                val str = character.statBlock.modifier(StatType.STR)
+                val dex = character.statBlock.modifier(StatType.DEX)
+                val modifier = when {
+                    weapon.rangeType == Weapon.RangeType.RANGED -> dex
+                    weapon.isFinesse && dex > str -> dex
+                    else -> str
+                } + if (character.proficiencies.weapons.check(weapon)) character.proficiencyBonus else Modifier(0)
+                val damage = if (character.proficiencies.weapons.check(weapon)) weapon.damage + modifier.value.damage(weapon.damage.entries.first().type) else weapon.damage
+                Attack(
+                    weapon = weapon,
+                    modifier = modifier,
+                    damage = damage,
+                    description = "${weapon.name} attack",
+                )
+            }
     )
 
     data class Attack(

@@ -1,9 +1,11 @@
 package io.vbytsyuk.dnd.sheet
 
+import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.language.LanguageChecker
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.tools.ToolsChecker
+import io.vbytsyuk.dnd.core.units.Damage
 import io.vbytsyuk.dnd.core.units.Wallet
 import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
@@ -49,3 +51,14 @@ fun ToolsChecker.toStringOutput(): String = specific.joinToString()
 fun LanguageChecker.toStringOutput(): String = specific.joinToString()
 
 fun Wallet.toStringOutput(): String = "$copper copper, $silver silver, $gold gold, $platinum platinum"
+
+fun List<Sheet.Attack>.toStringOutput(): String =
+    "Attacks:\n${this.joinToString(separator = "\n") { "\t${it.toStringOutput()}" }}"
+
+fun Sheet.Attack.toStringOutput(): String = "$weapon\t$modifier\t${damage.toStringOutput()}"
+
+fun Damage.toStringOutput(): String = entries.joinToString(separator = " + ") { entry ->
+    entry.dices.joinToString(separator = "+") { dices ->
+        if (dices.dice == Dice.D1) "${dices.amount}" else "${dices.amount}${dices.dice}"
+    } + " " + entry.type.toString()
+}
