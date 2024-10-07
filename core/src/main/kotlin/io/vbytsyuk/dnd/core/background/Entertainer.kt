@@ -12,7 +12,9 @@ import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.tools.DisguiseKit
 import io.vbytsyuk.dnd.core.tools.MusicalInstrument
 import io.vbytsyuk.dnd.core.tools.ToolsChecker
-import io.vbytsyuk.dnd.core.units.GoodVsEvil.*
+import io.vbytsyuk.dnd.core.units.GoodVsEvil.GOOD
+import io.vbytsyuk.dnd.core.units.GoodVsEvil.EVIL
+import io.vbytsyuk.dnd.core.units.GoodVsEvil.NEUTRAL
 import io.vbytsyuk.dnd.core.units.LawVsChaos.CHAOTIC
 import io.vbytsyuk.dnd.core.units.LawVsChaos.LAWFUL
 import io.vbytsyuk.dnd.core.units.gold
@@ -92,6 +94,7 @@ private val ByPopularDemand = Feature(
     """.trimIndent()
 )
 
+@Suppress("MaxLineLength")
 private val entertainerSuggestedCharacteristics: Background.SuggestedCharacteristics
     get() = Background.SuggestedCharacteristics(
         description = """

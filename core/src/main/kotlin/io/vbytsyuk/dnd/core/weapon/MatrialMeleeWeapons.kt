@@ -1,14 +1,25 @@
-package io.vbytsyuk.dnd.core.weapon
+@file:Suppress("MagicNumber") package io.vbytsyuk.dnd.core.weapon
 
-import io.vbytsyuk.dnd.core.units.Damage.Type.*
-import io.vbytsyuk.dnd.core.Dice.*
+import io.vbytsyuk.dnd.core.Dice.D10
+import io.vbytsyuk.dnd.core.Dice.D8
+import io.vbytsyuk.dnd.core.units.Damage.Type.BLUDGEONING
+import io.vbytsyuk.dnd.core.units.Damage.Type.PIERCING
+import io.vbytsyuk.dnd.core.units.Damage.Type.SLASHING
 import io.vbytsyuk.dnd.core.units.d10
+import io.vbytsyuk.dnd.core.units.d12
+import io.vbytsyuk.dnd.core.units.d4
+import io.vbytsyuk.dnd.core.units.d6
 import io.vbytsyuk.dnd.core.units.d8
 import io.vbytsyuk.dnd.core.units.gold
 import io.vbytsyuk.dnd.core.units.lb
-import io.vbytsyuk.dnd.core.units.*
 import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.MATRIAL
-import io.vbytsyuk.dnd.core.weapon.Weapon.Property.*
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Finesse
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Heavy
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Light
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Reach
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Special
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.TwoHanded
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Versatile
 import io.vbytsyuk.dnd.core.weapon.Weapon.RangeType.MELEE
 
 data object Halberd : Weapon {
@@ -159,7 +170,10 @@ data object Trident : Weapon {
     override val cost = 5.gold
     override val damage = 1.d6(PIERCING)
     override val weight = 4.lb
-    override val properties = setOf(Thrown(shortRange = 20, longRange = 60), Versatile(twoHandedDice = D8))
+    override val properties = setOf(
+        Weapon.Property.Thrown(shortRange = 20, longRange = 60),
+        Versatile(twoHandedDice = D8),
+    )
 }
 
 data object Flail : Weapon {

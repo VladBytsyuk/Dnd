@@ -1,18 +1,26 @@
 package io.vbytsyuk.dnd.core.race
 
 import io.vbytsyuk.dnd.core.StatBlock
-import io.vbytsyuk.dnd.core.StatType.*
-import io.vbytsyuk.dnd.core.units.Affect
-import io.vbytsyuk.dnd.core.units.Trait
+import io.vbytsyuk.dnd.core.StatType.CHA
+import io.vbytsyuk.dnd.core.StatType.INT
+import io.vbytsyuk.dnd.core.StatType.WIS
+import io.vbytsyuk.dnd.core.language.Language.Common
+import io.vbytsyuk.dnd.core.language.Language.Gnomish
+import io.vbytsyuk.dnd.core.language.LanguageChecker
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.History
 import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.AnimalHandling
 import io.vbytsyuk.dnd.core.tools.TinkersTools
-import io.vbytsyuk.dnd.core.units.*
-import io.vbytsyuk.dnd.core.language.Language.Common
-import io.vbytsyuk.dnd.core.language.Language.Gnomish
-import io.vbytsyuk.dnd.core.language.LanguageChecker
 import io.vbytsyuk.dnd.core.tools.ToolsChecker
+import io.vbytsyuk.dnd.core.units.Affect
+import io.vbytsyuk.dnd.core.units.AgeInfo
+import io.vbytsyuk.dnd.core.units.Names
+import io.vbytsyuk.dnd.core.units.Size
+import io.vbytsyuk.dnd.core.units.Speed
+import io.vbytsyuk.dnd.core.units.Spell
+import io.vbytsyuk.dnd.core.units.Trait
+import io.vbytsyuk.dnd.core.units.feet
+import io.vbytsyuk.dnd.core.units.years
 
 sealed class Gnome(
     override val description: String,

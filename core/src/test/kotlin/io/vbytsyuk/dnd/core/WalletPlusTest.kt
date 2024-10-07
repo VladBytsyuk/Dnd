@@ -1,4 +1,9 @@
-import io.vbytsyuk.dnd.core.units.CoinType.*
+package io.vbytsyuk.dnd.core
+
+import io.vbytsyuk.dnd.core.units.CoinType.COPPER
+import io.vbytsyuk.dnd.core.units.CoinType.GOLD
+import io.vbytsyuk.dnd.core.units.CoinType.PLATINUM
+import io.vbytsyuk.dnd.core.units.CoinType.SILVER
 import io.vbytsyuk.dnd.core.units.Coins
 import io.vbytsyuk.dnd.core.units.Wallet
 import org.junit.jupiter.api.Test

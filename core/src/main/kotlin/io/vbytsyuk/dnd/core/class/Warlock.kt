@@ -7,8 +7,13 @@ import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills2
-import io.vbytsyuk.dnd.core.skills.Skill.Charisma.*
-import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.*
+import io.vbytsyuk.dnd.core.skills.Skill.Charisma.Deception
+import io.vbytsyuk.dnd.core.skills.Skill.Charisma.Intimidation
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.Arcana
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.History
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.Investigation
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.Nature
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.Religion
 import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 class Warlock(

@@ -7,6 +7,7 @@ sealed interface HpDice {
     val hpIncrement: Hp
 }
 
+@Suppress("MagicNumber")
 sealed class Dice(val maxValue: Int) {
 
     val valuesRange: IntRange = 1..maxValue

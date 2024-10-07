@@ -3,7 +3,11 @@ package io.vbytsyuk.dnd.sheet
 import io.vbytsyuk.dnd.core.HpDice
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatType
-import io.vbytsyuk.dnd.core.character.*
+import io.vbytsyuk.dnd.core.character.Character
+import io.vbytsyuk.dnd.core.character.armorClass
+import io.vbytsyuk.dnd.core.character.initiative
+import io.vbytsyuk.dnd.core.character.savingThrows
+import io.vbytsyuk.dnd.core.character.skills
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.units.Damage
@@ -55,7 +59,11 @@ data class Sheet(
         val successes: Int,
         val failures: Int,
     ) {
-        init { require(successes in 0..3 && failures in 0..3) }
+        init { require(successes in 0..MAX_COUNT && failures in 0..MAX_COUNT) }
+
+        companion object {
+            private const val MAX_COUNT = 3
+        }
     }
 
     data class Passive(

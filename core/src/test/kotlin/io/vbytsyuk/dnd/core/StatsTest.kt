@@ -1,6 +1,5 @@
-import io.vbytsyuk.dnd.core.Modifier
-import io.vbytsyuk.dnd.core.StatBlock
-import io.vbytsyuk.dnd.core.StatType
+package io.vbytsyuk.dnd.core
+
 import org.junit.jupiter.api.Test
 
 class StatsTest : T<Int, Modifier> {

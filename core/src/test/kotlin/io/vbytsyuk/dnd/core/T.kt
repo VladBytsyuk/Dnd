@@ -1,3 +1,5 @@
+package io.vbytsyuk.dnd.core
+
 import kotlin.test.assertTrue
 
 interface T<I, O> {

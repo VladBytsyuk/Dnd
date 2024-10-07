@@ -3,15 +3,18 @@ package io.vbytsyuk.dnd.core.`class`
 import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.StatType.DEX
 import io.vbytsyuk.dnd.core.StatType.STR
-import io.vbytsyuk.dnd.core.armor.Armor.Type.*
 import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills3
-import io.vbytsyuk.dnd.core.skills.Skill.Dexterity.*
-import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.*
+import io.vbytsyuk.dnd.core.skills.Skill.Dexterity.Stealth
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.Investigation
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.Nature
 import io.vbytsyuk.dnd.core.skills.Skill.Strength.Athletics
-import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.*
+import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.AnimalHandling
+import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.Insight
+import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.Perception
+import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.Survival
 import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 class Ranger(

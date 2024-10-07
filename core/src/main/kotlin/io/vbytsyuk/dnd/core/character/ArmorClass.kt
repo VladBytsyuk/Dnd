@@ -13,6 +13,8 @@ val Character.armorClass: ArmorClass
     val equippedArmor = equipment.equippedArmor.firstOrNull()
     return when {
         equippedArmor != null -> equippedArmor.type.calculateAC(dexterityModifier)
-        else -> 10 + dexterityModifier.value
+        else -> BASE_AC + dexterityModifier.value
     }.let(::ArmorClass)
 }
+
+private const val BASE_AC = 10

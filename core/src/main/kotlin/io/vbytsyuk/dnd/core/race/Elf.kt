@@ -1,19 +1,24 @@
 package io.vbytsyuk.dnd.core.race
 
 import io.vbytsyuk.dnd.core.StatBlock
-import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
-import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
-import io.vbytsyuk.dnd.core.proficiencies.Skills1
-import io.vbytsyuk.dnd.core.weapon.HandCrossbow
-import io.vbytsyuk.dnd.core.weapon.Longsword
-import io.vbytsyuk.dnd.core.weapon.Shortbow
-import io.vbytsyuk.dnd.core.weapon.Shortsword
-import io.vbytsyuk.dnd.core.skills.Skill
-import io.vbytsyuk.dnd.core.units.*
 import io.vbytsyuk.dnd.core.language.Language.Common
 import io.vbytsyuk.dnd.core.language.Language.Elvish
 import io.vbytsyuk.dnd.core.language.LanguageChecker
-import io.vbytsyuk.dnd.core.weapon.*
+import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
+import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
+import io.vbytsyuk.dnd.core.proficiencies.Skills1
+import io.vbytsyuk.dnd.core.skills.Skill
+import io.vbytsyuk.dnd.core.units.Distance
+import io.vbytsyuk.dnd.core.units.Size
+import io.vbytsyuk.dnd.core.units.Speed
+import io.vbytsyuk.dnd.core.units.feet
+import io.vbytsyuk.dnd.core.weapon.HandCrossbow
+import io.vbytsyuk.dnd.core.weapon.Longbow
+import io.vbytsyuk.dnd.core.weapon.Longsword
+import io.vbytsyuk.dnd.core.weapon.Rapier
+import io.vbytsyuk.dnd.core.weapon.Shortbow
+import io.vbytsyuk.dnd.core.weapon.Shortsword
+import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 sealed class Elf(
     override val bonusStatBlock: StatBlock,

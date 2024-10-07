@@ -3,14 +3,17 @@ package io.vbytsyuk.dnd.core.`class`
 import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.StatType.CON
 import io.vbytsyuk.dnd.core.StatType.INT
-import io.vbytsyuk.dnd.core.armor.Armor.Type.*
 import io.vbytsyuk.dnd.core.armor.ArmorChecker
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills2
-import io.vbytsyuk.dnd.core.skills.Skill.Dexterity.*
-import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.*
-import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.*
+import io.vbytsyuk.dnd.core.skills.Skill.Dexterity.SleightOfHand
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.Arcana
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.History
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.Investigation
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.Nature
+import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.Medicine
+import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.Perception
 import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 class Artificer(

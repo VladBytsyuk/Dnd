@@ -1,13 +1,13 @@
 package io.vbytsyuk.dnd.core.race
 
-import io.vbytsyuk.dnd.core.units.Speed
 import io.vbytsyuk.dnd.core.StatBlock
-import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.language.Language.Common
 import io.vbytsyuk.dnd.core.language.Language.Infernal
 import io.vbytsyuk.dnd.core.language.LanguageChecker
-import io.vbytsyuk.dnd.core.units.feet
+import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.units.Size
+import io.vbytsyuk.dnd.core.units.Speed
+import io.vbytsyuk.dnd.core.units.feet
 
 sealed class Tiefling(
     override val bonusStatBlock: StatBlock,

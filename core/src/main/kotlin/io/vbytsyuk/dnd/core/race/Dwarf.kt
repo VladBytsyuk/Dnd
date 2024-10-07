@@ -3,22 +3,30 @@ package io.vbytsyuk.dnd.core.race
 import io.vbytsyuk.dnd.core.StatBlock
 import io.vbytsyuk.dnd.core.StatType.CON
 import io.vbytsyuk.dnd.core.armor.ArmorChecker
+import io.vbytsyuk.dnd.core.language.Language.Common
+import io.vbytsyuk.dnd.core.language.Language.Dwarvish
+import io.vbytsyuk.dnd.core.language.LanguageChecker
+import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.History
+import io.vbytsyuk.dnd.core.tools.BrewersSupplies
+import io.vbytsyuk.dnd.core.tools.MasonsTools
+import io.vbytsyuk.dnd.core.tools.SmithsTools
 import io.vbytsyuk.dnd.core.tools.Tools
+import io.vbytsyuk.dnd.core.tools.ToolsChecker
 import io.vbytsyuk.dnd.core.units.Affect
+import io.vbytsyuk.dnd.core.units.AgeInfo
+import io.vbytsyuk.dnd.core.units.Damage.Type.POISON
+import io.vbytsyuk.dnd.core.units.Names
+import io.vbytsyuk.dnd.core.units.Size
+import io.vbytsyuk.dnd.core.units.Speed
 import io.vbytsyuk.dnd.core.units.Trait
+import io.vbytsyuk.dnd.core.units.feet
+import io.vbytsyuk.dnd.core.units.years
 import io.vbytsyuk.dnd.core.weapon.Battleaxe
 import io.vbytsyuk.dnd.core.weapon.Handaxe
 import io.vbytsyuk.dnd.core.weapon.LightHammer
 import io.vbytsyuk.dnd.core.weapon.Warhammer
-import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
-import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.History
-import io.vbytsyuk.dnd.core.units.*
-import io.vbytsyuk.dnd.core.units.Damage.Type.POISON
-import io.vbytsyuk.dnd.core.language.Language.Common
-import io.vbytsyuk.dnd.core.language.Language.Dwarvish
-import io.vbytsyuk.dnd.core.language.LanguageChecker
-import io.vbytsyuk.dnd.core.tools.*
-import io.vbytsyuk.dnd.core.weapon.*
+import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
 sealed class Dwarf(
     override val description: String,

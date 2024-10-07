@@ -2,6 +2,8 @@ package io.vbytsyuk.dnd.core.units
 
 @JvmInline
 value class Distance(val inches: Int) {
+
+    @Suppress("MagicNumber")
     val feet: Double get() = inches / 12.0
 
     override fun toString() = "${feet.toInt()} feet"

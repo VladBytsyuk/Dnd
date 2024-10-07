@@ -1,6 +1,14 @@
-import io.vbytsyuk.dnd.core.Dice
-import io.vbytsyuk.dnd.core.units.*
-import io.vbytsyuk.dnd.core.units.Damage.Type.*
+package io.vbytsyuk.dnd.core
+
+import io.vbytsyuk.dnd.core.units.Damage
+import io.vbytsyuk.dnd.core.units.Damage.Type.BLUDGEONING
+import io.vbytsyuk.dnd.core.units.Damage.Type.LIGHTNING
+import io.vbytsyuk.dnd.core.units.Damage.Type.PIERCING
+import io.vbytsyuk.dnd.core.units.d12
+import io.vbytsyuk.dnd.core.units.d4
+import io.vbytsyuk.dnd.core.units.d6
+import io.vbytsyuk.dnd.core.units.damage
+import io.vbytsyuk.dnd.core.units.plus
 import org.junit.jupiter.api.Test
 
 class DamageSumTest : T<List<Damage>, Damage> {

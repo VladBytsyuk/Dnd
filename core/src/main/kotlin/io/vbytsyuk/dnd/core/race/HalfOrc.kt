@@ -1,16 +1,16 @@
 package io.vbytsyuk.dnd.core.race
 
-import io.vbytsyuk.dnd.core.units.Speed
 import io.vbytsyuk.dnd.core.StatBlock
+import io.vbytsyuk.dnd.core.language.Language.Common
+import io.vbytsyuk.dnd.core.language.Language.Orc
+import io.vbytsyuk.dnd.core.language.LanguageChecker
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills
 import io.vbytsyuk.dnd.core.skills.Skill.Charisma.Intimidation
-import io.vbytsyuk.dnd.core.language.Language.Common
-import io.vbytsyuk.dnd.core.language.Language.Orc
-import io.vbytsyuk.dnd.core.language.LanguageChecker
-import io.vbytsyuk.dnd.core.units.feet
 import io.vbytsyuk.dnd.core.units.Size
+import io.vbytsyuk.dnd.core.units.Speed
+import io.vbytsyuk.dnd.core.units.feet
 
 data object HalfOrc : Race {
 

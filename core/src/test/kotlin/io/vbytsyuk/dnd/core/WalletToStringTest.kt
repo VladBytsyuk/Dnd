@@ -1,3 +1,5 @@
+package io.vbytsyuk.dnd.core
+
 import io.vbytsyuk.dnd.core.units.Wallet
 import org.junit.jupiter.api.Test
 

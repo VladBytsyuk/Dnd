@@ -1,10 +1,11 @@
-import io.vbytsyuk.dnd.core.Modifier
+package io.vbytsyuk.dnd.core
+
 import io.vbytsyuk.dnd.core.proficiencies.calculateCanonicalProficiencyBonus
 import io.vbytsyuk.dnd.core.proficiencies.calculateProficiencyBonus
 import io.vbytsyuk.dnd.core.units.Level
 import org.junit.jupiter.api.Test
 
-class CalculateProfiiciiencyBonusTest : T<Level, Modifier> {
+class CalculateProficiencyBonusTest : T<Level, Modifier> {
 
     @Test
     fun `test calculateMaximumHp function`() = check()

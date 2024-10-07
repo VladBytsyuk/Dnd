@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "io.vbytsyuk.dnd.core"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -17,5 +17,5 @@ tasks.test {
     useJUnitPlatform()
 }
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(20)
 }

@@ -1,9 +1,9 @@
-package io.vbytsyuk.dnd.core.armor
+@file:Suppress("MagicNumber") package io.vbytsyuk.dnd.core.armor
 
 import io.vbytsyuk.dnd.core.armor.Armor.Type.Medium
 import io.vbytsyuk.dnd.core.units.gold
-import io.vbytsyuk.dnd.core.units.minutes
 import io.vbytsyuk.dnd.core.units.lb
+import io.vbytsyuk.dnd.core.units.minutes
 
 object HideArmor : Armor {
     override val type = Medium(12)

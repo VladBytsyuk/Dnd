@@ -14,12 +14,12 @@ import io.vbytsyuk.dnd.core.proficiencies.Skills3
 import io.vbytsyuk.dnd.core.race.Human
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.tools.Flute
-import io.vbytsyuk.dnd.core.units.*
 import io.vbytsyuk.dnd.core.units.GoodVsEvil.GOOD
 import io.vbytsyuk.dnd.core.units.LawVsChaos.LAWFUL
+import io.vbytsyuk.dnd.core.units.exp
+import io.vbytsyuk.dnd.core.units.plus
 import io.vbytsyuk.dnd.core.weapon.Dagger
 import io.vbytsyuk.dnd.core.weapon.Dart
-import io.vbytsyuk.dnd.core.weapon.Longbow
 import io.vbytsyuk.dnd.core.weapon.Rapier
 import io.vbytsyuk.dnd.sheet.Sheet
 import io.vbytsyuk.dnd.sheet.print

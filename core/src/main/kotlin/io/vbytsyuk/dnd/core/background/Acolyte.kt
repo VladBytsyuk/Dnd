@@ -5,12 +5,12 @@ import io.vbytsyuk.dnd.core.equipment.Equipment
 import io.vbytsyuk.dnd.core.equipment.Item
 import io.vbytsyuk.dnd.core.equipment.equipped
 import io.vbytsyuk.dnd.core.equipment.unequipped
+import io.vbytsyuk.dnd.core.language.Language
+import io.vbytsyuk.dnd.core.language.LanguageChecker
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.Skills
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.units.GoodVsEvil.GOOD
-import io.vbytsyuk.dnd.core.language.Language
-import io.vbytsyuk.dnd.core.language.LanguageChecker
 import io.vbytsyuk.dnd.core.units.LawVsChaos.CHAOTIC
 import io.vbytsyuk.dnd.core.units.LawVsChaos.LAWFUL
 import io.vbytsyuk.dnd.core.units.gold
@@ -63,6 +63,8 @@ class Acolyte(
             """.trimIndent(),
         ),
     )
+
+    @Suppress("MaxLineLength")
     override val suggestedCharacteristics = Background.SuggestedCharacteristics(
         description = """
             Acolytes are shaped by their experience in temples or other religious communities. Their study of the 

@@ -1,6 +1,8 @@
 package io.vbytsyuk.dnd.core.character
 
-import io.vbytsyuk.dnd.core.proficiencies.Mastery.*
+import io.vbytsyuk.dnd.core.proficiencies.Mastery.COMPETENT
+import io.vbytsyuk.dnd.core.proficiencies.Mastery.NONE
+import io.vbytsyuk.dnd.core.proficiencies.Mastery.PROFICIENT
 import io.vbytsyuk.dnd.core.skills.Skill
 import io.vbytsyuk.dnd.core.units.MasteryModifier
 

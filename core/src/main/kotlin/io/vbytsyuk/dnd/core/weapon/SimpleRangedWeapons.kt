@@ -1,11 +1,20 @@
-package io.vbytsyuk.dnd.core.weapon
+@file:Suppress("MagicNumber") package io.vbytsyuk.dnd.core.weapon
 
-import io.vbytsyuk.dnd.core.units.*
 import io.vbytsyuk.dnd.core.units.Damage.Type.BLUDGEONING
 import io.vbytsyuk.dnd.core.units.Damage.Type.PIERCING
-import io.vbytsyuk.dnd.core.units.*
+import io.vbytsyuk.dnd.core.units.copper
+import io.vbytsyuk.dnd.core.units.d4
+import io.vbytsyuk.dnd.core.units.d6
+import io.vbytsyuk.dnd.core.units.d8
+import io.vbytsyuk.dnd.core.units.gold
+import io.vbytsyuk.dnd.core.units.lb
+import io.vbytsyuk.dnd.core.units.silver
 import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.SIMPLE
-import io.vbytsyuk.dnd.core.weapon.Weapon.Property.*
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Ammunition
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Finesse
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Loading
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Thrown
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.TwoHanded
 import io.vbytsyuk.dnd.core.weapon.Weapon.RangeType.RANGED
 
 data object LightCrossbow : Weapon {

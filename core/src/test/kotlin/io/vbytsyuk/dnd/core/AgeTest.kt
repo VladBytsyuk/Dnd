@@ -1,3 +1,5 @@
+package io.vbytsyuk.dnd.core
+
 import io.vbytsyuk.dnd.core.units.Age
 import io.vbytsyuk.dnd.core.units.years
 import org.junit.jupiter.api.assertThrows
@@ -101,6 +103,4 @@ class AgeTest {
         assertTrue(Age(20) in range)
         assertTrue(Age(30) in range)
     }
-
-
 }

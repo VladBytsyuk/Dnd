@@ -1,14 +1,21 @@
-package io.vbytsyuk.dnd.core.weapon
+@file:Suppress("MagicNumber") package io.vbytsyuk.dnd.core.weapon
 
-import io.vbytsyuk.dnd.core.units.Damage.Type.*
-import io.vbytsyuk.dnd.core.Dice.*
+import io.vbytsyuk.dnd.core.Dice.D8
+import io.vbytsyuk.dnd.core.units.Damage.Type.BLUDGEONING
+import io.vbytsyuk.dnd.core.units.Damage.Type.PIERCING
+import io.vbytsyuk.dnd.core.units.Damage.Type.SLASHING
+import io.vbytsyuk.dnd.core.units.d4
+import io.vbytsyuk.dnd.core.units.d6
 import io.vbytsyuk.dnd.core.units.d8
 import io.vbytsyuk.dnd.core.units.gold
 import io.vbytsyuk.dnd.core.units.lb
 import io.vbytsyuk.dnd.core.units.silver
-import io.vbytsyuk.dnd.core.units.*
 import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.SIMPLE
-import io.vbytsyuk.dnd.core.weapon.Weapon.Property.*
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Finesse
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Light
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Thrown
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.TwoHanded
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Versatile
 import io.vbytsyuk.dnd.core.weapon.Weapon.RangeType.MELEE
 
 data object Quarterstaff : Weapon {

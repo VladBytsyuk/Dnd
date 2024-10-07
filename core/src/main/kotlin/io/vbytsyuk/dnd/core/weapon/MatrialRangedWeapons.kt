@@ -1,13 +1,22 @@
-package io.vbytsyuk.dnd.core.weapon
+@file:Suppress("MagicNumber") package io.vbytsyuk.dnd.core.weapon
 
+import io.vbytsyuk.dnd.core.units.Damage.Type.PIERCING
 import io.vbytsyuk.dnd.core.units.d10
+import io.vbytsyuk.dnd.core.units.d12
+import io.vbytsyuk.dnd.core.units.d6
 import io.vbytsyuk.dnd.core.units.d8
+import io.vbytsyuk.dnd.core.units.damage
 import io.vbytsyuk.dnd.core.units.gold
 import io.vbytsyuk.dnd.core.units.lb
-import io.vbytsyuk.dnd.core.units.Damage.Type.PIERCING
-import io.vbytsyuk.dnd.core.units.*
 import io.vbytsyuk.dnd.core.weapon.Weapon.ProficiencyType.MATRIAL
-import io.vbytsyuk.dnd.core.weapon.Weapon.Property.*
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Ammunition
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Heavy
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Light
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Loading
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Reload
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Special
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.Thrown
+import io.vbytsyuk.dnd.core.weapon.Weapon.Property.TwoHanded
 import io.vbytsyuk.dnd.core.weapon.Weapon.RangeType.RANGED
 
 data object HandCrossbow : Weapon {

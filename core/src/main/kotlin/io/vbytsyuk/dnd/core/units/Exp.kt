@@ -13,6 +13,7 @@ value class Exp(val value: Int) {
 
     fun lvl() = level
 
+    @Suppress("MagicNumber")
     val level: Level
         get() = when {
         value < 300 -> 1.level

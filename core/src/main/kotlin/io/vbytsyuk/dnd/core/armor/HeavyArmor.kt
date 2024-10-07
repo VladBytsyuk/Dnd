@@ -1,9 +1,9 @@
-package io.vbytsyuk.dnd.core.armor
+@file:Suppress("MagicNumber") package io.vbytsyuk.dnd.core.armor
 
 import io.vbytsyuk.dnd.core.armor.Armor.Type.Heavy
 import io.vbytsyuk.dnd.core.units.gold
-import io.vbytsyuk.dnd.core.units.minutes
 import io.vbytsyuk.dnd.core.units.lb
+import io.vbytsyuk.dnd.core.units.minutes
 
 object RingMail : Armor {
     override val type = Heavy(armorClass = 14)

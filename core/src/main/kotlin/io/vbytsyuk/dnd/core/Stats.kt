@@ -1,6 +1,6 @@
 package io.vbytsyuk.dnd.core
 
-import java.util.EnumMap
+import java.util.*
 import kotlin.math.floor
 
 typealias StatValue = Int
@@ -45,6 +45,7 @@ class StatBlock(
     val wisdom: StatValue get() = value(StatType.WIS)
     val charisma: StatValue get() = value(StatType.CHA)
 
+    @Suppress("MagicNumber")
     fun modifier(type: StatType): Modifier =
         Modifier(floor((value(type) - 10) / 2.0).toInt())
 

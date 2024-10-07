@@ -6,10 +6,12 @@ import io.vbytsyuk.dnd.core.StatType.STR
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.proficiencies.ProficiencySkills
 import io.vbytsyuk.dnd.core.proficiencies.Skills2
-import io.vbytsyuk.dnd.core.skills.Skill.Dexterity.*
-import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.*
+import io.vbytsyuk.dnd.core.skills.Skill.Dexterity.Acrobatics
+import io.vbytsyuk.dnd.core.skills.Skill.Dexterity.Stealth
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.History
+import io.vbytsyuk.dnd.core.skills.Skill.Intelligence.Religion
 import io.vbytsyuk.dnd.core.skills.Skill.Strength.Athletics
-import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.*
+import io.vbytsyuk.dnd.core.skills.Skill.Wisdom.Insight
 import io.vbytsyuk.dnd.core.weapon.Shortsword
 import io.vbytsyuk.dnd.core.weapon.WeaponChecker
 
