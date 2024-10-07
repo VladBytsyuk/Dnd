@@ -1,5 +1,7 @@
 package io.vbytsyuk.dnd.core.units
 
+import io.vbytsyuk.dnd.core.character.Character
+
 @JvmInline
 value class Exp(val value: Int) {
 
