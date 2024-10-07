@@ -1,6 +1,5 @@
 package io.vbytsyuk.dnd.sheet
 
-import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.HpDice
 import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.StatType
@@ -12,7 +11,6 @@ import io.vbytsyuk.dnd.core.units.MasteryModifier
 import io.vbytsyuk.dnd.core.units.Wallet
 import io.vbytsyuk.dnd.core.units.damage
 import io.vbytsyuk.dnd.core.weapon.Weapon
-import jdk.jfr.Description
 
 data class Sheet(
     val base: Base,

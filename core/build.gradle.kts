@@ -1,8 +1,8 @@
 plugins {
-    kotlin("jvm") version "1.9.23"
+    kotlin("jvm")
 }
 
-group = "io.vbytsyuk.dnd"
+group = "io.vbytsyuk.dnd.core"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -10,11 +10,12 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":core"))
-
     testImplementation(kotlin("test"))
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(21)
 }
