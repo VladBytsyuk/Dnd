@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.core
+package io.vbytsyuk.dnd.test
 
 import kotlin.test.assertTrue
 

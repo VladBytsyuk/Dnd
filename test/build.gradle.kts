@@ -2,7 +2,7 @@ plugins {
     kotlin("jvm")
 }
 
-group = "io.vbytsyuk.dnd.core"
+group = "io.vbytsyuk.dnd.test"
 version = "1.0"
 
 repositories {
@@ -10,8 +10,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
-    implementation(project("test"))
+    implementation(kotlin("test"))
 }
 
 tasks.test {

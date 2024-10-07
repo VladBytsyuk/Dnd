@@ -7,7 +7,6 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-
 class AgeTest {
 
     // Creating an Age instance with a positive integer value

@@ -9,6 +9,7 @@ import io.vbytsyuk.dnd.core.units.d4
 import io.vbytsyuk.dnd.core.units.d6
 import io.vbytsyuk.dnd.core.units.damage
 import io.vbytsyuk.dnd.core.units.plus
+import io.vbytsyuk.dnd.test.T
 import org.junit.jupiter.api.Test
 
 class DamageSumTest : T<List<Damage>, Damage> {

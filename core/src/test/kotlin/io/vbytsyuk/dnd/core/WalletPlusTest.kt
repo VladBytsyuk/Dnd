@@ -6,6 +6,7 @@ import io.vbytsyuk.dnd.core.units.CoinType.PLATINUM
 import io.vbytsyuk.dnd.core.units.CoinType.SILVER
 import io.vbytsyuk.dnd.core.units.Coins
 import io.vbytsyuk.dnd.core.units.Wallet
+import io.vbytsyuk.dnd.test.T
 import org.junit.jupiter.api.Test
 
 class WalletPlusTest : T<Pair<Wallet, Coins>, Wallet> {

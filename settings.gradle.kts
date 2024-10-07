@@ -3,3 +3,4 @@ plugins {
 }
 rootProject.name = "Dnd"
 include("core")
+include("test")
