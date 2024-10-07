@@ -11,7 +11,6 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation(project("test"))
 }
 
 tasks.test {
