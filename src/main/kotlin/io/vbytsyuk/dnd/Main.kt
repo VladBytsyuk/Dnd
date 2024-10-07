@@ -21,7 +21,7 @@ import io.vbytsyuk.dnd.core.units.plus
 import io.vbytsyuk.dnd.core.weapon.Dagger
 import io.vbytsyuk.dnd.core.weapon.Dart
 import io.vbytsyuk.dnd.core.weapon.Rapier
-import io.vbytsyuk.dnd.sheet.Sheet
+import io.vbytsyuk.dnd.core.sheet.Sheet
 import io.vbytsyuk.dnd.sheet.print
 
 fun main() {

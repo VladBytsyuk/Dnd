@@ -2,6 +2,7 @@ package io.vbytsyuk.dnd.sheet
 
 import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
+import io.vbytsyuk.dnd.core.sheet.Sheet
 import io.vbytsyuk.dnd.core.units.Damage
 import io.vbytsyuk.dnd.core.units.Wallet
 import io.vbytsyuk.dnd.sheet.utils.toStringOutput

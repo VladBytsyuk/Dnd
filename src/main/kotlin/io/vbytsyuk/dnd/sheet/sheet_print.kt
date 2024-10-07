@@ -1,5 +1,6 @@
 package io.vbytsyuk.dnd.sheet
 
+import io.vbytsyuk.dnd.core.sheet.Sheet
 import io.vbytsyuk.dnd.sheet.utils.toStringOutput
 
 fun Sheet.print() = buildString {

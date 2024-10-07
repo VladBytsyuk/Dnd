@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.sheet
+package io.vbytsyuk.dnd.core.sheet
 
 import io.vbytsyuk.dnd.core.HpDice
 import io.vbytsyuk.dnd.core.Modifier
