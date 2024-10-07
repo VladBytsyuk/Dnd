@@ -64,8 +64,7 @@ class AgeTest {
     // Creating an Age instance with a negative value
     @Test
     fun create_age_with_negative_value() {
-        val age = Age(-5)
-        assertEquals(-5, age.value)
+        assertThrows<IllegalArgumentException> { Age(-5) }
     }
 
     // Creating a Range instance where start Age is greater than end Age

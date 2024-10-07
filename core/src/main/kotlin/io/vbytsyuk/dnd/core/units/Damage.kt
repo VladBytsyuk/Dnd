@@ -58,7 +58,10 @@ data class Damage(
     }
 }
 
-operator fun List<Damage.Dices>.plus(other: List<Damage.Dices>): List<Damage.Dices> = this + other
+operator fun List<Damage.Dices>.plus(other: List<Damage.Dices>): List<Damage.Dices> = buildList {
+    addAll(this@plus)
+    addAll(other)
+}
 
 operator fun List<Damage.Dices>.plus(other: Damage.Dices): List<Damage.Dices> = other + this
 
