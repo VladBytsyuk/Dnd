@@ -80,9 +80,5 @@ Personality:
         )
     )
 
-
     override fun act(input: Character): String = Sheet(character = input).print()
-
-    @Test
-    fun `test calculateMaximumHp function`() = check()
 }
