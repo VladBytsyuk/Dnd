@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.clients.cli.sheet.utils
+package io.vbytsyuk.dnd.clients.cli.print.utils
 
 import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
@@ -36,6 +36,3 @@ fun Sheet.Personality.toStringOutput(): String = """
         Bond: $bond
         Flaw: $flaw
 """.trimIndent()
-
-fun Sheet.DeathSavingThrows.toStringOutput(): String =
-    "Death saving throws: successes = $successes, failures = $failures"

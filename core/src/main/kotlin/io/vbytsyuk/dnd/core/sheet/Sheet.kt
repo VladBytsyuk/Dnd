@@ -62,7 +62,7 @@ data class Sheet(
         init { require(successes in 0..MAX_COUNT && failures in 0..MAX_COUNT) }
 
         companion object {
-            private const val MAX_COUNT = 3
+            const val MAX_COUNT = 3
         }
     }
 

@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.clients.cli.sheet.utils
+package io.vbytsyuk.dnd.clients.cli.print.utils
 
 import io.vbytsyuk.dnd.core.sheet.Sheet
 

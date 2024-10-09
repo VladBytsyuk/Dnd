@@ -1,5 +1,6 @@
 package io.vbytsyuk.dnd.clients.cli
 
+import io.vbytsyuk.dnd.clients.cli.print.StringPrinter
 import io.vbytsyuk.dnd.core.StatBlock
 import io.vbytsyuk.dnd.core.background.Acolyte
 import io.vbytsyuk.dnd.core.character.Character
@@ -20,7 +21,7 @@ import io.vbytsyuk.dnd.core.weapon.Shortsword
 import io.vbytsyuk.dnd.test.T
 import org.junit.jupiter.api.Test
 
-class PrintTest : T<Character, String> {
+class StringPrinterTest : T<Character, String> {
 
     @Test
     fun `test character print function`() = check()
@@ -62,7 +63,7 @@ class PrintTest : T<Character, String> {
 
         private const val PRINTED = """
 Alice, Fierna, 4 lvl (5340 xp), Fighter, 35/35 hp (4/4 d10 hit dices), Alignment = LAWFUL_EVIL
-Death saving throws: successes = 0, failures = 0
+Death saving throws: [___|___]
 Background = Acolyte(language1=Dwarvish, language2=Orc)
 AC: 12, Initiative: +2, Speed: 30 ft, Size: MEDIUM, Dark vision = 60
 Proficiencies:

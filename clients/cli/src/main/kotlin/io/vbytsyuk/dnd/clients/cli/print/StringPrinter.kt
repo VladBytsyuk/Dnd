@@ -1,6 +1,6 @@
-package io.vbytsyuk.dnd.clients.cli
+package io.vbytsyuk.dnd.clients.cli.print
 
-import io.vbytsyuk.dnd.clients.cli.sheet.utils.toStringOutput
+import io.vbytsyuk.dnd.clients.cli.print.utils.toStringOutput
 import io.vbytsyuk.dnd.core.sheet.Sheet
 
 class StringPrinter {

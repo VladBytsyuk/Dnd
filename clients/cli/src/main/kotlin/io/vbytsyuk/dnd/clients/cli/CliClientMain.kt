@@ -1,5 +1,6 @@
 package io.vbytsyuk.dnd.clients.cli
 
+import io.vbytsyuk.dnd.clients.cli.print.StringPrinter
 import io.vbytsyuk.dnd.core.StatBlock
 import io.vbytsyuk.dnd.core.armor.LeatherArmor
 import io.vbytsyuk.dnd.core.armor.PlateArmor
