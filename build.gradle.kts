@@ -13,9 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation(project("core"))
-
-    testImplementation(kotlin("test"))
+    implementation(project(":core"))
 }
 
 tasks.test {
