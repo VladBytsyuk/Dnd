@@ -1,6 +1,5 @@
 package io.vbytsyuk.dnd.clients.cli
 
-import io.vbytsyuk.dnd.clients.cli.sheet.print
 import io.vbytsyuk.dnd.core.StatBlock
 import io.vbytsyuk.dnd.core.armor.LeatherArmor
 import io.vbytsyuk.dnd.core.armor.PlateArmor
@@ -61,6 +60,6 @@ fun main() {
         )
     )
     val sheet = Sheet(character = alice)
-    sheet.print()
+    val output = StringPrinter().print(sheet)
+    println(output)
 }
-

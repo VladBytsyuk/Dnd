@@ -1,11 +1,10 @@
-package io.vbytsyuk.dnd.clients.cli.sheet
+package io.vbytsyuk.dnd.clients.cli.sheet.utils
 
 import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
 import io.vbytsyuk.dnd.core.sheet.Sheet
 import io.vbytsyuk.dnd.core.units.Damage
 import io.vbytsyuk.dnd.core.units.Wallet
-import io.vbytsyuk.dnd.clients.cli.sheet.utils.toStringOutput
 
 fun Proficiencies.toStringOutput() = """
     Proficiencies:
