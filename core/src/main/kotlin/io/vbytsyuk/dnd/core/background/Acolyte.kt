@@ -15,9 +15,9 @@ import io.vbytsyuk.dnd.core.units.LawVsChaos.CHAOTIC
 import io.vbytsyuk.dnd.core.units.LawVsChaos.LAWFUL
 import io.vbytsyuk.dnd.core.units.gold
 
-class Acolyte(
-    language1: Language,
-    language2: Language,
+data class Acolyte(
+    val language1: Language,
+    val language2: Language,
 ) : Background {
 
     override val description = """

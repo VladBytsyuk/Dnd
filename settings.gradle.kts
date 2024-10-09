@@ -3,4 +3,5 @@ plugins {
 }
 rootProject.name = "Dnd"
 include("core")
+include("clients:cli")
 include("test")

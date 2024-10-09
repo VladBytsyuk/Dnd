@@ -6,7 +6,7 @@ import io.vbytsyuk.dnd.core.StatType
 import io.vbytsyuk.dnd.test.T
 import org.junit.jupiter.api.Test
 
-class StatsTest : T<Int, Modifier> {
+class StatsModifierTest : T<Int, Modifier> {
 
     @Test
     fun `test modifier function`() = check()
