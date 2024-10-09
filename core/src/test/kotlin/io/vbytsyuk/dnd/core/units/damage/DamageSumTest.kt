@@ -1,5 +1,6 @@
-package io.vbytsyuk.dnd.core
+package io.vbytsyuk.dnd.core.units.damage
 
+import io.vbytsyuk.dnd.core.Dice
 import io.vbytsyuk.dnd.core.units.Damage
 import io.vbytsyuk.dnd.core.units.Damage.Type.BLUDGEONING
 import io.vbytsyuk.dnd.core.units.Damage.Type.LIGHTNING

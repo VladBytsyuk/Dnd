@@ -1,7 +1,6 @@
-package io.vbytsyuk.dnd.core
+package io.vbytsyuk.dnd.core.proficiencies
 
-import io.vbytsyuk.dnd.core.proficiencies.calculateCanonicalProficiencyBonus
-import io.vbytsyuk.dnd.core.proficiencies.calculateProficiencyBonus
+import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.units.Level
 import io.vbytsyuk.dnd.test.T
 import org.junit.jupiter.api.Test

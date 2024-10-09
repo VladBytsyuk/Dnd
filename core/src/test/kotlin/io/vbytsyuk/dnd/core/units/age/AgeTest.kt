@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.core
+package io.vbytsyuk.dnd.core.units.age
 
 import io.vbytsyuk.dnd.core.units.Age
 import io.vbytsyuk.dnd.core.units.years

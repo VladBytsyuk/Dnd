@@ -1,5 +1,6 @@
-package io.vbytsyuk.dnd.core
+package io.vbytsyuk.dnd.core.units.hp
 
+import io.vbytsyuk.dnd.core.Modifier
 import io.vbytsyuk.dnd.core.units.Hp
 import io.vbytsyuk.dnd.core.units.Level
 import io.vbytsyuk.dnd.core.units.calculateMaximumHp

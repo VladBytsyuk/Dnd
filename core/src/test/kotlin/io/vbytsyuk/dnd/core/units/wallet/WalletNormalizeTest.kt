@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.core
+package io.vbytsyuk.dnd.core.units.wallet
 
 import io.vbytsyuk.dnd.core.units.Wallet
 import io.vbytsyuk.dnd.test.T

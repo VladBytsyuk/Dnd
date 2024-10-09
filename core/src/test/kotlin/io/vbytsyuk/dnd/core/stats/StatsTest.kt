@@ -1,5 +1,8 @@
-package io.vbytsyuk.dnd.core
+package io.vbytsyuk.dnd.core.stats
 
+import io.vbytsyuk.dnd.core.Modifier
+import io.vbytsyuk.dnd.core.StatBlock
+import io.vbytsyuk.dnd.core.StatType
 import io.vbytsyuk.dnd.test.T
 import org.junit.jupiter.api.Test
 
