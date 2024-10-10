@@ -46,6 +46,11 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(libs.koin.core)
+            api(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.composeVM)
+
             // put your Multiplatform dependencies here
         }
 
@@ -64,6 +69,11 @@ kotlin {
 
                 // put your non-js dependencies here
             }
+        }
+
+        androidMain.dependencies {
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
         }
     }
 }
