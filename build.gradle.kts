@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform) apply false
     alias(libs.plugins.room) apply false
     alias(libs.plugins.ksp) apply false
-    alias(libs.plugins.detekt) apply false
+    id("io.gitlab.arturbosch.detekt") version "1.23.7"
 }
 
 tasks.register<Detekt>("DndDetekt") {
@@ -20,7 +20,8 @@ tasks.register<Detekt>("DndDetekt") {
         html.required.set(true)
     }
     include("**/*.kt")
-    include("**/*.kts")
-    exclude("resources/")
-    exclude("build/")
+    exclude("**/*.kts")
+    exclude("**/resources/")
+    exclude("**/build/")
+    exclude("**/generated/")
 }
