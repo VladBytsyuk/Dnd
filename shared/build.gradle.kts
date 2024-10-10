@@ -6,6 +6,8 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.room)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -32,6 +34,16 @@ kotlin {
 
     jvm()
 
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    applyDefaultHierarchyTemplate {
+        common {
+            group("nonJs") {
+                withAndroidTarget()
+                withJvm()
+            }
+        }
+    }
+
     sourceSets {
         commonMain.dependencies {
             // put your Multiplatform dependencies here
@@ -40,6 +52,17 @@ kotlin {
         commonTest {
             dependencies {
                 implementation(libs.kotlin.test)
+            }
+        }
+
+        val nonJsMain by getting {
+            dependencies {
+                api(libs.androidx.room.runtime)
+                implementation(libs.sqlite.bundled)
+                implementation(libs.sqlite)
+                implementation(libs.sqlite.bundled)
+
+                // put your non-js dependencies here
             }
         }
     }
@@ -55,4 +78,13 @@ android {
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
+}
+
+dependencies {
+    add("kspAndroid", libs.androidx.room.compiler)
+    add("kspJvm", libs.androidx.room.compiler)
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
