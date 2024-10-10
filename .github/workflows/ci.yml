@@ -54,7 +54,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Run unit-tests for `:core`
-        run: ./gradlew :core:test
+        run: ./gradlew :shared:jvmTest
 
   unit-tests-cients-cli:
     runs-on: ubuntu-latest
@@ -71,4 +71,4 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Run unit-tests for `:core`
-        run: ./gradlew :clients:cli:test
+        run: ./gradlew :composeApp:desktopTest

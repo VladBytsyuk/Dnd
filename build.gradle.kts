@@ -1,23 +1,13 @@
 import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
-    kotlin("jvm") version "1.9.23"
+    alias(libs.plugins.androidApplication) apply false
+    alias(libs.plugins.androidLibrary) apply false
+    alias(libs.plugins.jetbrainsCompose) apply false
+    alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.kotlinJvm) apply false
+    alias(libs.plugins.kotlinMultiplatform) apply false
     id("io.gitlab.arturbosch.detekt") version "1.23.3"
-}
-
-group = "io.vbytsyuk.dnd"
-version = "1.0"
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation(project(":core"))
-}
-
-tasks.test {
-    useJUnitPlatform()
 }
 
 tasks.register<Detekt>("DndDetekt") {
