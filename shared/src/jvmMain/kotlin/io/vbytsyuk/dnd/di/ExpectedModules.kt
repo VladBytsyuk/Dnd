@@ -12,6 +12,7 @@ import java.io.File
 
 actual fun databaseModule(): Module = module {
     factory<RulebookDatabaseProvider> { JvmRulebookDatabaseProvider() }
+    single<RulebookRoomDatabase> { get<RulebookDatabaseProvider>().provide() }
 }
 
 class JvmRulebookDatabaseProvider : RulebookDatabaseProvider {

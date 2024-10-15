@@ -25,3 +25,5 @@ fun Condition.toEntity() = ConditionEntity(
 )
 
 fun List<ConditionEntity>.toDomain() = map { it.toDomain() }
+
+fun List<Condition>.toEntity() = map { it.toEntity() }

@@ -12,6 +12,9 @@ import kotlinx.coroutines.flow.map
 interface RoomConditionDao {
     @Insert
     suspend fun insert(item: ConditionEntity)
+
+    @Insert
+    suspend fun insertAll(items: List<ConditionEntity>)
     
     @Query("SELECT count(*) FROM ConditionEntity")
     suspend fun count(): Int
@@ -26,6 +29,10 @@ class ConditionDaoImpl(
 
     override suspend fun insert(item: Condition) {
         roomConditionDao.insert(item.toEntity())
+    }
+
+    override suspend fun insertAll(items: List<Condition>) {
+        roomConditionDao.insertAll(items.toEntity())
     }
 
     override suspend fun count(): Int =
