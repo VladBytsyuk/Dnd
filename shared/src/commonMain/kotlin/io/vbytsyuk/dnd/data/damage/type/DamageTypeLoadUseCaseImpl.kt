@@ -5,6 +5,6 @@ import io.vbytsyuk.dnd.domain.damage.type.DamageType
 import io.vbytsyuk.dnd.domain.usecases.LoadUseCaseImpl
 
 class DamageTypeLoadUseCaseImpl(
-    reader: DamageReader,
+    reader: DamageTypeReader,
     dao: DamageTypeDaoImpl,
 ) : LoadUseCaseImpl<DamageType>(reader = reader, dao = dao)

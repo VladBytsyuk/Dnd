@@ -7,7 +7,7 @@ import io.vbytsyuk.dnd.data.damage.type.json.DamageTypeJsonParser
 import io.vbytsyuk.dnd.data.damage.type.json.toDomain
 import io.vbytsyuk.dnd.domain.damage.type.DamageType
 
-class DamageReader(
+class DamageTypeReader(
     jsonParser: DamageTypeJsonParser,
 ) : ReaderImpl<DamageType, DamageTypeJson>(
     jsonParser = jsonParser,
