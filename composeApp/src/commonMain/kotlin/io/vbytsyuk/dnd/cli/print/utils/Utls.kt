@@ -1,10 +1,10 @@
 package io.vbytsyuk.dnd.cli.print.utils
 
-import io.vbytsyuk.dnd.core.Dice
-import io.vbytsyuk.dnd.core.proficiencies.Proficiencies
-import io.vbytsyuk.dnd.core.sheet.Sheet
-import io.vbytsyuk.dnd.core.units.Damage
-import io.vbytsyuk.dnd.core.units.Wallet
+import io.vbytsyuk.dnd.domain.Dice
+import io.vbytsyuk.dnd.domain.proficiencies.Proficiencies
+import io.vbytsyuk.dnd.domain.sheet.Sheet
+import io.vbytsyuk.dnd.domain.units.Damage
+import io.vbytsyuk.dnd.domain.units.Wallet
 
 fun Proficiencies.toStringOutput() = """
     Proficiencies:
