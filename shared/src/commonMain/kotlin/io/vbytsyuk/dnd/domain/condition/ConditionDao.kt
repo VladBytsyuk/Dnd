@@ -7,4 +7,5 @@ interface ConditionDao {
     suspend fun insertAll(items: List<Condition>)
     suspend fun count(): Int
     fun getAllAsFlow(): Flow<List<Condition>>
+    suspend fun clear()
 }

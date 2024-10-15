@@ -9,8 +9,10 @@ class ConditionLoadUseCase(
     private val conditionDao: ConditionDao,
 ) {
 
-    suspend operator fun invoke() {
+    suspend operator fun invoke(): List<Condition> {
         val conditions = conditionReader.read()
+        if (conditionDao.count() != 0) conditionDao.clear()
         conditionDao.insertAll(conditions)
+        return conditions
     }
 }

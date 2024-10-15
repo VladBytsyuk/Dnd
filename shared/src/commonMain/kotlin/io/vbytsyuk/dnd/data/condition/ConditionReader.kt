@@ -16,6 +16,6 @@ class ConditionReader(
     }
 
     companion object {
-        private const val CONDITIONS_FILENAME = "phb/5e-SRD-Conditions.json"
+        private const val CONDITIONS_FILENAME = "../phb/5e-SRD-Conditions.json"
     }
 }

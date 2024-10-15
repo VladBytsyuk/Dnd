@@ -49,3 +49,9 @@ bin/
 *.klib
 *.lock
 shared/schemas/
+
+### Room ###
+**/*.db
+**/*.db.lck
+**/*.db-shm
+**/*.db-wal

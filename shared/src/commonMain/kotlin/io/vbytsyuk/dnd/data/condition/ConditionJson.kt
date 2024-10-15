@@ -4,23 +4,19 @@ import io.vbytsyuk.dnd.data.Id
 import io.vbytsyuk.dnd.domain.condition.Condition
 import kotlinx.serialization.Serializable
 
+private const val SEPARATOR = ","
+
 @Serializable
 data class ConditionJson(
-    val id: String,
+    val index: String,
     val name: String,
-    val description: String,
+    val desc: List<String>,
 )
 
 fun ConditionJson.toDomain() = Condition(
-    id = Id(id),
+    id = Id(index),
     name = name,
-    description = description,
-)
-
-fun Condition.toJson() = ConditionJson(
-    id = id.value,
-    name = name,
-    description = description,
+    description = desc.joinToString(separator = SEPARATOR),
 )
 
 fun List<ConditionJson>.toDomain() = map { it.toDomain() }

@@ -21,6 +21,9 @@ interface RoomConditionDao {
 
     @Query("SELECT * FROM ConditionEntity")
     fun getAllAsFlow(): Flow<List<ConditionEntity>>
+
+    @Query("DELETE FROM ConditionEntity")
+    suspend fun clear()
 }
 
 class ConditionDaoImpl(
@@ -40,4 +43,8 @@ class ConditionDaoImpl(
 
     override fun getAllAsFlow(): Flow<List<Condition>> =
         roomConditionDao.getAllAsFlow().map { it.toDomain() }
+
+    override suspend fun clear() {
+        roomConditionDao.clear()
+    }
 }

@@ -11,6 +11,7 @@ import io.vbytsyuk.dnd.domain.condition.Condition
 import io.vbytsyuk.dnd.domain.condition.ConditionDao
 import io.vbytsyuk.dnd.domain.condition.Reader
 import io.vbytsyuk.dnd.domain.usecases.ConditionLoadUseCase
+import kotlinx.serialization.json.Json
 import org.koin.dsl.module
 
 fun readerModule() = module {
@@ -22,7 +23,8 @@ fun readerModule() = module {
 fun conditionReaderModule() = module {
     factory { ConditionLoadUseCase(conditionReader = get(), conditionDao = get()) }
     factory<Reader<Condition>> { ConditionReader(conditionJsonParser = get()) }
-    factory<JsonParser<ConditionJson>> { ConditionJsonParser() }
+    factory<JsonParser<ConditionJson>> { ConditionJsonParser(json = get()) }
+    factory<Json> { Json { ignoreUnknownKeys = true } }
     factory<ConditionDao> { ConditionDaoImpl(roomConditionDao = get()) }
     factory<RoomConditionDao> { get<RulebookRoomDatabase>().getConditionDao() }
 }
