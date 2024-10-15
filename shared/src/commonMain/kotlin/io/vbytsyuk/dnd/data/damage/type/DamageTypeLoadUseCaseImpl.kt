@@ -2,9 +2,9 @@ package io.vbytsyuk.dnd.data.damage.type
 
 import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeDaoImpl
 import io.vbytsyuk.dnd.domain.damage.type.DamageType
-import io.vbytsyuk.dnd.domain.usecases.LoadUseCase
+import io.vbytsyuk.dnd.domain.usecases.LoadUseCaseImpl
 
-class DamageTypeLoadUseCase(
+class DamageTypeLoadUseCaseImpl(
     reader: DamageReader,
     dao: DamageTypeDaoImpl,
-) : LoadUseCase<DamageType>(reader = reader, dao = dao)
+) : LoadUseCaseImpl<DamageType>(reader = reader, dao = dao)
