@@ -1,8 +1,8 @@
 package io.vbytsyuk.dnd.domain.stats
 
-import io.vbytsyuk.dnd.domain.Modifier
-import io.vbytsyuk.dnd.domain.StatBlock
-import io.vbytsyuk.dnd.domain.StatType
+import io.vbytsyuk.dnd.domain.core.Modifier
+import io.vbytsyuk.dnd.domain.core.StatBlock
+import io.vbytsyuk.dnd.domain.core.StatType
 import io.vbytsyuk.dnd.test.T
 import kotlin.test.Test
 

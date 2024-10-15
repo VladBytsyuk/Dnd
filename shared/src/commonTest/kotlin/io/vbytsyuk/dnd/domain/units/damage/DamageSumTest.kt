@@ -1,15 +1,15 @@
 package io.vbytsyuk.dnd.domain.units.damage
 
-import io.vbytsyuk.dnd.domain.Dice
-import io.vbytsyuk.dnd.domain.units.Damage
-import io.vbytsyuk.dnd.domain.units.Damage.Type.BLUDGEONING
-import io.vbytsyuk.dnd.domain.units.Damage.Type.LIGHTNING
-import io.vbytsyuk.dnd.domain.units.Damage.Type.PIERCING
-import io.vbytsyuk.dnd.domain.units.d12
-import io.vbytsyuk.dnd.domain.units.d4
-import io.vbytsyuk.dnd.domain.units.d6
-import io.vbytsyuk.dnd.domain.units.damage
-import io.vbytsyuk.dnd.domain.units.plus
+import io.vbytsyuk.dnd.domain.core.Dice
+import io.vbytsyuk.dnd.domain.core.units.Damage
+import io.vbytsyuk.dnd.domain.core.units.Damage.Type.BLUDGEONING
+import io.vbytsyuk.dnd.domain.core.units.Damage.Type.LIGHTNING
+import io.vbytsyuk.dnd.domain.core.units.Damage.Type.PIERCING
+import io.vbytsyuk.dnd.domain.core.units.d12
+import io.vbytsyuk.dnd.domain.core.units.d4
+import io.vbytsyuk.dnd.domain.core.units.d6
+import io.vbytsyuk.dnd.domain.core.units.damage
+import io.vbytsyuk.dnd.domain.core.units.plus
 import io.vbytsyuk.dnd.test.T
 import kotlin.test.Test
 

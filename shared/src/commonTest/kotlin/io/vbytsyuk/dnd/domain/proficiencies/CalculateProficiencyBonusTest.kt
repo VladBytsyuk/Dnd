@@ -1,7 +1,9 @@
 package io.vbytsyuk.dnd.domain.proficiencies
 
-import io.vbytsyuk.dnd.domain.Modifier
-import io.vbytsyuk.dnd.domain.units.Level
+import io.vbytsyuk.dnd.domain.core.Modifier
+import io.vbytsyuk.dnd.domain.core.proficiencies.calculateCanonicalProficiencyBonus
+import io.vbytsyuk.dnd.domain.core.proficiencies.calculateProficiencyBonus
+import io.vbytsyuk.dnd.domain.core.units.Level
 import io.vbytsyuk.dnd.test.T
 import kotlin.test.Test
 

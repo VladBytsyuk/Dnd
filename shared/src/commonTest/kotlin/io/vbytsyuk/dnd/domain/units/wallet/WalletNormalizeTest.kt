@@ -1,6 +1,6 @@
 package io.vbytsyuk.dnd.domain.units.wallet
 
-import io.vbytsyuk.dnd.domain.units.Wallet
+import io.vbytsyuk.dnd.domain.core.units.Wallet
 import io.vbytsyuk.dnd.test.T
 import kotlin.test.Test
 

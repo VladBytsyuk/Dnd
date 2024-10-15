@@ -1,6 +1,6 @@
 package io.vbytsyuk.dnd.cli.print.utils
 
-import io.vbytsyuk.dnd.domain.sheet.Sheet
+import io.vbytsyuk.dnd.domain.core.sheet.Sheet
 
 
 fun Sheet.Health.toStringOutput() =

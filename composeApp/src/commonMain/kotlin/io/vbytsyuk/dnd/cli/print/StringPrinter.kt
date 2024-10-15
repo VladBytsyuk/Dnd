@@ -1,7 +1,7 @@
 package io.vbytsyuk.dnd.cli.print
 
 import io.vbytsyuk.dnd.cli.print.utils.toStringOutput
-import io.vbytsyuk.dnd.domain.sheet.Sheet
+import io.vbytsyuk.dnd.domain.core.sheet.Sheet
 
 class StringPrinter {
     

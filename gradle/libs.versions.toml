@@ -21,6 +21,7 @@ ksp = "2.0.0-1.0.24"
 koin = "4.0.0"
 koin-compose = "4.0.0"
 kotlin-serizlization = "1.7.3"
+okio = "3.9.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -47,6 +48,9 @@ koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", versi
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose" }
 koin-composeVM = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin-compose" }
 kotlin-serizlization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serizlization" }
+okio-common = { module = "com.squareup.okio:okio", version.ref = "okio" }
+okio-js = { module = "com.squareup.okio:okio-nodefilesystem", version.ref = "okio" }
+okio-test = { module = "com.squareup.okio:okio-fakefilesystem", version.ref = "okio" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

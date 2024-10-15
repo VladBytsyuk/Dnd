@@ -1,28 +1,28 @@
 package io.vbytsyuk.dnd.cli
 
 import io.vbytsyuk.dnd.cli.print.StringPrinter
-import io.vbytsyuk.dnd.domain.StatBlock
-import io.vbytsyuk.dnd.domain.armor.LeatherArmor
-import io.vbytsyuk.dnd.domain.armor.PlateArmor
-import io.vbytsyuk.dnd.domain.background.Entertainer
-import io.vbytsyuk.dnd.domain.character.Character
-import io.vbytsyuk.dnd.domain.`class`.Bard
-import io.vbytsyuk.dnd.domain.equipment.Equipment
-import io.vbytsyuk.dnd.domain.equipment.equipped
-import io.vbytsyuk.dnd.domain.equipment.unequipped
-import io.vbytsyuk.dnd.domain.language.Language
-import io.vbytsyuk.dnd.domain.proficiencies.Skills3
-import io.vbytsyuk.dnd.domain.race.Human
-import io.vbytsyuk.dnd.domain.sheet.Sheet
-import io.vbytsyuk.dnd.domain.skills.Skill
-import io.vbytsyuk.dnd.domain.tools.Flute
-import io.vbytsyuk.dnd.domain.units.GoodVsEvil.GOOD
-import io.vbytsyuk.dnd.domain.units.LawVsChaos.LAWFUL
-import io.vbytsyuk.dnd.domain.units.exp
-import io.vbytsyuk.dnd.domain.units.plus
-import io.vbytsyuk.dnd.domain.weapon.Dagger
-import io.vbytsyuk.dnd.domain.weapon.Dart
-import io.vbytsyuk.dnd.domain.weapon.Rapier
+import io.vbytsyuk.dnd.domain.core.StatBlock
+import io.vbytsyuk.dnd.domain.core.armor.LeatherArmor
+import io.vbytsyuk.dnd.domain.core.armor.PlateArmor
+import io.vbytsyuk.dnd.domain.core.background.Entertainer
+import io.vbytsyuk.dnd.domain.core.character.Character
+import io.vbytsyuk.dnd.domain.core.`class`.Bard
+import io.vbytsyuk.dnd.domain.core.equipment.Equipment
+import io.vbytsyuk.dnd.domain.core.equipment.equipped
+import io.vbytsyuk.dnd.domain.core.equipment.unequipped
+import io.vbytsyuk.dnd.domain.core.language.Language
+import io.vbytsyuk.dnd.domain.core.proficiencies.Skills3
+import io.vbytsyuk.dnd.domain.core.race.Human
+import io.vbytsyuk.dnd.domain.core.sheet.Sheet
+import io.vbytsyuk.dnd.domain.core.skills.Skill
+import io.vbytsyuk.dnd.domain.core.tools.Flute
+import io.vbytsyuk.dnd.domain.core.units.GoodVsEvil.GOOD
+import io.vbytsyuk.dnd.domain.core.units.LawVsChaos.LAWFUL
+import io.vbytsyuk.dnd.domain.core.units.exp
+import io.vbytsyuk.dnd.domain.core.units.plus
+import io.vbytsyuk.dnd.domain.core.weapon.Dagger
+import io.vbytsyuk.dnd.domain.core.weapon.Dart
+import io.vbytsyuk.dnd.domain.core.weapon.Rapier
 
 fun main() {
     val background = Entertainer(

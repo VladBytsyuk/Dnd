@@ -1,9 +1,9 @@
 package io.vbytsyuk.dnd.cli.print.utils
 
-import io.vbytsyuk.dnd.domain.armor.ArmorChecker
-import io.vbytsyuk.dnd.domain.language.LanguageChecker
-import io.vbytsyuk.dnd.domain.tools.ToolsChecker
-import io.vbytsyuk.dnd.domain.weapon.WeaponChecker
+import io.vbytsyuk.dnd.domain.core.armor.ArmorChecker
+import io.vbytsyuk.dnd.domain.core.language.LanguageChecker
+import io.vbytsyuk.dnd.domain.core.tools.ToolsChecker
+import io.vbytsyuk.dnd.domain.core.weapon.WeaponChecker
 
 fun ArmorChecker.toStringOutput(): String {
     val armorTypesMap = mapOf(

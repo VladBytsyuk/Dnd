@@ -1,9 +1,9 @@
 package io.vbytsyuk.dnd.domain.units.hp
 
-import io.vbytsyuk.dnd.domain.Modifier
-import io.vbytsyuk.dnd.domain.units.Hp
-import io.vbytsyuk.dnd.domain.units.Level
-import io.vbytsyuk.dnd.domain.units.calculateMaximumHp
+import io.vbytsyuk.dnd.domain.core.Modifier
+import io.vbytsyuk.dnd.domain.core.units.Hp
+import io.vbytsyuk.dnd.domain.core.units.Level
+import io.vbytsyuk.dnd.domain.core.units.calculateMaximumHp
 import io.vbytsyuk.dnd.test.T
 import kotlin.test.Test
 

@@ -1,11 +1,11 @@
 package io.vbytsyuk.dnd.domain.units.wallet
 
-import io.vbytsyuk.dnd.domain.units.CoinType.COPPER
-import io.vbytsyuk.dnd.domain.units.CoinType.GOLD
-import io.vbytsyuk.dnd.domain.units.CoinType.PLATINUM
-import io.vbytsyuk.dnd.domain.units.CoinType.SILVER
-import io.vbytsyuk.dnd.domain.units.Coins
-import io.vbytsyuk.dnd.domain.units.Wallet
+import io.vbytsyuk.dnd.domain.core.units.CoinType.COPPER
+import io.vbytsyuk.dnd.domain.core.units.CoinType.GOLD
+import io.vbytsyuk.dnd.domain.core.units.CoinType.PLATINUM
+import io.vbytsyuk.dnd.domain.core.units.CoinType.SILVER
+import io.vbytsyuk.dnd.domain.core.units.Coins
+import io.vbytsyuk.dnd.domain.core.units.Wallet
 import io.vbytsyuk.dnd.test.T
 import kotlin.test.Test
 

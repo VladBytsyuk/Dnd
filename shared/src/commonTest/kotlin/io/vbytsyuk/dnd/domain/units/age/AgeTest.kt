@@ -1,7 +1,7 @@
 package io.vbytsyuk.dnd.domain.units.age
 
-import io.vbytsyuk.dnd.domain.units.Age
-import io.vbytsyuk.dnd.domain.units.years
+import io.vbytsyuk.dnd.domain.core.units.Age
+import io.vbytsyuk.dnd.domain.core.units.years
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith

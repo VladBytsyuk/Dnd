@@ -1,23 +1,22 @@
 package io.vbytsyuk.dnd.cli
 
 import io.vbytsyuk.dnd.cli.print.StringPrinter
-import io.vbytsyuk.dnd.domain.StatBlock
-import io.vbytsyuk.dnd.domain.background.Acolyte
-import io.vbytsyuk.dnd.domain.character.Character
-import io.vbytsyuk.dnd.domain.`class`.Fighter
-import io.vbytsyuk.dnd.domain.equipment.Equipment
-import io.vbytsyuk.dnd.domain.equipment.equipped
-import io.vbytsyuk.dnd.domain.language.Language.Dwarvish
-import io.vbytsyuk.dnd.domain.language.Language.Orc
-import io.vbytsyuk.dnd.domain.proficiencies.Skills2
-import io.vbytsyuk.dnd.domain.race.Tiefling
-import io.vbytsyuk.dnd.domain.sheet.Sheet
-import io.vbytsyuk.dnd.domain.skills.Skill.Dexterity.Acrobatics
-import io.vbytsyuk.dnd.domain.skills.Skill.Strength.Athletics
-import io.vbytsyuk.dnd.domain.units.Alignment
-import io.vbytsyuk.dnd.domain.units.Exp
-import io.vbytsyuk.dnd.domain.units.Wallet
-import io.vbytsyuk.dnd.domain.weapon.Shortsword
+import io.vbytsyuk.dnd.domain.core.StatBlock
+import io.vbytsyuk.dnd.domain.core.character.Character
+import io.vbytsyuk.dnd.domain.core.`class`.Fighter
+import io.vbytsyuk.dnd.domain.core.equipment.Equipment
+import io.vbytsyuk.dnd.domain.core.equipment.equipped
+import io.vbytsyuk.dnd.domain.core.language.Language.Dwarvish
+import io.vbytsyuk.dnd.domain.core.language.Language.Orc
+import io.vbytsyuk.dnd.domain.core.proficiencies.Skills2
+import io.vbytsyuk.dnd.domain.core.race.Tiefling
+import io.vbytsyuk.dnd.domain.core.sheet.Sheet
+import io.vbytsyuk.dnd.domain.core.skills.Skill.Dexterity.Acrobatics
+import io.vbytsyuk.dnd.domain.core.skills.Skill.Strength.Athletics
+import io.vbytsyuk.dnd.domain.core.units.Alignment
+import io.vbytsyuk.dnd.domain.core.units.Exp
+import io.vbytsyuk.dnd.domain.core.units.Wallet
+import io.vbytsyuk.dnd.domain.core.weapon.Shortsword
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -40,7 +39,7 @@ class StringPrinterTest {
             race = Tiefling.Fierna,
             `class` = Fighter(proficientSkills = Skills2(Acrobatics, Athletics)),
             alignment = Alignment.LAWFUL_EVIL,
-            background = Acolyte(language1 = Dwarvish, language2 = Orc),
+            background = io.vbytsyuk.dnd.domain.core.background.Acolyte(language1 = Dwarvish, language2 = Orc),
             initialRawStatBlock = StatBlock(
                 strength = 15,
                 dexterity = 14,
