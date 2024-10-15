@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.domain.condition
+package io.vbytsyuk.dnd.domain
 
 interface Reader<T> {
 

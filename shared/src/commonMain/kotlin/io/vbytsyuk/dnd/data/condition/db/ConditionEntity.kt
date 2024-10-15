@@ -1,9 +1,11 @@
-package io.vbytsyuk.dnd.data.condition
+package io.vbytsyuk.dnd.data.condition.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import io.vbytsyuk.dnd.data.Id
 import io.vbytsyuk.dnd.domain.condition.Condition
+
+private const val SEPARATOR = "|"
 
 @Entity
 data class ConditionEntity(
@@ -16,14 +18,14 @@ data class ConditionEntity(
 fun ConditionEntity.toDomain() = Condition(
     id = id,
     name = name,
-     description = description,
+    description = description.split(SEPARATOR),
     url = url,
 )
 
 fun Condition.toEntity() = ConditionEntity(
     id = id,
     name = name,
-    description = description,
+    description = description.joinToString(SEPARATOR),
     url = url,
 )
 

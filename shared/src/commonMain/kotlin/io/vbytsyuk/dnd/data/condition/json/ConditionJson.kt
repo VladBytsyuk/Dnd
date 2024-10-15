@@ -1,10 +1,8 @@
-package io.vbytsyuk.dnd.data.condition
+package io.vbytsyuk.dnd.data.condition.json
 
 import io.vbytsyuk.dnd.data.Id
 import io.vbytsyuk.dnd.domain.condition.Condition
 import kotlinx.serialization.Serializable
-
-private const val SEPARATOR = ","
 
 @Serializable
 data class ConditionJson(
@@ -17,7 +15,7 @@ data class ConditionJson(
 fun ConditionJson.toDomain() = Condition(
     id = Id(index),
     name = name,
-    description = desc.joinToString(separator = SEPARATOR),
+    description = desc,
     url = url,
 )
 

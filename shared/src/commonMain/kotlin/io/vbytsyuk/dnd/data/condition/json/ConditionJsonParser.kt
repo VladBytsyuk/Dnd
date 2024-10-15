@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.data.condition
+package io.vbytsyuk.dnd.data.condition.json
 
 import io.vbytsyuk.dnd.data.JsonParser
 import kotlinx.serialization.json.Json

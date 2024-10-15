@@ -1,10 +1,10 @@
-package io.vbytsyuk.dnd.data.condition
+package io.vbytsyuk.dnd.data.condition.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import io.vbytsyuk.dnd.domain.DndDao
 import io.vbytsyuk.dnd.domain.condition.Condition
-import io.vbytsyuk.dnd.domain.condition.ConditionDao
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -26,9 +26,9 @@ interface RoomConditionDao {
     suspend fun clear()
 }
 
-class ConditionDaoImpl(
+class ConditionDndDaoImpl(
     private val roomConditionDao: RoomConditionDao,
-) : ConditionDao {
+) : DndDao<Condition> {
 
     override suspend fun insert(item: Condition) {
         roomConditionDao.insert(item.toEntity())

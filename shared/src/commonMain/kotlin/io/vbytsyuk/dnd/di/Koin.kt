@@ -10,11 +10,7 @@ object Koin {
 
     var app: KoinApplication? = null
 
-    fun init(config: KoinAppDeclaration? = null) {
-        if (app == null) {
-            app = start(config)
-        }
-    }
+    fun init(config: KoinAppDeclaration? = null): KoinApplication = app ?: start(config).also { app = it }
 
     fun stop() {
         stopKoin()
