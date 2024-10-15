@@ -6,4 +6,5 @@ data class Condition(
     val id: Id,
     val name: String,
     val description: String,
+    val url: String,
 )

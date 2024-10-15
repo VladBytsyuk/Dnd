@@ -10,18 +10,21 @@ data class ConditionEntity(
     @PrimaryKey val id: Id,
     val name: String,
     val description: String,
+    val url: String,
 )
 
 fun ConditionEntity.toDomain() = Condition(
     id = id,
     name = name,
-    description = description,
+     description = description,
+    url = url,
 )
 
 fun Condition.toEntity() = ConditionEntity(
     id = id,
     name = name,
     description = description,
+    url = url,
 )
 
 fun List<ConditionEntity>.toDomain() = map { it.toDomain() }
