@@ -7,10 +7,10 @@ import io.vbytsyuk.dnd.data.damage.type.json.DamageTypeJsonParser
 import io.vbytsyuk.dnd.data.damage.type.json.toDomain
 import io.vbytsyuk.dnd.domain.damage.type.DamageType
 
-class DamageTypeReader(
+class DamageTypesReader(
     jsonParser: DamageTypeJsonParser,
 ) : ReaderImpl<DamageType, DamageTypeJson>(
     jsonParser = jsonParser,
-    fileName = FileNames.DAMAGE_TYPE,
+    fileName = FileNames.DAMAGE_TYPES,
     mapper = { it.toDomain() },
 )

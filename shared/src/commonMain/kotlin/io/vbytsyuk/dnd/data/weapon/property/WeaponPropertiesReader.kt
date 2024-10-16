@@ -7,10 +7,10 @@ import io.vbytsyuk.dnd.data.weapon.property.json.WeaponPropertyJsonParser
 import io.vbytsyuk.dnd.data.weapon.property.json.toDomain
 import io.vbytsyuk.dnd.domain.weapon.property.WeaponProperty
 
-class WeaponPropertyReader(
+class WeaponPropertiesReader(
     jsonParser: WeaponPropertyJsonParser,
 ) : ReaderImpl<WeaponProperty, WeaponPropertyJson>(
     jsonParser = jsonParser,
-    fileName = FileNames.WEAPON_PROPERTY,
+    fileName = FileNames.WEAPON_PROPERTIES,
     mapper = { it.toDomain() },
 )

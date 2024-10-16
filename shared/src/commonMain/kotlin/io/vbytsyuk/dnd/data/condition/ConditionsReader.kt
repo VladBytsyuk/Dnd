@@ -7,7 +7,7 @@ import io.vbytsyuk.dnd.data.condition.json.ConditionJsonParser
 import io.vbytsyuk.dnd.data.condition.json.toDomain
 import io.vbytsyuk.dnd.domain.condition.Condition
 
-class ConditionReader(
+class ConditionsReader(
     jsonParser: ConditionJsonParser,
 ) : ReaderImpl<Condition, ConditionJson>(
     jsonParser = jsonParser,
