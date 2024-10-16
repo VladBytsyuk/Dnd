@@ -5,4 +5,5 @@ object FileNames {
     const val DAMAGE_TYPES = "../phb/5e-SRD-Damage-Types.json"
     const val WEAPON_PROPERTIES = "../phb/5e-SRD-Weapon-Properties.json"
     const val ALIGNMENTS = "../phb/5e-SRD-Alignments.json"
+    const val MAGIC_SCHOOL = "../phb/5e-SRD-Magic-Schools.json"
 }

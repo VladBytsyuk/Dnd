@@ -16,6 +16,11 @@ import io.vbytsyuk.dnd.data.damage.type.DamageTypesReader
 import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeDaoImpl
 import io.vbytsyuk.dnd.data.damage.type.db.RoomDamageTypeDao
 import io.vbytsyuk.dnd.data.damage.type.json.DamageTypeJsonParser
+import io.vbytsyuk.dnd.data.magic.school.MagicSchoolsLoadUseCaseImpl
+import io.vbytsyuk.dnd.data.magic.school.MagicSchoolsReader
+import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolDndDaoImpl
+import io.vbytsyuk.dnd.data.magic.school.db.RoomMagicSchoolDao
+import io.vbytsyuk.dnd.data.magic.school.json.MagicSchoolJsonParser
 import io.vbytsyuk.dnd.data.weapon.property.WeaponPropertiesLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.weapon.property.WeaponPropertiesReader
 import io.vbytsyuk.dnd.data.weapon.property.db.RoomWeaponPropertyDao
@@ -31,6 +36,7 @@ fun readerModule() = module {
         damageTypeReaderModule(),
         weaponPropertyReaderModule(),
         alignmentReaderModule(),
+        magicSchoolReaderModule(),
     )
     factory<Json> { Json { ignoreUnknownKeys = true } }
     factory<LoadRulebookUseCase> {
@@ -39,6 +45,7 @@ fun readerModule() = module {
             damageTypeLoadUseCase = get<DamageTypesLoadUseCaseImpl>(),
             weaponPropertyLoadUseCase = get<WeaponPropertiesLoadUseCaseImpl>(),
             alignmentsLoadUseCaseImpl = get<AlignmentsLoadUseCaseImpl>(),
+            magicSchoolsLoadUseCaseImpl = get<MagicSchoolsLoadUseCaseImpl>(),
         )
     }
 }
@@ -73,4 +80,12 @@ fun alignmentReaderModule() = module {
     factory<AlignmentJsonParser> { AlignmentJsonParser(json = get()) }
     factory<AlignmentDndDaoImpl> { AlignmentDndDaoImpl(roomAlignmentDao = get()) }
     factory<RoomAlignmentDao> { get<RulebookRoomDatabase>().getAlignmentDao() }
+}
+
+fun magicSchoolReaderModule() = module {
+    factory<MagicSchoolsLoadUseCaseImpl> { MagicSchoolsLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory<MagicSchoolsReader> { MagicSchoolsReader(jsonParser = get()) }
+    factory<MagicSchoolJsonParser> { MagicSchoolJsonParser(json = get()) }
+    factory<MagicSchoolDndDaoImpl> { MagicSchoolDndDaoImpl(roomMagicSchoolDao = get()) }
+    factory<RoomMagicSchoolDao> { get<RulebookRoomDatabase>().getMagicSchoolDao() }
 }
