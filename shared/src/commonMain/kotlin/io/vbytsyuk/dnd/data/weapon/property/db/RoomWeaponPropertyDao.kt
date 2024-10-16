@@ -3,6 +3,7 @@ package io.vbytsyuk.dnd.data.weapon.property.db
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import io.vbytsyuk.dnd.data.Id
 import io.vbytsyuk.dnd.domain.DndDao
 import io.vbytsyuk.dnd.domain.weapon.property.WeaponProperty
 import kotlinx.coroutines.flow.Flow
@@ -18,6 +19,9 @@ interface RoomWeaponPropertyDao {
 
     @Query("SELECT count(*) FROM WeaponPropertyEntity")
     suspend fun count(): Int
+
+    @Query("SELECT * FROM WeaponPropertyEntity WHERE id = :id")
+    suspend fun getById(id: Id): WeaponPropertyEntity
 
     @Query("SELECT * FROM WeaponPropertyEntity")
     fun getAllAsFlow(): Flow<List<WeaponPropertyEntity>>
@@ -40,6 +44,9 @@ class WeaponPropertyDaoImpl(
 
     override suspend fun count(): Int =
         roomWeaponPropertyDao.count()
+
+    override suspend fun getById(id: Id): WeaponProperty =
+        roomWeaponPropertyDao.getById(id).toDomain()
 
     override fun getAllAsFlow(): Flow<List<WeaponProperty>> =
         roomWeaponPropertyDao.getAllAsFlow().map { it.toDomain() }

@@ -1,11 +1,14 @@
 package io.vbytsyuk.dnd.domain.usecases
 
+import io.vbytsyuk.dnd.data.Id
+import io.vbytsyuk.dnd.data.rule.db.RuleDndDaoImpl
 import io.vbytsyuk.dnd.domain.Rulebook
 import io.vbytsyuk.dnd.domain.alignment.Alignment
 import io.vbytsyuk.dnd.domain.condition.Condition
 import io.vbytsyuk.dnd.domain.damage.type.DamageType
 import io.vbytsyuk.dnd.domain.language.Language
 import io.vbytsyuk.dnd.domain.magic.school.MagicSchool
+import io.vbytsyuk.dnd.domain.rule.Rule
 import io.vbytsyuk.dnd.domain.rule.section.RuleSection
 import io.vbytsyuk.dnd.domain.weapon.property.WeaponProperty
 
@@ -13,20 +16,22 @@ class LoadRulebookUseCase(
     private val conditionLoadUseCase: LoadUseCase<Condition>,
     private val damageTypeLoadUseCase: LoadUseCase<DamageType>,
     private val weaponPropertyLoadUseCase: LoadUseCase<WeaponProperty>,
-    private val alignmentsLoadUseCaseImpl: LoadUseCase<Alignment>,
-    private val magicSchoolsLoadUseCaseImpl: LoadUseCase<MagicSchool>,
-    private val languagesLoadUseCaseImpl: LoadUseCase<Language>,
-    private val ruleSectionsLoadUseCaseImpl: LoadUseCase<RuleSection>,
+    private val alignmentsLoadUseCase: LoadUseCase<Alignment>,
+    private val magicSchoolsLoadUseCase: LoadUseCase<MagicSchool>,
+    private val languagesLoadUseCase: LoadUseCase<Language>,
+    private val ruleSectionsLoadUseCase: LoadUseCase<RuleSection>,
+    private val rulesLoadUseCase: LoadUseCase<Rule>,
 ) {
 
     suspend operator fun invoke(): Rulebook {
         val conditions = conditionLoadUseCase()
         val damageTypes = damageTypeLoadUseCase()
         val weaponProperties = weaponPropertyLoadUseCase()
-        val alignments = alignmentsLoadUseCaseImpl()
-        val magicSchools = magicSchoolsLoadUseCaseImpl()
-        val languages = languagesLoadUseCaseImpl()
-        val ruleSections = ruleSectionsLoadUseCaseImpl()
+        val alignments = alignmentsLoadUseCase()
+        val magicSchools = magicSchoolsLoadUseCase()
+        val languages = languagesLoadUseCase()
+        ruleSectionsLoadUseCase()
+        val rules = rulesLoadUseCase()
         return Rulebook(
             conditions = conditions,
             damageTypes = damageTypes,
@@ -34,7 +39,7 @@ class LoadRulebookUseCase(
             alignments = alignments,
             magicSchools = magicSchools,
             languages = languages,
-            ruleSections = ruleSections,
+            rules = rules,
         )
     }
 }

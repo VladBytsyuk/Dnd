@@ -5,7 +5,7 @@ import io.vbytsyuk.dnd.domain.condition.Condition
 import io.vbytsyuk.dnd.domain.damage.type.DamageType
 import io.vbytsyuk.dnd.domain.language.Language
 import io.vbytsyuk.dnd.domain.magic.school.MagicSchool
-import io.vbytsyuk.dnd.domain.rule.section.RuleSection
+import io.vbytsyuk.dnd.domain.rule.Rule
 import io.vbytsyuk.dnd.domain.weapon.property.WeaponProperty
 
 data class Rulebook(
@@ -15,7 +15,7 @@ data class Rulebook(
     val alignments: List<Alignment>,
     val magicSchools: List<MagicSchool>,
     val languages: List<Language>,
-    val ruleSections: List<RuleSection>,
+    val rules: List<Rule>,
 ) {
 
     override fun toString(): String = """
@@ -37,7 +37,7 @@ data class Rulebook(
         Languages:
             $languages
             
-        Rule sections:
-            $ruleSections
+        Rules:
+            $rules
     """.trimIndent()
 }

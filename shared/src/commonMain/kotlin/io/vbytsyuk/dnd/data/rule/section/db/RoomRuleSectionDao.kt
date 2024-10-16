@@ -3,6 +3,7 @@ package io.vbytsyuk.dnd.data.rule.section.db
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import io.vbytsyuk.dnd.data.Id
 import io.vbytsyuk.dnd.domain.DndDao
 import io.vbytsyuk.dnd.domain.rule.section.RuleSection
 import kotlinx.coroutines.flow.Flow
@@ -18,6 +19,9 @@ interface RoomRuleSectionDao {
     
     @Query("SELECT count(*) FROM RuleSectionEntity")
     suspend fun count(): Int
+
+    @Query("SELECT * FROM RuleSectionEntity WHERE id = :id")
+    suspend fun getById(id: Id): RuleSectionEntity
 
     @Query("SELECT * FROM RuleSectionEntity")
     fun getAllAsFlow(): Flow<List<RuleSectionEntity>>
@@ -40,6 +44,9 @@ class RuleSectionDndDaoImpl(
 
     override suspend fun count(): Int =
         roomRuleSectionDao.count()
+
+    override suspend fun getById(id: Id): RuleSection =
+        roomRuleSectionDao.getById(id).toDomain()
 
     override fun getAllAsFlow(): Flow<List<RuleSection>> =
         roomRuleSectionDao.getAllAsFlow().map { it.toDomain() }

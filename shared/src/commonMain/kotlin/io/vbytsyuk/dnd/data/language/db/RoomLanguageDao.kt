@@ -3,10 +3,11 @@ package io.vbytsyuk.dnd.data.language.db
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import io.vbytsyuk.dnd.data.Id
 import io.vbytsyuk.dnd.domain.DndDao
+import io.vbytsyuk.dnd.domain.language.Language
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import io.vbytsyuk.dnd.domain.language.Language
 
 @Dao
 interface RoomLanguageDao {
@@ -18,6 +19,9 @@ interface RoomLanguageDao {
     
     @Query("SELECT count(*) FROM LanguageEntity")
     suspend fun count(): Int
+
+    @Query("SELECT * FROM LanguageEntity WHERE id = :id")
+    suspend fun getById(id: Id): LanguageEntity
 
     @Query("SELECT * FROM LanguageEntity")
     fun getAllAsFlow(): Flow<List<LanguageEntity>>
@@ -40,6 +44,9 @@ class LanguageDndDaoImpl(
 
     override suspend fun count(): Int =
         roomLanguageDao.count()
+
+    override suspend fun getById(id: Id): Language =
+        roomLanguageDao.getById(id).toDomain()
 
     override fun getAllAsFlow(): Flow<List<Language>> =
         roomLanguageDao.getAllAsFlow().map { it.toDomain() }

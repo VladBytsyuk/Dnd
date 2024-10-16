@@ -3,6 +3,7 @@ package io.vbytsyuk.dnd.data.alignment.db
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import io.vbytsyuk.dnd.data.Id
 import io.vbytsyuk.dnd.domain.DndDao
 import io.vbytsyuk.dnd.domain.alignment.Alignment
 import kotlinx.coroutines.flow.Flow
@@ -18,6 +19,9 @@ interface RoomAlignmentDao {
     
     @Query("SELECT count(*) FROM AlignmentEntity")
     suspend fun count(): Int
+
+    @Query("SELECT * FROM AlignmentEntity WHERE id = :id")
+    suspend fun getById(id: Id): AlignmentEntity
 
     @Query("SELECT * FROM AlignmentEntity")
     fun getAllAsFlow(): Flow<List<AlignmentEntity>>
@@ -40,6 +44,9 @@ class AlignmentDndDaoImpl(
 
     override suspend fun count(): Int =
         roomAlignmentDao.count()
+
+    override suspend fun getById(id: Id): Alignment =
+        roomAlignmentDao.getById(id).toDomain()
 
     override fun getAllAsFlow(): Flow<List<Alignment>> =
         roomAlignmentDao.getAllAsFlow().map { it.toDomain() }

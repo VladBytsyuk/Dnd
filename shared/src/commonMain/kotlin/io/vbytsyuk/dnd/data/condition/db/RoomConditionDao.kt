@@ -3,6 +3,7 @@ package io.vbytsyuk.dnd.data.condition.db
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import io.vbytsyuk.dnd.data.Id
 import io.vbytsyuk.dnd.domain.DndDao
 import io.vbytsyuk.dnd.domain.condition.Condition
 import kotlinx.coroutines.flow.Flow
@@ -18,6 +19,9 @@ interface RoomConditionDao {
     
     @Query("SELECT count(*) FROM ConditionEntity")
     suspend fun count(): Int
+
+    @Query("SELECT * FROM ConditionEntity WHERE id = :id")
+    suspend fun getById(id: Id): ConditionEntity
 
     @Query("SELECT * FROM ConditionEntity")
     fun getAllAsFlow(): Flow<List<ConditionEntity>>
@@ -40,6 +44,9 @@ class ConditionDndDaoImpl(
 
     override suspend fun count(): Int =
         roomConditionDao.count()
+
+    override suspend fun getById(id: Id): Condition =
+        roomConditionDao.getById(id).toDomain()
 
     override fun getAllAsFlow(): Flow<List<Condition>> =
         roomConditionDao.getAllAsFlow().map { it.toDomain() }
