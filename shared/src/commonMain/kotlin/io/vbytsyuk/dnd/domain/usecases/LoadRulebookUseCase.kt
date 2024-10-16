@@ -6,6 +6,7 @@ import io.vbytsyuk.dnd.domain.condition.Condition
 import io.vbytsyuk.dnd.domain.damage.type.DamageType
 import io.vbytsyuk.dnd.domain.language.Language
 import io.vbytsyuk.dnd.domain.magic.school.MagicSchool
+import io.vbytsyuk.dnd.domain.rule.section.RuleSection
 import io.vbytsyuk.dnd.domain.weapon.property.WeaponProperty
 
 class LoadRulebookUseCase(
@@ -15,6 +16,7 @@ class LoadRulebookUseCase(
     private val alignmentsLoadUseCaseImpl: LoadUseCase<Alignment>,
     private val magicSchoolsLoadUseCaseImpl: LoadUseCase<MagicSchool>,
     private val languagesLoadUseCaseImpl: LoadUseCase<Language>,
+    private val ruleSectionsLoadUseCaseImpl: LoadUseCase<RuleSection>,
 ) {
 
     suspend operator fun invoke(): Rulebook {
@@ -24,6 +26,7 @@ class LoadRulebookUseCase(
         val alignments = alignmentsLoadUseCaseImpl()
         val magicSchools = magicSchoolsLoadUseCaseImpl()
         val languages = languagesLoadUseCaseImpl()
+        val ruleSections = ruleSectionsLoadUseCaseImpl()
         return Rulebook(
             conditions = conditions,
             damageTypes = damageTypes,
@@ -31,6 +34,7 @@ class LoadRulebookUseCase(
             alignments = alignments,
             magicSchools = magicSchools,
             languages = languages,
+            ruleSections = ruleSections,
         )
     }
 }

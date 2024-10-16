@@ -26,6 +26,11 @@ import io.vbytsyuk.dnd.data.magic.school.MagicSchoolsReader
 import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolDndDaoImpl
 import io.vbytsyuk.dnd.data.magic.school.db.RoomMagicSchoolDao
 import io.vbytsyuk.dnd.data.magic.school.json.MagicSchoolJsonParser
+import io.vbytsyuk.dnd.data.rule.section.RuleSectionsLoadUseCaseImpl
+import io.vbytsyuk.dnd.data.rule.section.RuleSectionsReader
+import io.vbytsyuk.dnd.data.rule.section.db.RoomRuleSectionDao
+import io.vbytsyuk.dnd.data.rule.section.db.RuleSectionDndDaoImpl
+import io.vbytsyuk.dnd.data.rule.section.json.RuleSectionJsonParser
 import io.vbytsyuk.dnd.data.weapon.property.WeaponPropertiesLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.weapon.property.WeaponPropertiesReader
 import io.vbytsyuk.dnd.data.weapon.property.db.RoomWeaponPropertyDao
@@ -43,6 +48,7 @@ fun readerModule() = module {
         alignmentReaderModule(),
         magicSchoolReaderModule(),
         languageReaderModule(),
+        ruleSectionModule(),
     )
     factory<Json> { Json { ignoreUnknownKeys = true } }
     factory<LoadRulebookUseCase> {
@@ -53,6 +59,7 @@ fun readerModule() = module {
             alignmentsLoadUseCaseImpl = get<AlignmentsLoadUseCaseImpl>(),
             magicSchoolsLoadUseCaseImpl = get<MagicSchoolsLoadUseCaseImpl>(),
             languagesLoadUseCaseImpl = get<LanguagesLoadUseCaseImpl>(),
+            ruleSectionsLoadUseCaseImpl = get<RuleSectionsLoadUseCaseImpl>(),
         )
     }
 }
@@ -103,4 +110,12 @@ fun languageReaderModule() = module {
     factory<LanguageJsonParser> { LanguageJsonParser(json = get()) }
     factory<LanguageDndDaoImpl> { LanguageDndDaoImpl(roomLanguageDao = get()) }
     factory<RoomLanguageDao> { get<RulebookRoomDatabase>().getLanguageDao() }
+}
+
+fun ruleSectionModule() = module {
+    factory<RuleSectionsLoadUseCaseImpl> { RuleSectionsLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory<RuleSectionsReader> { RuleSectionsReader(jsonParser = get()) }
+    factory<RuleSectionJsonParser> { RuleSectionJsonParser(json = get()) }
+    factory<RuleSectionDndDaoImpl> { RuleSectionDndDaoImpl(roomRuleSectionDao = get()) }
+    factory<RoomRuleSectionDao> { get<RulebookRoomDatabase>().getRuleSectionDao() }
 }
