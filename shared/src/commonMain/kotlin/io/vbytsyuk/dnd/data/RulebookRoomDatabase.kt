@@ -8,6 +8,8 @@ import io.vbytsyuk.dnd.data.condition.db.ConditionEntity
 import io.vbytsyuk.dnd.data.condition.db.RoomConditionDao
 import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeEntity
 import io.vbytsyuk.dnd.data.damage.type.db.RoomDamageTypeDao
+import io.vbytsyuk.dnd.data.language.db.LanguageEntity
+import io.vbytsyuk.dnd.data.language.db.RoomLanguageDao
 import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolEntity
 import io.vbytsyuk.dnd.data.magic.school.db.RoomMagicSchoolDao
 import io.vbytsyuk.dnd.data.weapon.property.db.RoomWeaponPropertyDao
@@ -20,6 +22,7 @@ import io.vbytsyuk.dnd.data.weapon.property.db.WeaponPropertyEntity
         WeaponPropertyEntity::class,
         AlignmentEntity::class,
         MagicSchoolEntity::class,
+        LanguageEntity::class,
     ],
     version = RulebookRoomDatabase.VERSION,
 )
@@ -35,4 +38,5 @@ abstract class RulebookRoomDatabase : RoomDatabase() {
     abstract fun getWeaponPropertyDao(): RoomWeaponPropertyDao
     abstract fun getAlignmentDao(): RoomAlignmentDao
     abstract fun getMagicSchoolDao(): RoomMagicSchoolDao
+    abstract fun getLanguageDao(): RoomLanguageDao
 }

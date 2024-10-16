@@ -16,6 +16,11 @@ import io.vbytsyuk.dnd.data.damage.type.DamageTypesReader
 import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeDaoImpl
 import io.vbytsyuk.dnd.data.damage.type.db.RoomDamageTypeDao
 import io.vbytsyuk.dnd.data.damage.type.json.DamageTypeJsonParser
+import io.vbytsyuk.dnd.data.language.LanguagesLoadUseCaseImpl
+import io.vbytsyuk.dnd.data.language.LanguagesReader
+import io.vbytsyuk.dnd.data.language.db.LanguageDndDaoImpl
+import io.vbytsyuk.dnd.data.language.db.RoomLanguageDao
+import io.vbytsyuk.dnd.data.language.json.LanguageJsonParser
 import io.vbytsyuk.dnd.data.magic.school.MagicSchoolsLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.magic.school.MagicSchoolsReader
 import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolDndDaoImpl
@@ -37,6 +42,7 @@ fun readerModule() = module {
         weaponPropertyReaderModule(),
         alignmentReaderModule(),
         magicSchoolReaderModule(),
+        languageReaderModule(),
     )
     factory<Json> { Json { ignoreUnknownKeys = true } }
     factory<LoadRulebookUseCase> {
@@ -46,6 +52,7 @@ fun readerModule() = module {
             weaponPropertyLoadUseCase = get<WeaponPropertiesLoadUseCaseImpl>(),
             alignmentsLoadUseCaseImpl = get<AlignmentsLoadUseCaseImpl>(),
             magicSchoolsLoadUseCaseImpl = get<MagicSchoolsLoadUseCaseImpl>(),
+            languagesLoadUseCaseImpl = get<LanguagesLoadUseCaseImpl>(),
         )
     }
 }
@@ -88,4 +95,12 @@ fun magicSchoolReaderModule() = module {
     factory<MagicSchoolJsonParser> { MagicSchoolJsonParser(json = get()) }
     factory<MagicSchoolDndDaoImpl> { MagicSchoolDndDaoImpl(roomMagicSchoolDao = get()) }
     factory<RoomMagicSchoolDao> { get<RulebookRoomDatabase>().getMagicSchoolDao() }
+}
+
+fun languageReaderModule() = module {
+    factory<LanguagesLoadUseCaseImpl> { LanguagesLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory<LanguagesReader> { LanguagesReader(jsonParser = get()) }
+    factory<LanguageJsonParser> { LanguageJsonParser(json = get()) }
+    factory<LanguageDndDaoImpl> { LanguageDndDaoImpl(roomLanguageDao = get()) }
+    factory<RoomLanguageDao> { get<RulebookRoomDatabase>().getLanguageDao() }
 }
