@@ -1,6 +1,11 @@
 package io.vbytsyuk.dnd.di.modules
 
 import io.vbytsyuk.dnd.data.RulebookRoomDatabase
+import io.vbytsyuk.dnd.data.alignment.AlignmentsLoadUseCaseImpl
+import io.vbytsyuk.dnd.data.alignment.AlignmentsReader
+import io.vbytsyuk.dnd.data.alignment.db.AlignmentDndDaoImpl
+import io.vbytsyuk.dnd.data.alignment.db.RoomAlignmentDao
+import io.vbytsyuk.dnd.data.alignment.json.AlignmentJsonParser
 import io.vbytsyuk.dnd.data.condition.ConditionsLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.condition.ConditionsReader
 import io.vbytsyuk.dnd.data.condition.db.ConditionDndDaoImpl
@@ -25,6 +30,7 @@ fun readerModule() = module {
         conditionReaderModule(),
         damageTypeReaderModule(),
         weaponPropertyReaderModule(),
+        alignmentReaderModule(),
     )
     factory<Json> { Json { ignoreUnknownKeys = true } }
     factory<LoadRulebookUseCase> {
@@ -32,6 +38,7 @@ fun readerModule() = module {
             conditionLoadUseCase = get<ConditionsLoadUseCaseImpl>(),
             damageTypeLoadUseCase = get<DamageTypesLoadUseCaseImpl>(),
             weaponPropertyLoadUseCase = get<WeaponPropertiesLoadUseCaseImpl>(),
+            alignmentsLoadUseCaseImpl = get<AlignmentsLoadUseCaseImpl>(),
         )
     }
 }
@@ -58,4 +65,12 @@ fun weaponPropertyReaderModule() = module {
     factory<WeaponPropertyJsonParser> { WeaponPropertyJsonParser(json = get()) }
     factory<WeaponPropertyDaoImpl> { WeaponPropertyDaoImpl(roomWeaponPropertyDao = get()) }
     factory<RoomWeaponPropertyDao> { get<RulebookRoomDatabase>().getWeaponPropertyDao() }
+}
+
+fun alignmentReaderModule() = module {
+    factory<AlignmentsLoadUseCaseImpl> { AlignmentsLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory<AlignmentsReader> { AlignmentsReader(jsonParser = get()) }
+    factory<AlignmentJsonParser> { AlignmentJsonParser(json = get()) }
+    factory<AlignmentDndDaoImpl> { AlignmentDndDaoImpl(roomAlignmentDao = get()) }
+    factory<RoomAlignmentDao> { get<RulebookRoomDatabase>().getAlignmentDao() }
 }
