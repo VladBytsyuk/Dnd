@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import io.vbytsyuk.dnd.data.Id
-import io.vbytsyuk.dnd.domain.DndDao
+import io.vbytsyuk.dnd.domain.DndRepository
 import io.vbytsyuk.dnd.domain.weapon.property.WeaponProperty
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -32,7 +32,7 @@ interface RoomWeaponPropertyDao {
 
 class WeaponPropertyDaoImpl(
     private val roomWeaponPropertyDao: RoomWeaponPropertyDao,
-) : DndDao<WeaponProperty> {
+) : DndRepository<WeaponProperty> {
 
     override suspend fun insert(item: WeaponProperty) {
         roomWeaponPropertyDao.insert(item.toEntity())

@@ -3,43 +3,43 @@ package io.vbytsyuk.dnd.di.modules
 import io.vbytsyuk.dnd.data.RulebookRoomDatabase
 import io.vbytsyuk.dnd.data.ability.score.AbilityScoresLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.ability.score.AbilityScoresReader
-import io.vbytsyuk.dnd.data.ability.score.db.AbilityScoreDndDaoImpl
-import io.vbytsyuk.dnd.data.ability.score.db.RoomAbilityScoreDao
+import io.vbytsyuk.dnd.data.ability.score.db.AbilityScoreDao
+import io.vbytsyuk.dnd.data.ability.score.db.AbilityScoreRepository
 import io.vbytsyuk.dnd.data.ability.score.json.AbilityScoreJsonParser
 import io.vbytsyuk.dnd.data.alignment.AlignmentsLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.alignment.AlignmentsReader
-import io.vbytsyuk.dnd.data.alignment.db.AlignmentDndDaoImpl
-import io.vbytsyuk.dnd.data.alignment.db.RoomAlignmentDao
+import io.vbytsyuk.dnd.data.alignment.db.AlignmentDao
+import io.vbytsyuk.dnd.data.alignment.db.AlignmentRepository
 import io.vbytsyuk.dnd.data.alignment.json.AlignmentJsonParser
 import io.vbytsyuk.dnd.data.condition.ConditionsLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.condition.ConditionsReader
-import io.vbytsyuk.dnd.data.condition.db.ConditionDndDaoImpl
-import io.vbytsyuk.dnd.data.condition.db.RoomConditionDao
+import io.vbytsyuk.dnd.data.condition.db.ConditionDao
+import io.vbytsyuk.dnd.data.condition.db.ConditionRepository
 import io.vbytsyuk.dnd.data.condition.json.ConditionJsonParser
 import io.vbytsyuk.dnd.data.damage.type.DamageTypesLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.damage.type.DamageTypesReader
-import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeDaoImpl
-import io.vbytsyuk.dnd.data.damage.type.db.RoomDamageTypeDao
+import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeDao
+import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeRepository
 import io.vbytsyuk.dnd.data.damage.type.json.DamageTypeJsonParser
 import io.vbytsyuk.dnd.data.language.LanguagesLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.language.LanguagesReader
-import io.vbytsyuk.dnd.data.language.db.LanguageDndDaoImpl
-import io.vbytsyuk.dnd.data.language.db.RoomLanguageDao
+import io.vbytsyuk.dnd.data.language.db.LanguageDao
+import io.vbytsyuk.dnd.data.language.db.LanguageRepository
 import io.vbytsyuk.dnd.data.language.json.LanguageJsonParser
 import io.vbytsyuk.dnd.data.magic.school.MagicSchoolsLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.magic.school.MagicSchoolsReader
-import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolDndDaoImpl
-import io.vbytsyuk.dnd.data.magic.school.db.RoomMagicSchoolDao
+import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolDao
+import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolRepository
 import io.vbytsyuk.dnd.data.magic.school.json.MagicSchoolJsonParser
 import io.vbytsyuk.dnd.data.rule.RulesLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.rule.RulesReader
-import io.vbytsyuk.dnd.data.rule.db.RoomRuleDao
-import io.vbytsyuk.dnd.data.rule.db.RuleDndDaoImpl
+import io.vbytsyuk.dnd.data.rule.db.RuleDao
+import io.vbytsyuk.dnd.data.rule.db.RuleRepository
 import io.vbytsyuk.dnd.data.rule.json.RuleJsonParser
 import io.vbytsyuk.dnd.data.rule.section.RuleSectionsLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.rule.section.RuleSectionsReader
-import io.vbytsyuk.dnd.data.rule.section.db.RoomRuleSectionDao
-import io.vbytsyuk.dnd.data.rule.section.db.RuleSectionDndDaoImpl
+import io.vbytsyuk.dnd.data.rule.section.db.RuleSectionDao
+import io.vbytsyuk.dnd.data.rule.section.db.RuleSectionRepository
 import io.vbytsyuk.dnd.data.rule.section.json.RuleSectionJsonParser
 import io.vbytsyuk.dnd.data.weapon.property.WeaponPropertiesLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.weapon.property.WeaponPropertiesReader
@@ -79,19 +79,19 @@ fun readerModule() = module {
 }
 
 fun conditionReaderModule() = module {
-    factory<ConditionsLoadUseCaseImpl> { ConditionsLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory<ConditionsLoadUseCaseImpl> { ConditionsLoadUseCaseImpl(reader = get(), repository = get()) }
     factory<ConditionsReader> { ConditionsReader(jsonParser = get()) }
     factory<ConditionJsonParser> { ConditionJsonParser(json = get()) }
-    factory<ConditionDndDaoImpl> { ConditionDndDaoImpl(roomConditionDao = get()) }
-    factory<RoomConditionDao> { get<RulebookRoomDatabase>().getConditionDao() }
+    factory<ConditionRepository> { ConditionRepository(conditionDao = get()) }
+    factory<ConditionDao> { get<RulebookRoomDatabase>().getConditionDao() }
 }
 
 fun damageTypeReaderModule() = module {
-    factory<DamageTypesLoadUseCaseImpl> { DamageTypesLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory<DamageTypesLoadUseCaseImpl> { DamageTypesLoadUseCaseImpl(reader = get(), repository = get()) }
     factory<DamageTypesReader> { DamageTypesReader(jsonParser = get()) }
     factory<DamageTypeJsonParser> { DamageTypeJsonParser(json = get()) }
-    factory<DamageTypeDaoImpl> { DamageTypeDaoImpl(roomDamageTypeDao = get()) }
-    factory<RoomDamageTypeDao> { get<RulebookRoomDatabase>().getDamageTypeDao() }
+    factory<DamageTypeRepository> { DamageTypeRepository(damageTypeDao = get()) }
+    factory<DamageTypeDao> { get<RulebookRoomDatabase>().getDamageTypeDao() }
 }
 
 fun weaponPropertyReaderModule() = module {
@@ -103,49 +103,49 @@ fun weaponPropertyReaderModule() = module {
 }
 
 fun alignmentReaderModule() = module {
-    factory<AlignmentsLoadUseCaseImpl> { AlignmentsLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory<AlignmentsLoadUseCaseImpl> { AlignmentsLoadUseCaseImpl(reader = get(), repository = get()) }
     factory<AlignmentsReader> { AlignmentsReader(jsonParser = get()) }
     factory<AlignmentJsonParser> { AlignmentJsonParser(json = get()) }
-    factory<AlignmentDndDaoImpl> { AlignmentDndDaoImpl(roomAlignmentDao = get()) }
-    factory<RoomAlignmentDao> { get<RulebookRoomDatabase>().getAlignmentDao() }
+    factory<AlignmentRepository> { AlignmentRepository(alignmentDao = get()) }
+    factory<AlignmentDao> { get<RulebookRoomDatabase>().getAlignmentDao() }
 }
 
 fun magicSchoolReaderModule() = module {
-    factory<MagicSchoolsLoadUseCaseImpl> { MagicSchoolsLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory<MagicSchoolsLoadUseCaseImpl> { MagicSchoolsLoadUseCaseImpl(reader = get(), repository = get()) }
     factory<MagicSchoolsReader> { MagicSchoolsReader(jsonParser = get()) }
     factory<MagicSchoolJsonParser> { MagicSchoolJsonParser(json = get()) }
-    factory<MagicSchoolDndDaoImpl> { MagicSchoolDndDaoImpl(roomMagicSchoolDao = get()) }
-    factory<RoomMagicSchoolDao> { get<RulebookRoomDatabase>().getMagicSchoolDao() }
+    factory<MagicSchoolRepository> { MagicSchoolRepository(magicSchoolDao = get()) }
+    factory<MagicSchoolDao> { get<RulebookRoomDatabase>().getMagicSchoolDao() }
 }
 
 fun languageReaderModule() = module {
-    factory<LanguagesLoadUseCaseImpl> { LanguagesLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory<LanguagesLoadUseCaseImpl> { LanguagesLoadUseCaseImpl(reader = get(), repository = get()) }
     factory<LanguagesReader> { LanguagesReader(jsonParser = get()) }
     factory<LanguageJsonParser> { LanguageJsonParser(json = get()) }
-    factory<LanguageDndDaoImpl> { LanguageDndDaoImpl(roomLanguageDao = get()) }
-    factory<RoomLanguageDao> { get<RulebookRoomDatabase>().getLanguageDao() }
+    factory<LanguageRepository> { LanguageRepository(languageDao = get()) }
+    factory<LanguageDao> { get<RulebookRoomDatabase>().getLanguageDao() }
 }
 
 fun ruleSectionModule() = module {
-    factory<RuleSectionsLoadUseCaseImpl> { RuleSectionsLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory<RuleSectionsLoadUseCaseImpl> { RuleSectionsLoadUseCaseImpl(reader = get(), repository = get()) }
     factory<RuleSectionsReader> { RuleSectionsReader(jsonParser = get()) }
     factory<RuleSectionJsonParser> { RuleSectionJsonParser(json = get()) }
-    factory<RuleSectionDndDaoImpl> { RuleSectionDndDaoImpl(roomRuleSectionDao = get()) }
-    factory<RoomRuleSectionDao> { get<RulebookRoomDatabase>().getRuleSectionDao() }
+    factory<RuleSectionRepository> { RuleSectionRepository(ruleSectionDao = get()) }
+    factory<RuleSectionDao> { get<RulebookRoomDatabase>().getRuleSectionDao() }
 }
 
 fun ruleModule() = module {
-    factory<RulesLoadUseCaseImpl> { RulesLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory<RulesLoadUseCaseImpl> { RulesLoadUseCaseImpl(reader = get(), repository = get()) }
     factory<RulesReader> { RulesReader(jsonParser = get()) }
     factory<RuleJsonParser> { RuleJsonParser(json = get()) }
-    factory<RuleDndDaoImpl> { RuleDndDaoImpl(roomRuleDao = get(), ruleSectionDndDaoImpl = get()) }
-    factory<RoomRuleDao> { get<RulebookRoomDatabase>().getRuleDao() }
+    factory<RuleRepository> { RuleRepository(ruleDao = get(), ruleSectionRepository = get()) }
+    factory<RuleDao> { get<RulebookRoomDatabase>().getRuleDao() }
 }
 
 fun abilityScoreModule() = module {
-    factory<AbilityScoresLoadUseCaseImpl> { AbilityScoresLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory<AbilityScoresLoadUseCaseImpl> { AbilityScoresLoadUseCaseImpl(reader = get(), repository = get()) }
     factory<AbilityScoresReader> { AbilityScoresReader(jsonParser = get()) }
     factory<AbilityScoreJsonParser> { AbilityScoreJsonParser(json = get()) }
-    factory<AbilityScoreDndDaoImpl> { AbilityScoreDndDaoImpl(roomAbilityScoreDao = get()) }
-    factory<RoomAbilityScoreDao> { get<RulebookRoomDatabase>().getAbilityScoreDao() }
+    factory<AbilityScoreRepository> { AbilityScoreRepository(abilityScoreDao = get()) }
+    factory<AbilityScoreDao> { get<RulebookRoomDatabase>().getAbilityScoreDao() }
 }

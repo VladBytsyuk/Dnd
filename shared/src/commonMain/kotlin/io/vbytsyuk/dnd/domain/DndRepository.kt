@@ -3,7 +3,7 @@ package io.vbytsyuk.dnd.domain
 import io.vbytsyuk.dnd.data.Id
 import kotlinx.coroutines.flow.Flow
 
-interface DndDao<Type> {
+interface DndRepository<Type> {
     suspend fun insert(item: Type)
     suspend fun insertAll(items: List<Type>)
     suspend fun count(): Int
