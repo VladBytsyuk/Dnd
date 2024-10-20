@@ -18,6 +18,8 @@ import io.vbytsyuk.dnd.data.rule.db.RuleDao
 import io.vbytsyuk.dnd.data.rule.db.RuleEntity
 import io.vbytsyuk.dnd.data.rule.section.db.RuleSectionDao
 import io.vbytsyuk.dnd.data.rule.section.db.RuleSectionEntity
+import io.vbytsyuk.dnd.data.skill.db.SkillDao
+import io.vbytsyuk.dnd.data.skill.db.SkillEntity
 import io.vbytsyuk.dnd.data.weapon.property.db.RoomWeaponPropertyDao
 import io.vbytsyuk.dnd.data.weapon.property.db.WeaponPropertyEntity
 
@@ -32,6 +34,7 @@ import io.vbytsyuk.dnd.data.weapon.property.db.WeaponPropertyEntity
         RuleSectionEntity::class,
         RuleEntity::class,
         AbilityScoreEntity::class,
+        SkillEntity::class,
     ],
     version = RulebookRoomDatabase.VERSION,
 )
@@ -51,4 +54,5 @@ abstract class RulebookRoomDatabase : RoomDatabase() {
     abstract fun getRuleSectionDao(): RuleSectionDao
     abstract fun getRuleDao(): RuleDao
     abstract fun getAbilityScoreDao(): AbilityScoreDao
+    abstract fun getSkillDao(): SkillDao
 }

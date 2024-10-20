@@ -7,4 +7,4 @@ import io.vbytsyuk.dnd.domain.usecases.LoadUseCaseImpl
 class MagicSchoolsLoadUseCaseImpl(
     reader: MagicSchoolsReader,
     repository: MagicSchoolRepository,
-) : LoadUseCaseImpl<MagicSchool>(reader = reader, dao = repository)
+) : LoadUseCaseImpl<MagicSchool>(reader = reader, repository = repository)

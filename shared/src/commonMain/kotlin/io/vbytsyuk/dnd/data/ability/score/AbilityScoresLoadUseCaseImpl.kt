@@ -7,4 +7,4 @@ import io.vbytsyuk.dnd.domain.usecases.LoadUseCaseImpl
 class AbilityScoresLoadUseCaseImpl(
     reader: AbilityScoresReader,
     repository: AbilityScoreRepository,
-) : LoadUseCaseImpl<AbilityScore>(reader = reader, dao = repository)
+) : LoadUseCaseImpl<AbilityScore>(reader = reader, repository = repository)

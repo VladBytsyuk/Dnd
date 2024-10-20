@@ -7,4 +7,4 @@ import io.vbytsyuk.dnd.domain.usecases.LoadUseCaseImpl
 class DamageTypesLoadUseCaseImpl(
     reader: DamageTypesReader,
     repository: DamageTypeRepository,
-) : LoadUseCaseImpl<DamageType>(reader = reader, dao = repository)
+) : LoadUseCaseImpl<DamageType>(reader = reader, repository = repository)

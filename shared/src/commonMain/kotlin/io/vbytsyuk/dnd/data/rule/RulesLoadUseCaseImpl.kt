@@ -7,4 +7,4 @@ import io.vbytsyuk.dnd.domain.usecases.LoadUseCaseImpl
 class RulesLoadUseCaseImpl(
     reader: RulesReader,
     repository: RuleRepository,
-) : LoadUseCaseImpl<Rule>(reader = reader, dao = repository)
+) : LoadUseCaseImpl<Rule>(reader = reader, repository = repository)

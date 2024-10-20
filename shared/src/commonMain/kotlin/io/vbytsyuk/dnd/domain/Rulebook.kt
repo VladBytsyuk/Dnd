@@ -7,6 +7,7 @@ import io.vbytsyuk.dnd.domain.damage.type.DamageType
 import io.vbytsyuk.dnd.domain.language.Language
 import io.vbytsyuk.dnd.domain.magic.school.MagicSchool
 import io.vbytsyuk.dnd.domain.rule.Rule
+import io.vbytsyuk.dnd.domain.skill.Skill
 import io.vbytsyuk.dnd.domain.weapon.property.WeaponProperty
 
 data class Rulebook(
@@ -17,6 +18,7 @@ data class Rulebook(
     val magicSchools: List<MagicSchool>,
     val languages: List<Language>,
     val abilityScores: List<AbilityScore>,
+    val skills: List<Skill>,
     val rules: List<Rule>,
 ) {
 
@@ -41,6 +43,9 @@ data class Rulebook(
             
         Ability scores:
             $abilityScores
+            
+        Skills:
+            $skills
             
         Rules:
             $rules

@@ -7,4 +7,4 @@ import io.vbytsyuk.dnd.domain.weapon.property.WeaponProperty
 class WeaponPropertiesLoadUseCaseImpl(
     reader: WeaponPropertiesReader,
     dao: WeaponPropertyDaoImpl,
-) : LoadUseCaseImpl<WeaponProperty>(reader = reader, dao = dao)
+) : LoadUseCaseImpl<WeaponProperty>(reader = reader, repository = dao)

@@ -8,4 +8,9 @@ data class AbilityScore(
     val fullName: String,
     val description: List<String>,
     val url: String,
-)
+) {
+
+    constructor(id: Id) : this(id = id, shortName = "", fullName = "", description = emptyList(), url = "")
+
+    val isEmpty: Boolean get() = shortName.isEmpty() && fullName.isEmpty() && description.isEmpty() && url.isEmpty()
+}

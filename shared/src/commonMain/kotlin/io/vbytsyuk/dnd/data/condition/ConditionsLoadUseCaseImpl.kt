@@ -7,4 +7,4 @@ import io.vbytsyuk.dnd.domain.usecases.LoadUseCaseImpl
 class ConditionsLoadUseCaseImpl(
     reader: ConditionsReader,
     repository: ConditionRepository,
-) : LoadUseCaseImpl<Condition>(reader = reader, dao = repository)
+) : LoadUseCaseImpl<Condition>(reader = reader, repository = repository)

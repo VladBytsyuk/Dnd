@@ -5,13 +5,13 @@ import io.vbytsyuk.dnd.domain.Reader
 
 open class LoadUseCaseImpl<Type>(
     private val reader: Reader<Type>,
-    private val dao: DndRepository<Type>,
+    private val repository: DndRepository<Type>,
 ) : LoadUseCase<Type> {
 
     override suspend operator fun invoke(): List<Type> {
         val conditions = reader.read()
-        if (dao.count() != 0) dao.clear()
-        dao.insertAll(conditions)
+        if (repository.count() != 0) repository.clear()
+        repository.insertAll(conditions)
         return conditions
     }
 }

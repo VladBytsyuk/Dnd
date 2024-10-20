@@ -7,4 +7,4 @@ import io.vbytsyuk.dnd.domain.usecases.LoadUseCaseImpl
 class AlignmentsLoadUseCaseImpl(
     reader: AlignmentsReader,
     repository: AlignmentRepository,
-) : LoadUseCaseImpl<Alignment>(reader = reader, dao = repository)
+) : LoadUseCaseImpl<Alignment>(reader = reader, repository = repository)

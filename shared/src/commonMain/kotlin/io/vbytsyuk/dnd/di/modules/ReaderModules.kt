@@ -41,6 +41,11 @@ import io.vbytsyuk.dnd.data.rule.section.RuleSectionsReader
 import io.vbytsyuk.dnd.data.rule.section.db.RuleSectionDao
 import io.vbytsyuk.dnd.data.rule.section.db.RuleSectionRepository
 import io.vbytsyuk.dnd.data.rule.section.json.RuleSectionJsonParser
+import io.vbytsyuk.dnd.data.skill.SkillsLoadUseCaseImpl
+import io.vbytsyuk.dnd.data.skill.SkillsReader
+import io.vbytsyuk.dnd.data.skill.db.SkillDao
+import io.vbytsyuk.dnd.data.skill.db.SkillRepository
+import io.vbytsyuk.dnd.data.skill.json.SkillJsonParser
 import io.vbytsyuk.dnd.data.weapon.property.WeaponPropertiesLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.weapon.property.WeaponPropertiesReader
 import io.vbytsyuk.dnd.data.weapon.property.db.RoomWeaponPropertyDao
@@ -61,6 +66,7 @@ fun readerModule() = module {
         ruleSectionModule(),
         ruleModule(),
         abilityScoreModule(),
+        skillModule(),
     )
     factory<Json> { Json { ignoreUnknownKeys = true } }
     factory<LoadRulebookUseCase> {
@@ -72,6 +78,7 @@ fun readerModule() = module {
             magicSchoolsLoadUseCase = get<MagicSchoolsLoadUseCaseImpl>(),
             languagesLoadUseCase = get<LanguagesLoadUseCaseImpl>(),
             abilityScoresLoadUseCase = get<AbilityScoresLoadUseCaseImpl>(),
+            skillsLoadUseCase = get<SkillsLoadUseCaseImpl>(),
             ruleSectionsLoadUseCase = get<RuleSectionsLoadUseCaseImpl>(),
             rulesLoadUseCase = get<RulesLoadUseCaseImpl>(),
         )
@@ -148,4 +155,12 @@ fun abilityScoreModule() = module {
     factory<AbilityScoreJsonParser> { AbilityScoreJsonParser(json = get()) }
     factory<AbilityScoreRepository> { AbilityScoreRepository(abilityScoreDao = get()) }
     factory<AbilityScoreDao> { get<RulebookRoomDatabase>().getAbilityScoreDao() }
+}
+
+fun skillModule() = module {
+    factory<SkillsLoadUseCaseImpl> { SkillsLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory<SkillsReader> { SkillsReader(jsonParser = get()) }
+    factory<SkillJsonParser> { SkillJsonParser(json = get()) }
+    factory<SkillRepository> { SkillRepository(skillDao = get(), abilityScoreRepository = get()) }
+    factory<SkillDao> { get<RulebookRoomDatabase>().getSkillDao() }
 }
