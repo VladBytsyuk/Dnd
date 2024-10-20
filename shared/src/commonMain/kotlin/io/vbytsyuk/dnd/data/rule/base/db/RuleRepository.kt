@@ -1,8 +1,8 @@
-package io.vbytsyuk.dnd.data.rule.db
+package io.vbytsyuk.dnd.data.rule.base.db
 
 import io.vbytsyuk.dnd.data.Id
 import io.vbytsyuk.dnd.domain.DndRepository
-import io.vbytsyuk.dnd.domain.rule.Rule
+import io.vbytsyuk.dnd.domain.rule.base.Rule
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

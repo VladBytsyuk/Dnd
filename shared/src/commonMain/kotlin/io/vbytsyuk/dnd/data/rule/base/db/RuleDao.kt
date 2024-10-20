@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.data.rule.db
+package io.vbytsyuk.dnd.data.rule.base.db
 
 import androidx.room.Dao
 import androidx.room.Insert

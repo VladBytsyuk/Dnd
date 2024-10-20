@@ -11,4 +11,5 @@ object FileNames {
     const val RULES = "../phb/5e-SRD-Rules.json"
     const val ABILITY_SCORES = "../phb/5e-SRD-Ability-Scores.json"
     const val SKILLS = "../phb/5e-SRD-Skills.json"
+    const val EQUIPMENT_CATEGORIES = "../phb/5e-SRD-Equipment-Categories.json"
 }

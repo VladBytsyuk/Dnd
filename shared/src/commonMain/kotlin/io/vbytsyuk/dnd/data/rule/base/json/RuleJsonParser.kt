@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.data.rule.json
+package io.vbytsyuk.dnd.data.rule.base.json
 
 import io.vbytsyuk.dnd.data.JsonParser
 import kotlinx.serialization.json.Json

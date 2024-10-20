@@ -1,9 +1,9 @@
-package io.vbytsyuk.dnd.data.rule.db
+package io.vbytsyuk.dnd.data.rule.base.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import io.vbytsyuk.dnd.data.Id
-import io.vbytsyuk.dnd.domain.rule.Rule
+import io.vbytsyuk.dnd.domain.rule.base.Rule
 
 private const val SEPARATOR = "|"
 

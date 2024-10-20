@@ -1,4 +1,4 @@
-package io.vbytsyuk.dnd.domain.rule
+package io.vbytsyuk.dnd.domain.rule.base
 
 import io.vbytsyuk.dnd.data.Id
 

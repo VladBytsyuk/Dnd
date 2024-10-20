@@ -1,7 +1,7 @@
-package io.vbytsyuk.dnd.data.rule
+package io.vbytsyuk.dnd.data.rule.base
 
-import io.vbytsyuk.dnd.data.rule.db.RuleRepository
-import io.vbytsyuk.dnd.domain.rule.Rule
+import io.vbytsyuk.dnd.data.rule.base.db.RuleRepository
+import io.vbytsyuk.dnd.domain.rule.base.Rule
 import io.vbytsyuk.dnd.domain.usecases.LoadUseCaseImpl
 
 class RulesLoadUseCaseImpl(

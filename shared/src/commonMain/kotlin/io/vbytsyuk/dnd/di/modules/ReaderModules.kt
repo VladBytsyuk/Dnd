@@ -21,6 +21,11 @@ import io.vbytsyuk.dnd.data.damage.type.DamageTypesReader
 import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeDao
 import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeRepository
 import io.vbytsyuk.dnd.data.damage.type.json.DamageTypeJsonParser
+import io.vbytsyuk.dnd.data.equipment.category.EquipmentCategoriesLoadUseCaseImpl
+import io.vbytsyuk.dnd.data.equipment.category.EquipmentCategoriesReader
+import io.vbytsyuk.dnd.data.equipment.category.db.EquipmentCategoryDao
+import io.vbytsyuk.dnd.data.equipment.category.db.EquipmentCategoryRepository
+import io.vbytsyuk.dnd.data.equipment.category.json.EquipmentCategoryJsonParser
 import io.vbytsyuk.dnd.data.language.LanguagesLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.language.LanguagesReader
 import io.vbytsyuk.dnd.data.language.db.LanguageDao
@@ -31,11 +36,11 @@ import io.vbytsyuk.dnd.data.magic.school.MagicSchoolsReader
 import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolDao
 import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolRepository
 import io.vbytsyuk.dnd.data.magic.school.json.MagicSchoolJsonParser
-import io.vbytsyuk.dnd.data.rule.RulesLoadUseCaseImpl
-import io.vbytsyuk.dnd.data.rule.RulesReader
-import io.vbytsyuk.dnd.data.rule.db.RuleDao
-import io.vbytsyuk.dnd.data.rule.db.RuleRepository
-import io.vbytsyuk.dnd.data.rule.json.RuleJsonParser
+import io.vbytsyuk.dnd.data.rule.base.RulesLoadUseCaseImpl
+import io.vbytsyuk.dnd.data.rule.base.RulesReader
+import io.vbytsyuk.dnd.data.rule.base.db.RuleDao
+import io.vbytsyuk.dnd.data.rule.base.db.RuleRepository
+import io.vbytsyuk.dnd.data.rule.base.json.RuleJsonParser
 import io.vbytsyuk.dnd.data.rule.section.RuleSectionsLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.rule.section.RuleSectionsReader
 import io.vbytsyuk.dnd.data.rule.section.db.RuleSectionDao
@@ -67,6 +72,7 @@ fun readerModule() = module {
         ruleModule(),
         abilityScoreModule(),
         skillModule(),
+        equipmentCategoryModule(),
     )
     factory<Json> { Json { ignoreUnknownKeys = true } }
     factory<LoadRulebookUseCase> {
@@ -79,6 +85,7 @@ fun readerModule() = module {
             languagesLoadUseCase = get<LanguagesLoadUseCaseImpl>(),
             abilityScoresLoadUseCase = get<AbilityScoresLoadUseCaseImpl>(),
             skillsLoadUseCase = get<SkillsLoadUseCaseImpl>(),
+            equipmentCategoriesLoadUseCase = get<EquipmentCategoriesLoadUseCaseImpl>(),
             ruleSectionsLoadUseCase = get<RuleSectionsLoadUseCaseImpl>(),
             rulesLoadUseCase = get<RulesLoadUseCaseImpl>(),
         )
@@ -86,81 +93,89 @@ fun readerModule() = module {
 }
 
 fun conditionReaderModule() = module {
-    factory<ConditionsLoadUseCaseImpl> { ConditionsLoadUseCaseImpl(reader = get(), repository = get()) }
-    factory<ConditionsReader> { ConditionsReader(jsonParser = get()) }
-    factory<ConditionJsonParser> { ConditionJsonParser(json = get()) }
-    factory<ConditionRepository> { ConditionRepository(conditionDao = get()) }
+    factory { ConditionsLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory { ConditionsReader(jsonParser = get()) }
+    factory { ConditionJsonParser(json = get()) }
+    factory { ConditionRepository(conditionDao = get()) }
     factory<ConditionDao> { get<RulebookRoomDatabase>().getConditionDao() }
 }
 
 fun damageTypeReaderModule() = module {
-    factory<DamageTypesLoadUseCaseImpl> { DamageTypesLoadUseCaseImpl(reader = get(), repository = get()) }
-    factory<DamageTypesReader> { DamageTypesReader(jsonParser = get()) }
-    factory<DamageTypeJsonParser> { DamageTypeJsonParser(json = get()) }
-    factory<DamageTypeRepository> { DamageTypeRepository(damageTypeDao = get()) }
+    factory { DamageTypesLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory { DamageTypesReader(jsonParser = get()) }
+    factory { DamageTypeJsonParser(json = get()) }
+    factory { DamageTypeRepository(damageTypeDao = get()) }
     factory<DamageTypeDao> { get<RulebookRoomDatabase>().getDamageTypeDao() }
 }
 
 fun weaponPropertyReaderModule() = module {
-    factory<WeaponPropertiesLoadUseCaseImpl> { WeaponPropertiesLoadUseCaseImpl(reader = get(), dao = get()) }
-    factory<WeaponPropertiesReader> { WeaponPropertiesReader(jsonParser = get()) }
-    factory<WeaponPropertyJsonParser> { WeaponPropertyJsonParser(json = get()) }
-    factory<WeaponPropertyDaoImpl> { WeaponPropertyDaoImpl(roomWeaponPropertyDao = get()) }
+    factory { WeaponPropertiesLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory { WeaponPropertiesReader(jsonParser = get()) }
+    factory { WeaponPropertyJsonParser(json = get()) }
+    factory { WeaponPropertyDaoImpl(roomWeaponPropertyDao = get()) }
     factory<RoomWeaponPropertyDao> { get<RulebookRoomDatabase>().getWeaponPropertyDao() }
 }
 
 fun alignmentReaderModule() = module {
-    factory<AlignmentsLoadUseCaseImpl> { AlignmentsLoadUseCaseImpl(reader = get(), repository = get()) }
-    factory<AlignmentsReader> { AlignmentsReader(jsonParser = get()) }
-    factory<AlignmentJsonParser> { AlignmentJsonParser(json = get()) }
-    factory<AlignmentRepository> { AlignmentRepository(alignmentDao = get()) }
+    factory { AlignmentsLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory { AlignmentsReader(jsonParser = get()) }
+    factory { AlignmentJsonParser(json = get()) }
+    factory { AlignmentRepository(alignmentDao = get()) }
     factory<AlignmentDao> { get<RulebookRoomDatabase>().getAlignmentDao() }
 }
 
 fun magicSchoolReaderModule() = module {
-    factory<MagicSchoolsLoadUseCaseImpl> { MagicSchoolsLoadUseCaseImpl(reader = get(), repository = get()) }
-    factory<MagicSchoolsReader> { MagicSchoolsReader(jsonParser = get()) }
-    factory<MagicSchoolJsonParser> { MagicSchoolJsonParser(json = get()) }
-    factory<MagicSchoolRepository> { MagicSchoolRepository(magicSchoolDao = get()) }
+    factory { MagicSchoolsLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory { MagicSchoolsReader(jsonParser = get()) }
+    factory { MagicSchoolJsonParser(json = get()) }
+    factory { MagicSchoolRepository(magicSchoolDao = get()) }
     factory<MagicSchoolDao> { get<RulebookRoomDatabase>().getMagicSchoolDao() }
 }
 
 fun languageReaderModule() = module {
-    factory<LanguagesLoadUseCaseImpl> { LanguagesLoadUseCaseImpl(reader = get(), repository = get()) }
-    factory<LanguagesReader> { LanguagesReader(jsonParser = get()) }
-    factory<LanguageJsonParser> { LanguageJsonParser(json = get()) }
-    factory<LanguageRepository> { LanguageRepository(languageDao = get()) }
+    factory { LanguagesLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory { LanguagesReader(jsonParser = get()) }
+    factory { LanguageJsonParser(json = get()) }
+    factory { LanguageRepository(languageDao = get()) }
     factory<LanguageDao> { get<RulebookRoomDatabase>().getLanguageDao() }
 }
 
 fun ruleSectionModule() = module {
-    factory<RuleSectionsLoadUseCaseImpl> { RuleSectionsLoadUseCaseImpl(reader = get(), repository = get()) }
-    factory<RuleSectionsReader> { RuleSectionsReader(jsonParser = get()) }
-    factory<RuleSectionJsonParser> { RuleSectionJsonParser(json = get()) }
-    factory<RuleSectionRepository> { RuleSectionRepository(ruleSectionDao = get()) }
+    factory { RuleSectionsLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory { RuleSectionsReader(jsonParser = get()) }
+    factory { RuleSectionJsonParser(json = get()) }
+    factory { RuleSectionRepository(ruleSectionDao = get()) }
     factory<RuleSectionDao> { get<RulebookRoomDatabase>().getRuleSectionDao() }
 }
 
 fun ruleModule() = module {
-    factory<RulesLoadUseCaseImpl> { RulesLoadUseCaseImpl(reader = get(), repository = get()) }
-    factory<RulesReader> { RulesReader(jsonParser = get()) }
-    factory<RuleJsonParser> { RuleJsonParser(json = get()) }
-    factory<RuleRepository> { RuleRepository(ruleDao = get()) }
+    factory { RulesLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory { RulesReader(jsonParser = get()) }
+    factory { RuleJsonParser(json = get()) }
+    factory { RuleRepository(ruleDao = get()) }
     factory<RuleDao> { get<RulebookRoomDatabase>().getRuleDao() }
 }
 
 fun abilityScoreModule() = module {
-    factory<AbilityScoresLoadUseCaseImpl> { AbilityScoresLoadUseCaseImpl(reader = get(), repository = get()) }
-    factory<AbilityScoresReader> { AbilityScoresReader(jsonParser = get()) }
-    factory<AbilityScoreJsonParser> { AbilityScoreJsonParser(json = get()) }
-    factory<AbilityScoreRepository> { AbilityScoreRepository(abilityScoreDao = get()) }
+    factory { AbilityScoresLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory { AbilityScoresReader(jsonParser = get()) }
+    factory { AbilityScoreJsonParser(json = get()) }
+    factory { AbilityScoreRepository(abilityScoreDao = get()) }
     factory<AbilityScoreDao> { get<RulebookRoomDatabase>().getAbilityScoreDao() }
 }
 
 fun skillModule() = module {
-    factory<SkillsLoadUseCaseImpl> { SkillsLoadUseCaseImpl(reader = get(), repository = get()) }
-    factory<SkillsReader> { SkillsReader(jsonParser = get()) }
-    factory<SkillJsonParser> { SkillJsonParser(json = get()) }
-    factory<SkillRepository> { SkillRepository(skillDao = get()) }
+    factory { SkillsLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory { SkillsReader(jsonParser = get()) }
+    factory { SkillJsonParser(json = get()) }
+    factory { SkillRepository(skillDao = get()) }
     factory<SkillDao> { get<RulebookRoomDatabase>().getSkillDao() }
+}
+
+fun equipmentCategoryModule() = module {
+    factory { EquipmentCategoriesLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory { EquipmentCategoriesReader(jsonParser = get()) }
+    factory { EquipmentCategoryJsonParser(json = get()) }
+    factory { EquipmentCategoryRepository(equipmentCategoryDao = get()) }
+    factory<EquipmentCategoryDao> { get<RulebookRoomDatabase>().getEquipmentCategoryDao() }
 }

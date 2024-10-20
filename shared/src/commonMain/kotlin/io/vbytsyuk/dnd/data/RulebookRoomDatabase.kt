@@ -10,12 +10,14 @@ import io.vbytsyuk.dnd.data.condition.db.ConditionDao
 import io.vbytsyuk.dnd.data.condition.db.ConditionEntity
 import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeDao
 import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeEntity
+import io.vbytsyuk.dnd.data.equipment.category.db.EquipmentCategoryDao
+import io.vbytsyuk.dnd.data.equipment.category.db.EquipmentCategoryEntity
 import io.vbytsyuk.dnd.data.language.db.LanguageDao
 import io.vbytsyuk.dnd.data.language.db.LanguageEntity
 import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolDao
 import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolEntity
-import io.vbytsyuk.dnd.data.rule.db.RuleDao
-import io.vbytsyuk.dnd.data.rule.db.RuleEntity
+import io.vbytsyuk.dnd.data.rule.base.db.RuleDao
+import io.vbytsyuk.dnd.data.rule.base.db.RuleEntity
 import io.vbytsyuk.dnd.data.rule.section.db.RuleSectionDao
 import io.vbytsyuk.dnd.data.rule.section.db.RuleSectionEntity
 import io.vbytsyuk.dnd.data.skill.db.SkillDao
@@ -35,6 +37,7 @@ import io.vbytsyuk.dnd.data.weapon.property.db.WeaponPropertyEntity
         RuleEntity::class,
         AbilityScoreEntity::class,
         SkillEntity::class,
+        EquipmentCategoryEntity::class,
     ],
     version = RulebookRoomDatabase.VERSION,
 )
@@ -55,4 +58,5 @@ abstract class RulebookRoomDatabase : RoomDatabase() {
     abstract fun getRuleDao(): RuleDao
     abstract fun getAbilityScoreDao(): AbilityScoreDao
     abstract fun getSkillDao(): SkillDao
+    abstract fun getEquipmentCategoryDao(): EquipmentCategoryDao
 }

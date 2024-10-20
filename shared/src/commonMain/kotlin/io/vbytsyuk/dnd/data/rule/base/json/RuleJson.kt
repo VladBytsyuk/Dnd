@@ -1,7 +1,7 @@
-package io.vbytsyuk.dnd.data.rule.json
+package io.vbytsyuk.dnd.data.rule.base.json
 
 import io.vbytsyuk.dnd.data.Id
-import io.vbytsyuk.dnd.domain.rule.Rule
+import io.vbytsyuk.dnd.domain.rule.base.Rule
 import kotlinx.serialization.Serializable
 
 @Serializable
