@@ -9,4 +9,5 @@ object FileNames {
     const val LANGUAGE = "../phb/5e-SRD-Languages.json"
     const val RULE_SECTIONS = "../phb/5e-SRD-Rule-Sections.json"
     const val RULES = "../phb/5e-SRD-Rules.json"
+    const val ABILITY_SCORES = "../phb/5e-SRD-Ability-Scores.json"
 }

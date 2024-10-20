@@ -1,6 +1,11 @@
 package io.vbytsyuk.dnd.di.modules
 
 import io.vbytsyuk.dnd.data.RulebookRoomDatabase
+import io.vbytsyuk.dnd.data.ability.score.AbilityScoresLoadUseCaseImpl
+import io.vbytsyuk.dnd.data.ability.score.AbilityScoresReader
+import io.vbytsyuk.dnd.data.ability.score.db.AbilityScoreDndDaoImpl
+import io.vbytsyuk.dnd.data.ability.score.db.RoomAbilityScoreDao
+import io.vbytsyuk.dnd.data.ability.score.json.AbilityScoreJsonParser
 import io.vbytsyuk.dnd.data.alignment.AlignmentsLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.alignment.AlignmentsReader
 import io.vbytsyuk.dnd.data.alignment.db.AlignmentDndDaoImpl
@@ -55,6 +60,7 @@ fun readerModule() = module {
         languageReaderModule(),
         ruleSectionModule(),
         ruleModule(),
+        abilityScoreModule(),
     )
     factory<Json> { Json { ignoreUnknownKeys = true } }
     factory<LoadRulebookUseCase> {
@@ -65,6 +71,7 @@ fun readerModule() = module {
             alignmentsLoadUseCase = get<AlignmentsLoadUseCaseImpl>(),
             magicSchoolsLoadUseCase = get<MagicSchoolsLoadUseCaseImpl>(),
             languagesLoadUseCase = get<LanguagesLoadUseCaseImpl>(),
+            abilityScoresLoadUseCase = get<AbilityScoresLoadUseCaseImpl>(),
             ruleSectionsLoadUseCase = get<RuleSectionsLoadUseCaseImpl>(),
             rulesLoadUseCase = get<RulesLoadUseCaseImpl>(),
         )
@@ -133,4 +140,12 @@ fun ruleModule() = module {
     factory<RuleJsonParser> { RuleJsonParser(json = get()) }
     factory<RuleDndDaoImpl> { RuleDndDaoImpl(roomRuleDao = get(), ruleSectionDndDaoImpl = get()) }
     factory<RoomRuleDao> { get<RulebookRoomDatabase>().getRuleDao() }
+}
+
+fun abilityScoreModule() = module {
+    factory<AbilityScoresLoadUseCaseImpl> { AbilityScoresLoadUseCaseImpl(reader = get(), dao = get()) }
+    factory<AbilityScoresReader> { AbilityScoresReader(jsonParser = get()) }
+    factory<AbilityScoreJsonParser> { AbilityScoreJsonParser(json = get()) }
+    factory<AbilityScoreDndDaoImpl> { AbilityScoreDndDaoImpl(roomAbilityScoreDao = get()) }
+    factory<RoomAbilityScoreDao> { get<RulebookRoomDatabase>().getAbilityScoreDao() }
 }

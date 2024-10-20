@@ -1,8 +1,7 @@
 package io.vbytsyuk.dnd.domain.usecases
 
-import io.vbytsyuk.dnd.data.Id
-import io.vbytsyuk.dnd.data.rule.db.RuleDndDaoImpl
 import io.vbytsyuk.dnd.domain.Rulebook
+import io.vbytsyuk.dnd.domain.ability.score.AbilityScore
 import io.vbytsyuk.dnd.domain.alignment.Alignment
 import io.vbytsyuk.dnd.domain.condition.Condition
 import io.vbytsyuk.dnd.domain.damage.type.DamageType
@@ -19,6 +18,7 @@ class LoadRulebookUseCase(
     private val alignmentsLoadUseCase: LoadUseCase<Alignment>,
     private val magicSchoolsLoadUseCase: LoadUseCase<MagicSchool>,
     private val languagesLoadUseCase: LoadUseCase<Language>,
+    private val abilityScoresLoadUseCase: LoadUseCase<AbilityScore>,
     private val ruleSectionsLoadUseCase: LoadUseCase<RuleSection>,
     private val rulesLoadUseCase: LoadUseCase<Rule>,
 ) {
@@ -30,6 +30,7 @@ class LoadRulebookUseCase(
         val alignments = alignmentsLoadUseCase()
         val magicSchools = magicSchoolsLoadUseCase()
         val languages = languagesLoadUseCase()
+        val abilityScores = abilityScoresLoadUseCase()
         ruleSectionsLoadUseCase()
         val rules = rulesLoadUseCase()
         return Rulebook(
@@ -39,6 +40,7 @@ class LoadRulebookUseCase(
             alignments = alignments,
             magicSchools = magicSchools,
             languages = languages,
+            abilityScores = abilityScores,
             rules = rules,
         )
     }

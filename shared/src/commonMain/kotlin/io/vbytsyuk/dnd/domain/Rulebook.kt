@@ -1,5 +1,6 @@
 package io.vbytsyuk.dnd.domain
 
+import io.vbytsyuk.dnd.domain.ability.score.AbilityScore
 import io.vbytsyuk.dnd.domain.alignment.Alignment
 import io.vbytsyuk.dnd.domain.condition.Condition
 import io.vbytsyuk.dnd.domain.damage.type.DamageType
@@ -15,6 +16,7 @@ data class Rulebook(
     val alignments: List<Alignment>,
     val magicSchools: List<MagicSchool>,
     val languages: List<Language>,
+    val abilityScores: List<AbilityScore>,
     val rules: List<Rule>,
 ) {
 
@@ -36,6 +38,9 @@ data class Rulebook(
             
         Languages:
             $languages
+            
+        Ability scores:
+            $abilityScores
             
         Rules:
             $rules

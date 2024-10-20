@@ -2,6 +2,8 @@ package io.vbytsyuk.dnd.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import io.vbytsyuk.dnd.data.ability.score.db.AbilityScoreEntity
+import io.vbytsyuk.dnd.data.ability.score.db.RoomAbilityScoreDao
 import io.vbytsyuk.dnd.data.alignment.db.AlignmentEntity
 import io.vbytsyuk.dnd.data.alignment.db.RoomAlignmentDao
 import io.vbytsyuk.dnd.data.condition.db.ConditionEntity
@@ -29,6 +31,7 @@ import io.vbytsyuk.dnd.data.weapon.property.db.WeaponPropertyEntity
         LanguageEntity::class,
         RuleSectionEntity::class,
         RuleEntity::class,
+        AbilityScoreEntity::class,
     ],
     version = RulebookRoomDatabase.VERSION,
 )
@@ -47,4 +50,5 @@ abstract class RulebookRoomDatabase : RoomDatabase() {
     abstract fun getLanguageDao(): RoomLanguageDao
     abstract fun getRuleSectionDao(): RoomRuleSectionDao
     abstract fun getRuleDao(): RoomRuleDao
+    abstract fun getAbilityScoreDao(): RoomAbilityScoreDao
 }
