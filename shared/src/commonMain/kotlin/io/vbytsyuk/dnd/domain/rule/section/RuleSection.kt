@@ -7,9 +7,4 @@ data class RuleSection(
     val name: String,
     val description: String,
     val url: String,
-) {
-
-    constructor(id: Id) : this(id = id, name = "", description = "", url = "")
-
-    val isEmpty: Boolean get() = name.isEmpty() && description.isEmpty() && url.isEmpty()
-}
+)

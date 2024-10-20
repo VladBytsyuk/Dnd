@@ -28,7 +28,7 @@ fun SkillJson.toDomain() = Skill(
     name = name,
     description = desc,
     url = url,
-    abilityScore = AbilityScore(id = Id(abilityScore.index)),
+    abilityScoreId = Id(abilityScore.index),
 )
 
 fun List<SkillJson>.toDomain() = map { it.toDomain() }

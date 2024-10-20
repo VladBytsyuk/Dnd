@@ -14,6 +14,7 @@ data class AbilityScoreEntity(
     val fullName: String,
     val description: String,
     val url: String,
+    val skillIds: String,
 )
 
 fun AbilityScoreEntity.toDomain() = AbilityScore(
@@ -22,6 +23,7 @@ fun AbilityScoreEntity.toDomain() = AbilityScore(
     fullName = fullName,
     description = description.split(SEPARATOR),
     url = url,
+    skillIds = skillIds.split(SEPARATOR).map(::Id),
 )
 
 fun AbilityScore.toEntity() = AbilityScoreEntity(
@@ -30,6 +32,7 @@ fun AbilityScore.toEntity() = AbilityScoreEntity(
     fullName = fullName,
     description = description.joinToString(SEPARATOR),
     url = url,
+    skillIds = skillIds.joinToString(SEPARATOR) { it.value }
 )
 
 fun List<AbilityScoreEntity>.toDomain() = map { it.toDomain() }

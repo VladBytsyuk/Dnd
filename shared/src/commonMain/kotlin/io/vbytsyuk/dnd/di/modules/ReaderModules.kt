@@ -145,7 +145,7 @@ fun ruleModule() = module {
     factory<RulesLoadUseCaseImpl> { RulesLoadUseCaseImpl(reader = get(), repository = get()) }
     factory<RulesReader> { RulesReader(jsonParser = get()) }
     factory<RuleJsonParser> { RuleJsonParser(json = get()) }
-    factory<RuleRepository> { RuleRepository(ruleDao = get(), ruleSectionRepository = get()) }
+    factory<RuleRepository> { RuleRepository(ruleDao = get()) }
     factory<RuleDao> { get<RulebookRoomDatabase>().getRuleDao() }
 }
 
@@ -161,6 +161,6 @@ fun skillModule() = module {
     factory<SkillsLoadUseCaseImpl> { SkillsLoadUseCaseImpl(reader = get(), repository = get()) }
     factory<SkillsReader> { SkillsReader(jsonParser = get()) }
     factory<SkillJsonParser> { SkillJsonParser(json = get()) }
-    factory<SkillRepository> { SkillRepository(skillDao = get(), abilityScoreRepository = get()) }
+    factory<SkillRepository> { SkillRepository(skillDao = get()) }
     factory<SkillDao> { get<RulebookRoomDatabase>().getSkillDao() }
 }

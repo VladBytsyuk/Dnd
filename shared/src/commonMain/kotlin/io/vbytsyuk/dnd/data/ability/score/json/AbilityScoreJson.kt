@@ -12,7 +12,16 @@ data class AbilityScoreJson(
     @SerialName("full_name") val fullName: String,
     val desc: List<String>,
     val url: String,
-)
+    val skills: List<Skills>,
+) {
+
+    @Serializable
+    data class Skills(
+        val index: String,
+        val name: String,
+        val url: String
+    )
+}
 
 fun AbilityScoreJson.toDomain() = AbilityScore(
     id = Id(index),
@@ -20,6 +29,7 @@ fun AbilityScoreJson.toDomain() = AbilityScore(
     fullName = fullName,
     description = desc,
     url = url,
+    skillIds = skills.map { Id(it.index) }
 )
 
 fun List<AbilityScoreJson>.toDomain() = map { it.toDomain() }

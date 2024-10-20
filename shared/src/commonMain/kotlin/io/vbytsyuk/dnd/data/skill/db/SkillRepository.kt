@@ -1,7 +1,6 @@
 package io.vbytsyuk.dnd.data.skill.db
 
 import io.vbytsyuk.dnd.data.Id
-import io.vbytsyuk.dnd.data.ability.score.db.AbilityScoreRepository
 import io.vbytsyuk.dnd.domain.DndRepository
 import io.vbytsyuk.dnd.domain.skill.Skill
 import kotlinx.coroutines.flow.Flow
@@ -9,7 +8,6 @@ import kotlinx.coroutines.flow.map
 
 class SkillRepository(
     private val skillDao: SkillDao,
-    private val abilityScoreRepository: AbilityScoreRepository,
 ) : DndRepository<Skill> {
 
     override suspend fun insert(item: Skill) {
@@ -24,17 +22,12 @@ class SkillRepository(
         skillDao.count()
 
     override suspend fun getById(id: Id): Skill =
-        skillDao.getById(id).toDomain(::updateWithSubSections)
+        skillDao.getById(id).toDomain()
 
     override fun getAllAsFlow(): Flow<List<Skill>> =
-        skillDao.getAllAsFlow().map { it.toDomain(::updateWithSubSections) }
+        skillDao.getAllAsFlow().map { it.toDomain() }
 
     override suspend fun clear() {
         skillDao.clear()
-    }
-
-    private suspend fun updateWithSubSections(skill: Skill): Skill {
-        val abilityScore = abilityScoreRepository.getById(skill.abilityScore.id)
-        return skill.copy(abilityScore = abilityScore)
     }
 }

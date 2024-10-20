@@ -2,7 +2,6 @@ package io.vbytsyuk.dnd.data.rule.json
 
 import io.vbytsyuk.dnd.data.Id
 import io.vbytsyuk.dnd.domain.rule.Rule
-import io.vbytsyuk.dnd.domain.rule.section.RuleSection
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -27,7 +26,7 @@ fun RuleJson.toDomain() = Rule(
     name = name,
     description = desc,
     url = url,
-    subSections = subsections.map { RuleSection(id = Id(it.index)) }
+    subSectionIds = subsections.map { Id(it.index) }
 )
 
 fun List<RuleJson>.toDomain() = map { it.toDomain() }
