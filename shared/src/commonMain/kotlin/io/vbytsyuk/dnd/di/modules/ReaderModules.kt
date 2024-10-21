@@ -21,6 +21,11 @@ import io.vbytsyuk.dnd.data.damage.type.DamageTypesReader
 import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeDao
 import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeRepository
 import io.vbytsyuk.dnd.data.damage.type.json.DamageTypeJsonParser
+import io.vbytsyuk.dnd.data.equipment.base.EquipmentsLoadUseCaseImpl
+import io.vbytsyuk.dnd.data.equipment.base.EquipmentsReader
+import io.vbytsyuk.dnd.data.equipment.base.db.EquipmentDao
+import io.vbytsyuk.dnd.data.equipment.base.db.EquipmentRepository
+import io.vbytsyuk.dnd.data.equipment.base.json.EquipmentJsonParser
 import io.vbytsyuk.dnd.data.equipment.category.EquipmentCategoriesLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.equipment.category.EquipmentCategoriesReader
 import io.vbytsyuk.dnd.data.equipment.category.db.EquipmentCategoryDao
@@ -73,6 +78,7 @@ fun readerModule() = module {
         abilityScoreModule(),
         skillModule(),
         equipmentCategoryModule(),
+        equipmentModule(),
     )
     factory<Json> { Json { ignoreUnknownKeys = true } }
     factory<LoadRulebookUseCase> {
@@ -86,6 +92,7 @@ fun readerModule() = module {
             abilityScoresLoadUseCase = get<AbilityScoresLoadUseCaseImpl>(),
             skillsLoadUseCase = get<SkillsLoadUseCaseImpl>(),
             equipmentCategoriesLoadUseCase = get<EquipmentCategoriesLoadUseCaseImpl>(),
+            equipmentsLoadUseCase = get<EquipmentsLoadUseCaseImpl>(),
             ruleSectionsLoadUseCase = get<RuleSectionsLoadUseCaseImpl>(),
             rulesLoadUseCase = get<RulesLoadUseCaseImpl>(),
         )
@@ -178,4 +185,12 @@ fun equipmentCategoryModule() = module {
     factory { EquipmentCategoryJsonParser(json = get()) }
     factory { EquipmentCategoryRepository(equipmentCategoryDao = get()) }
     factory<EquipmentCategoryDao> { get<RulebookRoomDatabase>().getEquipmentCategoryDao() }
+}
+
+fun equipmentModule() = module {
+    factory { EquipmentsLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory { EquipmentsReader(jsonParser = get()) }
+    factory { EquipmentJsonParser(json = get()) }
+    factory { EquipmentRepository(equipmentDao = get()) }
+    factory<EquipmentDao> { get<RulebookRoomDatabase>().getEquipmentDao() }
 }

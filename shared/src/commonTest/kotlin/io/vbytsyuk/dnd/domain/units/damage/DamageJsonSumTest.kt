@@ -13,7 +13,7 @@ import io.vbytsyuk.dnd.domain.core.units.plus
 import io.vbytsyuk.dnd.test.T
 import kotlin.test.Test
 
-class DamageSumTest : T<List<Damage>, Damage> {
+class DamageJsonSumTest : T<List<Damage>, Damage> {
 
     @Test
     fun test_Damage_addition() = check()

@@ -10,6 +10,8 @@ import io.vbytsyuk.dnd.data.condition.db.ConditionDao
 import io.vbytsyuk.dnd.data.condition.db.ConditionEntity
 import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeDao
 import io.vbytsyuk.dnd.data.damage.type.db.DamageTypeEntity
+import io.vbytsyuk.dnd.data.equipment.base.db.EquipmentDao
+import io.vbytsyuk.dnd.data.equipment.base.db.EquipmentEntity
 import io.vbytsyuk.dnd.data.equipment.category.db.EquipmentCategoryDao
 import io.vbytsyuk.dnd.data.equipment.category.db.EquipmentCategoryEntity
 import io.vbytsyuk.dnd.data.language.db.LanguageDao
@@ -38,6 +40,7 @@ import io.vbytsyuk.dnd.data.weapon.property.db.WeaponPropertyEntity
         AbilityScoreEntity::class,
         SkillEntity::class,
         EquipmentCategoryEntity::class,
+        EquipmentEntity::class,
     ],
     version = RulebookRoomDatabase.VERSION,
 )
@@ -59,4 +62,5 @@ abstract class RulebookRoomDatabase : RoomDatabase() {
     abstract fun getAbilityScoreDao(): AbilityScoreDao
     abstract fun getSkillDao(): SkillDao
     abstract fun getEquipmentCategoryDao(): EquipmentCategoryDao
+    abstract fun getEquipmentDao(): EquipmentDao
 }

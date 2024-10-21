@@ -5,6 +5,7 @@ import io.vbytsyuk.dnd.domain.ability.score.AbilityScore
 import io.vbytsyuk.dnd.domain.alignment.Alignment
 import io.vbytsyuk.dnd.domain.condition.Condition
 import io.vbytsyuk.dnd.domain.damage.type.DamageType
+import io.vbytsyuk.dnd.domain.equipment.base.Equipment
 import io.vbytsyuk.dnd.domain.equipment.category.EquipmentCategory
 import io.vbytsyuk.dnd.domain.language.Language
 import io.vbytsyuk.dnd.domain.magic.school.MagicSchool
@@ -23,6 +24,7 @@ class LoadRulebookUseCase(
     private val abilityScoresLoadUseCase: LoadUseCase<AbilityScore>,
     private val skillsLoadUseCase: LoadUseCase<Skill>,
     private val equipmentCategoriesLoadUseCase: LoadUseCase<EquipmentCategory>,
+    private val equipmentsLoadUseCase: LoadUseCase<Equipment>,
     private val ruleSectionsLoadUseCase: LoadUseCase<RuleSection>,
     private val rulesLoadUseCase: LoadUseCase<Rule>,
 ) {
@@ -37,6 +39,7 @@ class LoadRulebookUseCase(
         val abilityScores = abilityScoresLoadUseCase()
         val skills = skillsLoadUseCase()
         val equipmentCategories = equipmentCategoriesLoadUseCase()
+        val equipments = equipmentsLoadUseCase()
         val rules = rulesLoadUseCase()
         val ruleSections = ruleSectionsLoadUseCase()
         return Rulebook(
@@ -49,6 +52,7 @@ class LoadRulebookUseCase(
             abilityScores = abilityScores,
             skills = skills,
             equipmentCategories = equipmentCategories,
+            equipments = equipments,
             rules = rules,
             ruleSections = ruleSections,
         )

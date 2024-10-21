@@ -4,6 +4,7 @@ import io.vbytsyuk.dnd.domain.ability.score.AbilityScore
 import io.vbytsyuk.dnd.domain.alignment.Alignment
 import io.vbytsyuk.dnd.domain.condition.Condition
 import io.vbytsyuk.dnd.domain.damage.type.DamageType
+import io.vbytsyuk.dnd.domain.equipment.base.Equipment
 import io.vbytsyuk.dnd.domain.equipment.category.EquipmentCategory
 import io.vbytsyuk.dnd.domain.language.Language
 import io.vbytsyuk.dnd.domain.magic.school.MagicSchool
@@ -22,42 +23,13 @@ data class Rulebook(
     val abilityScores: List<AbilityScore>,
     val skills: List<Skill>,
     val equipmentCategories: List<EquipmentCategory>,
+    val equipments: List<Equipment>,
     val rules: List<Rule>,
     val ruleSections: List<RuleSection>,
 ) {
 
     override fun toString(): String = """
-        Conditions:
-            $conditions
-            
-        DamageTypes:
-            $damageTypes
-            
-        Weapon properties:
-            $weaponProperties
-            
-        Alignments:
-            $alignments
-            
-        Magic schools:
-            $magicSchools
-            
-        Languages:
-            $languages
-            
-        Ability scores:
-            $abilityScores
-            
-        Skills:
-            $skills
-            
-        Equipment categories:
-            $equipmentCategories
-            
-        Rules:
-            $rules
-            
-        Rule sections:
-            $ruleSections
+        Equipments:
+            $equipments
     """.trimIndent()
 }
