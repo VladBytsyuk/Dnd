@@ -3,6 +3,7 @@ package io.vbytsyuk.dnd.domain.usecases
 import io.vbytsyuk.dnd.domain.Rulebook
 import io.vbytsyuk.dnd.domain.ability.score.AbilityScore
 import io.vbytsyuk.dnd.domain.alignment.Alignment
+import io.vbytsyuk.dnd.domain.background.Background
 import io.vbytsyuk.dnd.domain.condition.Condition
 import io.vbytsyuk.dnd.domain.damage.type.DamageType
 import io.vbytsyuk.dnd.domain.equipment.base.Equipment
@@ -25,6 +26,7 @@ class LoadRulebookUseCase(
     private val skillsLoadUseCase: LoadUseCase<Skill>,
     private val equipmentCategoriesLoadUseCase: LoadUseCase<EquipmentCategory>,
     private val equipmentsLoadUseCase: LoadUseCase<Equipment>,
+    private val backgroundsLoadUseCase: LoadUseCase<Background>,
     private val ruleSectionsLoadUseCase: LoadUseCase<RuleSection>,
     private val rulesLoadUseCase: LoadUseCase<Rule>,
 ) {
@@ -42,6 +44,7 @@ class LoadRulebookUseCase(
         val equipments = equipmentsLoadUseCase()
         val rules = rulesLoadUseCase()
         val ruleSections = ruleSectionsLoadUseCase()
+        val backgrounds = backgroundsLoadUseCase()
         return Rulebook(
             conditions = conditions,
             damageTypes = damageTypes,
@@ -54,6 +57,7 @@ class LoadRulebookUseCase(
             equipmentCategories = equipmentCategories,
             equipments = equipments,
             rules = rules,
+            backgrounds = backgrounds,
             ruleSections = ruleSections,
         )
     }

@@ -11,6 +11,11 @@ import io.vbytsyuk.dnd.data.alignment.AlignmentsReader
 import io.vbytsyuk.dnd.data.alignment.db.AlignmentDao
 import io.vbytsyuk.dnd.data.alignment.db.AlignmentRepository
 import io.vbytsyuk.dnd.data.alignment.json.AlignmentJsonParser
+import io.vbytsyuk.dnd.data.background.BackgroundsLoadUseCaseImpl
+import io.vbytsyuk.dnd.data.background.BackgroundsReader
+import io.vbytsyuk.dnd.data.background.db.BackgroundDao
+import io.vbytsyuk.dnd.data.background.db.BackgroundRepository
+import io.vbytsyuk.dnd.data.background.json.BackgroundJsonParser
 import io.vbytsyuk.dnd.data.condition.ConditionsLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.condition.ConditionsReader
 import io.vbytsyuk.dnd.data.condition.db.ConditionDao
@@ -79,6 +84,7 @@ fun readerModule() = module {
         skillModule(),
         equipmentCategoryModule(),
         equipmentModule(),
+        backgroundtModule(),
     )
     factory<Json> { Json { ignoreUnknownKeys = true } }
     factory<LoadRulebookUseCase> {
@@ -93,6 +99,7 @@ fun readerModule() = module {
             skillsLoadUseCase = get<SkillsLoadUseCaseImpl>(),
             equipmentCategoriesLoadUseCase = get<EquipmentCategoriesLoadUseCaseImpl>(),
             equipmentsLoadUseCase = get<EquipmentsLoadUseCaseImpl>(),
+            backgroundsLoadUseCase = get<BackgroundsLoadUseCaseImpl>(),
             ruleSectionsLoadUseCase = get<RuleSectionsLoadUseCaseImpl>(),
             rulesLoadUseCase = get<RulesLoadUseCaseImpl>(),
         )
@@ -193,4 +200,12 @@ fun equipmentModule() = module {
     factory { EquipmentJsonParser(json = get()) }
     factory { EquipmentRepository(equipmentDao = get()) }
     factory<EquipmentDao> { get<RulebookRoomDatabase>().getEquipmentDao() }
+}
+
+fun backgroundtModule() = module {
+    factory { BackgroundsLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory { BackgroundsReader(jsonParser = get()) }
+    factory { BackgroundJsonParser(json = get()) }
+    factory { BackgroundRepository(backgroundDao = get()) }
+    factory<BackgroundDao> { get<RulebookRoomDatabase>().getBackgroundDao() }
 }

@@ -2,6 +2,7 @@ package io.vbytsyuk.dnd.domain
 
 import io.vbytsyuk.dnd.domain.ability.score.AbilityScore
 import io.vbytsyuk.dnd.domain.alignment.Alignment
+import io.vbytsyuk.dnd.domain.background.Background
 import io.vbytsyuk.dnd.domain.condition.Condition
 import io.vbytsyuk.dnd.domain.damage.type.DamageType
 import io.vbytsyuk.dnd.domain.equipment.base.Equipment
@@ -24,12 +25,13 @@ data class Rulebook(
     val skills: List<Skill>,
     val equipmentCategories: List<EquipmentCategory>,
     val equipments: List<Equipment>,
+    val backgrounds: List<Background>,
     val rules: List<Rule>,
     val ruleSections: List<RuleSection>,
 ) {
 
     override fun toString(): String = """
-        Equipments:
-            $equipments
+        Backgrounds:
+            $backgrounds
     """.trimIndent()
 }
