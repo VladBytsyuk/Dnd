@@ -46,6 +46,11 @@ import io.vbytsyuk.dnd.data.magic.school.MagicSchoolsReader
 import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolDao
 import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolRepository
 import io.vbytsyuk.dnd.data.magic.school.json.MagicSchoolJsonParser
+import io.vbytsyuk.dnd.data.proficiency.ProficienciesLoadUseCaseImpl
+import io.vbytsyuk.dnd.data.proficiency.ProficienciesReader
+import io.vbytsyuk.dnd.data.proficiency.db.ProficiencyDao
+import io.vbytsyuk.dnd.data.proficiency.db.ProficiencyRepository
+import io.vbytsyuk.dnd.data.proficiency.json.ProficiencyJsonParser
 import io.vbytsyuk.dnd.data.rule.base.RulesLoadUseCaseImpl
 import io.vbytsyuk.dnd.data.rule.base.RulesReader
 import io.vbytsyuk.dnd.data.rule.base.db.RuleDao
@@ -84,7 +89,8 @@ fun readerModule() = module {
         skillModule(),
         equipmentCategoryModule(),
         equipmentModule(),
-        backgroundtModule(),
+        backgroundModule(),
+        proficiencyModule(),
     )
     factory<Json> { Json { ignoreUnknownKeys = true } }
     factory<LoadRulebookUseCase> {
@@ -102,6 +108,7 @@ fun readerModule() = module {
             backgroundsLoadUseCase = get<BackgroundsLoadUseCaseImpl>(),
             ruleSectionsLoadUseCase = get<RuleSectionsLoadUseCaseImpl>(),
             rulesLoadUseCase = get<RulesLoadUseCaseImpl>(),
+            proficienciesLoadUseCase = get<ProficienciesLoadUseCaseImpl>(),
         )
     }
 }
@@ -202,10 +209,18 @@ fun equipmentModule() = module {
     factory<EquipmentDao> { get<RulebookRoomDatabase>().getEquipmentDao() }
 }
 
-fun backgroundtModule() = module {
+fun backgroundModule() = module {
     factory { BackgroundsLoadUseCaseImpl(reader = get(), repository = get()) }
     factory { BackgroundsReader(jsonParser = get()) }
     factory { BackgroundJsonParser(json = get()) }
     factory { BackgroundRepository(backgroundDao = get()) }
     factory<BackgroundDao> { get<RulebookRoomDatabase>().getBackgroundDao() }
+}
+
+fun proficiencyModule() = module {
+    factory { ProficienciesLoadUseCaseImpl(reader = get(), repository = get()) }
+    factory { ProficienciesReader(jsonParser = get()) }
+    factory { ProficiencyJsonParser(json = get()) }
+    factory { ProficiencyRepository(proficiencyDao = get()) }
+    factory<ProficiencyDao> { get<RulebookRoomDatabase>().getProficiencyDao() }
 }

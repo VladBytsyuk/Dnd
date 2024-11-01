@@ -20,6 +20,8 @@ import io.vbytsyuk.dnd.data.language.db.LanguageDao
 import io.vbytsyuk.dnd.data.language.db.LanguageEntity
 import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolDao
 import io.vbytsyuk.dnd.data.magic.school.db.MagicSchoolEntity
+import io.vbytsyuk.dnd.data.proficiency.db.ProficiencyDao
+import io.vbytsyuk.dnd.data.proficiency.db.ProficiencyEntity
 import io.vbytsyuk.dnd.data.rule.base.db.RuleDao
 import io.vbytsyuk.dnd.data.rule.base.db.RuleEntity
 import io.vbytsyuk.dnd.data.rule.section.db.RuleSectionDao
@@ -44,6 +46,7 @@ import io.vbytsyuk.dnd.data.weapon.property.db.WeaponPropertyEntity
         EquipmentCategoryEntity::class,
         EquipmentEntity::class,
         BackgroundEntity::class,
+        ProficiencyEntity::class,
     ],
     version = RulebookRoomDatabase.VERSION,
 )
@@ -67,4 +70,5 @@ abstract class RulebookRoomDatabase : RoomDatabase() {
     abstract fun getEquipmentCategoryDao(): EquipmentCategoryDao
     abstract fun getEquipmentDao(): EquipmentDao
     abstract fun getBackgroundDao(): BackgroundDao
+    abstract fun getProficiencyDao(): ProficiencyDao
 }

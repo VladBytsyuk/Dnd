@@ -10,6 +10,7 @@ import io.vbytsyuk.dnd.domain.equipment.base.Equipment
 import io.vbytsyuk.dnd.domain.equipment.category.EquipmentCategory
 import io.vbytsyuk.dnd.domain.language.Language
 import io.vbytsyuk.dnd.domain.magic.school.MagicSchool
+import io.vbytsyuk.dnd.domain.proficiency.Proficiency
 import io.vbytsyuk.dnd.domain.rule.base.Rule
 import io.vbytsyuk.dnd.domain.rule.section.RuleSection
 import io.vbytsyuk.dnd.domain.skill.Skill
@@ -29,6 +30,7 @@ class LoadRulebookUseCase(
     private val backgroundsLoadUseCase: LoadUseCase<Background>,
     private val ruleSectionsLoadUseCase: LoadUseCase<RuleSection>,
     private val rulesLoadUseCase: LoadUseCase<Rule>,
+    private val proficienciesLoadUseCase: LoadUseCase<Proficiency>,
 ) {
 
     suspend operator fun invoke(): Rulebook {
@@ -45,6 +47,7 @@ class LoadRulebookUseCase(
         val rules = rulesLoadUseCase()
         val ruleSections = ruleSectionsLoadUseCase()
         val backgrounds = backgroundsLoadUseCase()
+        val proficiencies = proficienciesLoadUseCase()
         return Rulebook(
             conditions = conditions,
             damageTypes = damageTypes,
@@ -59,6 +62,7 @@ class LoadRulebookUseCase(
             rules = rules,
             backgrounds = backgrounds,
             ruleSections = ruleSections,
+            proficiencies = proficiencies,
         )
     }
 }

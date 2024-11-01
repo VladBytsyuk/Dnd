@@ -9,6 +9,7 @@ import io.vbytsyuk.dnd.domain.equipment.base.Equipment
 import io.vbytsyuk.dnd.domain.equipment.category.EquipmentCategory
 import io.vbytsyuk.dnd.domain.language.Language
 import io.vbytsyuk.dnd.domain.magic.school.MagicSchool
+import io.vbytsyuk.dnd.domain.proficiency.Proficiency
 import io.vbytsyuk.dnd.domain.rule.base.Rule
 import io.vbytsyuk.dnd.domain.rule.section.RuleSection
 import io.vbytsyuk.dnd.domain.skill.Skill
@@ -28,10 +29,11 @@ data class Rulebook(
     val backgrounds: List<Background>,
     val rules: List<Rule>,
     val ruleSections: List<RuleSection>,
+    val proficiencies: List<Proficiency>,
 ) {
 
     override fun toString(): String = """
-        Backgrounds:
-            $backgrounds
+        Proficiencies:
+            $proficiencies
     """.trimIndent()
 }
